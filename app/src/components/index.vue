@@ -1,7 +1,5 @@
 <style scoped>
   .box{
-    width: 280px;
-    height: 100%;
     background-color: #f0f0f0;
   }
   img {

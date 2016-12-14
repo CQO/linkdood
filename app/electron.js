@@ -2,9 +2,11 @@
 
 const electron = require('electron');
 const path = require('path');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+const app = electron.app;// 控制应用生命周期的模块。
+const BrowserWindow = electron.BrowserWindow;// 创建原生浏览器窗口的模块
 
+// 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
+// window 会被自动地关闭
 let mainWindow;
 let config = {};
 
@@ -52,7 +54,10 @@ function createWindow () {
 
 app.on('ready', createWindow);
 
+// 当所有窗口被关闭了，退出。
 app.on('window-all-closed', () => {
+    // 在 OS X 上，通常用户在明确地按下 Cmd + Q 之前
+    // 应用会保持活动状态
     if (process.platform !== 'darwin') {
         app.quit();
     }
