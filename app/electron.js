@@ -25,6 +25,7 @@ function createWindow () {
         height: 400,
         resizable: false,
         autoHideMenuBar:true,//隐藏程序菜单，按alt显示
+        maximizable:false,//窗口是否可以最大化
         fullscreenable:false,
         width: 280
     });
