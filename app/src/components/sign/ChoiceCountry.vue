@@ -29,16 +29,13 @@
         border-left: 1px solid #ccc;
     }
 </style>
-<template>
-    <div class="select-box">
-        <div class="styled-select">
-            <select name="select" id="country" class="country">
-                <option value="zh-cn">中国</option>
-                <option value="mg">美国</option>
-                <option value="jp">日本</option>
-            </select>
-        </div>
-        <input class="account-input" type="text" placeholder="手机号">
-        <div class="clear"></div>
-    </div>
+<template lang="jade">
+    .select-box
+        .styled-select
+            select #country .country
+                option(value=zh) 中国
+                option(value=zh) 美国
+                option(value=zh) 日本
+        input.account-input(type="text", placeholder="手机号") 
+        .clear
 </template>

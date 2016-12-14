@@ -9,11 +9,10 @@
   }
 </style>
 
-<template>
-  <div class="box">
-    <img src="./sign/assets/logo.png" alt="electron-vue">
-    <Login></Login>
-  </div>
+<template lang="jade">
+    .box
+        img(src="./sign/assets/logo.png", alt="electron-vue")
+        Login
 </template>
 
 <script>

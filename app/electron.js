@@ -20,12 +20,11 @@ else {
 }
 
 function createWindow () {
-  /**
-   * Initial window options
-   */
+    // 创建浏览器窗口。
     mainWindow = new BrowserWindow({
         height: 400,
         resizable: false,
+        fullscreenable:false,
         width: 280
     });
 
@@ -52,6 +51,8 @@ function createWindow () {
     mainWindow.openDevTools();
 }
 
+// 当 Electron 完成了初始化并且准备创建浏览器窗口的时候
+// 这个方法就被调用
 app.on('ready', createWindow);
 
 // 当所有窗口被关闭了，退出。

@@ -1,8 +1,5 @@
-<style>
-
-</style>
-<template>
-  <Register></Register>
+<template lang="jade">
+    Register
 </template>
 
 <script>

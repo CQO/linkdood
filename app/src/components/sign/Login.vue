@@ -117,35 +117,31 @@
         border-top:1px solid #ccc;
     }
 </style>
-<template>
-    <div class="login-box">
-        <div class="input-box">
-            <input class="server-input" placeholder="服务器" type="text">
-            <ChoiceCountry></ChoiceCountry>
-            <input class="password-input" type="password" placeholder="密码">
-        </div>
-        <div class="check-box">
-		    <input id="info" class="switch-box-input" type="checkbox" />
-		    <label for="info" class="switch-box-slider"></label>
-		    <label for="info" class="switch-box-label">记住密码</label>
-        </div>
-        <div class="login-button-box">
-            <div class="button ok-button">登录</div>
-        </div>
-        <div class="href-box">
-            <a href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv" class="href forget-password">忘记密码？</a>
-            <router-link to="/register" class="href register-button">注册账号</router-link>
-            <div class="clear"></div>
-        </div>
-    </div>
+<template lang="jade">
+    .login-box
+        .input-box
+            input.server-input(placeholder="服务器", type="text")
+            ChoiceCountry
+            input.password-input(type="password", placeholder="密码")
+        .check-box
+            input#info.switch-box-input(type="checkbox")	    
+            label.switch-box-slider(for="info")	    
+            label.switch-box-label(for="info") 记住密码
+        .login-button-box
+            .button.ok-button 登录
+        .href-box
+            a.href.forget-password(href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv") 忘记密码？
+            router-link.href.register-button(to="/register") 注册账号
+            .clear
 </template>
 
 <script>
-  import ChoiceCountry from './ChoiceCountry'
-  export default {
-    components: {
-      ChoiceCountry
-    },
-    name: 'landing-page'
-  }
+    import ChoiceCountry from './ChoiceCountry';
+    export default {
+        components: {
+            ChoiceCountry
+        }
+    }
+    
+
 </script>

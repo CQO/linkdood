@@ -1,11 +1,6 @@
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-  }
-
-  html,
-  body { height: 100%; width: 100%}
+  * {margin: 0;padding: 0;}
+  html,body,.box { height: 100%; width: 100%}
 
   body {
     background:
@@ -20,10 +15,6 @@
     justify-content: center;
     text-align: center;
   }
-  .box{
-    height: 100%; 
-    width: 100%
-  }
 </style>
 
 <template>
@@ -34,7 +25,6 @@
 
 <script>
   import store from 'src/vuex/store'
-
   export default {
     store
   }
