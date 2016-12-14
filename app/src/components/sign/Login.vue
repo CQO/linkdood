@@ -120,15 +120,15 @@
 <template lang="jade">
     .login-box
         .input-box
-            input.server-input(placeholder="服务器", type="text")
-            ChoiceCountry
-            input.password-input(type="password", placeholder="密码")
+            input.server-input(placeholder="服务器", type="text",v-model="server")
+            ChoiceCountry(v-model="account")
+            input.password-input(type="password", placeholder="密码",v-model="password")
         .check-box
             input#info.switch-box-input(type="checkbox")	    
             label.switch-box-slider(for="info")	    
             label.switch-box-label(for="info") 记住密码
         .login-button-box
-            .button.ok-button 登录
+            .button.ok-button(v-on:click="greet") 登录
         .href-box
             a.href.forget-password(href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv") 忘记密码？
             router-link.href.register-button(to="/register") 注册账号
@@ -140,8 +140,21 @@
     export default {
         components: {
             ChoiceCountry
+        },
+        data(){
+            return{
+                server:"",
+                password:"",
+                account:""
+            }
+        },
+        methods:{
+            greet: function (event) {
+                // 方法内 `this` 指向 vm
+                console.log(this);
+                // `event` 是原生 DOM 事件
+                alert(`你登陆的服务器为: ${this.server} `)
+            }
         }
     }
-    
-
 </script>

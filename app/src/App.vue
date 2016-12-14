@@ -3,6 +3,7 @@
   html,body,.box { height: 100%; width: 100%}
 
   body {
+    font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, sans-serif;
     background:
       radial-gradient(
         ellipse at center,
@@ -11,9 +12,9 @@
       );
     background-position: center;
     display: flex;
-    font-family: Lato, Helvetica, sans-serif;
     justify-content: center;
     text-align: center;
+    font-size: 1rem;
   }
 </style>
 

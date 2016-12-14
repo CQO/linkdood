@@ -24,6 +24,7 @@ function createWindow () {
     mainWindow = new BrowserWindow({
         height: 400,
         resizable: false,
+        autoHideMenuBar:true,//隐藏程序菜单，按alt显示
         fullscreenable:false,
         width: 280
     });

@@ -36,6 +36,14 @@
                 option(value=zh) 中国
                 option(value=zh) 美国
                 option(value=zh) 日本
-        input.account-input(type="text", placeholder="手机号") 
+        input.account-input(type="text", placeholder="手机号",v-model="account") 
         .clear
 </template>
+
+export default {
+    data(){
+        return{
+            account:""
+        }
+    }
+}
