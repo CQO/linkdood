@@ -15,11 +15,23 @@
     .verification-box .verification-button{
         width: 40%;
         float: right;
-        height: 100%;
+        height: calc(100% - 1px);
         line-height: 2rem;
         background-color: #9191c3;
         color: white;
         border-radius: 3px;
+        font-size: 0.8rem;
+        box-shadow: rgb(88, 97, 197) 0px 1px;
+    }
+    .verification-box .verification-button:hover{
+        background: #3498db;
+        box-shadow: rgb(57, 73, 193) 0px 1px;
+        color: white;
+    }
+    .verification-box .verification-button:active{
+        position: relative;
+        top: 1px;
+        box-shadow: rgb(57, 73, 193) 0px 0px;
     }
     .register-box .input-box{
         position: absolute;
@@ -45,7 +57,7 @@
             input(type="text", placeholder="姓名:建议使用真实姓名(最大长度12)",v-model="name",v-bind:class="{ isOK: name }")
             .verification-box
                 input(type="text", placeholder="验证码",v-model="placeholder",v-bind:class="{ isOK: placeholder }")
-                .verification-button 获取验证码
+                .button.verification-button 获取验证码
                 .clear
         .login-button-box
             .button.ok-button(v-on:click="register") 注册

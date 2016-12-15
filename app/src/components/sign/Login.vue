@@ -9,7 +9,7 @@
         height: 2rem;
         border: 1px solid #ccc;
         text-indent: 10px;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         width: 80%;
         border-top: 0;
     }
@@ -21,10 +21,9 @@
         width: 100%;
         height: 1rem;
         line-height: 1rem;
-        bottom: 95px;
-        position: absolute;
+        position: relative;
+        top: 1.2rem;
         right: 18px;
-        position: absolute;
     }
     .href-box .href{
         float: right;
@@ -135,12 +134,13 @@
     .select-box .styled-select select {
         width: 40%;
         padding: 0;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         border: 0 solid #ccc;
         height: 2rem;
         background: white;
         float: left;
         text-indent: 2px;
+        padding-left: 4px;
         color: #bdb1b1;
     }
     .select-box  .account-input{
@@ -165,12 +165,13 @@
             input#info.switch-box-input(type="checkbox",v-model="rememberMe")	    
             label.switch-box-slider(for="info")	    
             label.switch-box-label(for="info") 记住密码
-        .login-button-box
-            .button.ok-button(v-on:click="login") 登录
         .href-box
             a.href.forget-password(href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv") 忘记密码？
             router-link.href.register-button.fa.fa-id-card(to="/register") 注册账号
             .clear
+        .login-button-box
+            .button.ok-button(v-on:click="login") 登录
+        
 </template>
 
 <script>
