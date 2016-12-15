@@ -22,6 +22,8 @@
         border-radius: 3px;
         font-size: 0.8rem;
         box-shadow: rgb(88, 97, 197) 0px 1px;
+        user-select: none;
+        -webkit-user-select: none;
     }
     .verification-box .verification-button:hover{
         background: #3498db;

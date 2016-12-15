@@ -22,7 +22,7 @@
         height: 1rem;
         line-height: 1rem;
         position: relative;
-        top: 1.2rem;
+        top: 0.4rem;
         right: 18px;
     }
     .href-box .href{
@@ -43,13 +43,14 @@
         border-radius: 5px;
         font-size: 1.2rem;
         line-height: 3rem;
+        user-select: none;
+        -webkit-user-select: none;
     }
     .login-button-box .ok-button{
         background-color: #69b4eb;
         color: white;
         box-shadow: rgb(88, 97, 197) 0px 3px;
         user-select: none;
-        -webkit-user-select: none;
     }
     .login-button-box .ok-button:hover {
         background: #3498db;
@@ -65,8 +66,10 @@
 
     .check-box {
         font-size: 0.9rem;
-        position: absolute;
+        position: relative;
+        float: right;
         right: 10%;
+        top: 2px;
         color: #9386c3;
     }
     .check-box .switch-box-slider {
@@ -77,7 +80,6 @@
         background: #d5d5d5;
         border-radius: 8px;
         cursor: pointer;
-        -webkit-transition: all 0.2s ease;
         transition: all 0.2s ease;
     }
     .check-box .switch-box-slider:after {
@@ -160,15 +162,16 @@
                         option(v-for="item in countryItems") {{item.country}}
                     input.account-input(type="text", placeholder="手机号",v-model="account")
                     .clear
-            input(type="password", placeholder="密码",v-model="password")
+            input(type="password", placeholder="密码",v-model="password",v-on:keyup.enter="login")
         .check-box
             input#info.switch-box-input(type="checkbox",v-model="rememberMe")	    
             label.switch-box-slider(for="info")	    
             label.switch-box-label(for="info") 记住密码
+        .clear
         .href-box
             a.href.forget-password(href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv") 忘记密码？
             router-link.href.register-button.fa.fa-id-card(to="/register") 注册账号
-            .clear
+        .clear
         .login-button-box
             .button.ok-button(v-on:click="login") 登录
         
