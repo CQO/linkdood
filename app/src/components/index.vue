@@ -11,7 +11,7 @@
 
 <template lang="jade">
     .box
-        img(src="./sign/assets/logo.png", alt="electron-vue")
+        img(src="./sign/assets/logo.png", alt="electron-vue",draggable="false")
         Login
 </template>
 

@@ -49,6 +49,8 @@
         background-color: #69b4eb;
         color: white;
         box-shadow: rgb(88, 97, 197) 0px 3px;
+        user-select: none;
+        -webkit-user-select: none;
     }
     .login-button-box .ok-button:hover {
         background: #3498db;
@@ -116,15 +118,51 @@
     .input-box .server-input{
         border-top:1px solid #ccc;
     }
+
+    .select-box{
+        margin: 0 auto;
+        width: 80%;
+        height: 2rem;
+        border: 1px solid #ccc;
+        border-top: 0;
+    }
+    .select-box .styled-select .select{
+        height: 2rem;
+    }
+    .select-box .styled-select{
+        width: 100%;
+    }
+    .select-box .styled-select select {
+        width: 40%;
+        padding: 0;
+        font-size: 0.7rem;
+        border: 0 solid #ccc;
+        height: 2rem;
+        background: white;
+        float: left;
+        text-indent: 2px;
+        color: #bdb1b1;
+    }
+    .select-box  .account-input{
+        float: right;
+        width: calc(60% - 1px);
+        border: 0;
+        border-left: 1px solid #ccc;
+    }
 </style>
 <template lang="jade">
     .login-box
         .input-box
             input.server-input(placeholder="服务器", type="text",v-model="server")
-            ChoiceCountry(v-model="account")
-            input.password-input(type="password", placeholder="密码",v-model="password")
+            .select-box
+                .styled-select
+                    select#country.country(v-model="country")
+                        option(v-for="item in countryItems") {{item.country}}
+                    input.account-input(type="text", placeholder="手机号",v-model="account")
+                    .clear
+            input(type="password", placeholder="密码",v-model="password")
         .check-box
-            input#info.switch-box-input(type="checkbox")	    
+            input#info.switch-box-input(type="checkbox",v-model="rememberMe")	    
             label.switch-box-slider(for="info")	    
             label.switch-box-label(for="info") 记住密码
         .login-button-box
@@ -136,24 +174,29 @@
 </template>
 
 <script>
-    import ChoiceCountry from './ChoiceCountry';
     export default {
-        components: {
-            ChoiceCountry
-        },
         data(){
             return{
                 server:"",
                 password:"",
-                account:""
+                account:"",
+                country:"中国",
+                rememberMe:false,
+                countryItems:[
+                    {country:"中国"},
+                    {country:"美国"},
+                    {country:"日本"}
+                ]
             }
         },
         methods:{
             greet: function (event) {
-                // 方法内 `this` 指向 vm
-                console.log(this);
-                // `event` 是原生 DOM 事件
-                alert(`你登陆的服务器为: ${this.server} `)
+                console.log(`服务器:${this.server}`);
+                console.log(`国家:${this.country}`);
+                console.log(`账号:${this.account}`);
+                console.log(`密码:${this.account}`);
+                console.log(`记住密码:${this.rememberMe}`);
+                alert(`服务器:${this.server} 国家:${this.country} 账号:${this.account} 密码:${this.account} 记住密码:${this.rememberMe}`);
             }
         }
     }

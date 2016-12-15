@@ -26,12 +26,17 @@
         top: 2rem; 
     }
 </style>
+
 <template lang="jade">
     .register-box
         .input-box
             input.server-input(placeholder="服务器", type="text")
-            ChoiceCountry
-            .clear
+            .select-box
+                .styled-select
+                    select #country .country
+                        option(v-for="item in countryItems") {{item.country}}
+                    input.account-input(type="text", placeholder="手机号",v-model="account")
+                    .clear
             input.password-input(type="password", placeholder="密码")
             input.password-input(type="password", placeholder="确认密码")
             input(type="text", placeholder="姓名:建议使用真实姓名(最大长度12)")
@@ -46,10 +51,15 @@
 </template>
 
 <script>
-  import ChoiceCountry from './ChoiceCountry'
   export default {
-    components: {
-      ChoiceCountry
+    data(){
+        return{
+            countryItems:[
+                {country:"中国"},
+                {country:"美国"},
+                {country:"日本"}
+            ]
+        }
     }
   }
 </script>
