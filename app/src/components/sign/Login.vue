@@ -42,7 +42,7 @@
         height: 3rem;
         margin: 0 auto;
         border-radius: 5px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         line-height: 3rem;
     }
     .login-button-box .ok-button{
@@ -166,10 +166,10 @@
             label.switch-box-slider(for="info")	    
             label.switch-box-label(for="info") 记住密码
         .login-button-box
-            .button.ok-button(v-on:click="greet") 登录
+            .button.ok-button(v-on:click="login") 登录
         .href-box
             a.href.forget-password(href="http://vrv.linkdood.cn/server-securitycenter/password/goAccountCheck.vrv") 忘记密码？
-            router-link.href.register-button(to="/register") 注册账号
+            router-link.href.register-button.fa.fa-id-card(to="/register") 注册账号
             .clear
 </template>
 
@@ -190,7 +190,7 @@
             }
         },
         methods:{
-            greet: function (event) {
+            login: function (event) {
                 console.log(`服务器:${this.server}`);
                 console.log(`国家:${this.country}`);
                 console.log(`账号:${this.account}`);

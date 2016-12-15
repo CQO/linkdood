@@ -1,3 +1,4 @@
+"use strict";
 export default [
   {
     path: '/',
@@ -13,4 +14,4 @@ export default [
     path: '*',
     redirect: '/'
   }
-]
+];
