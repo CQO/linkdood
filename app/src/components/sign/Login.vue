@@ -374,12 +374,15 @@
         },
         methods:{
             login: function (event) {
-                console.log(`服务器:${this.server}`);
-                console.log(`国家:${this.country}`);
-                console.log(`账号:${this.account}`);
-                console.log(`密码:${this.account}`);
-                console.log(`记住密码:${this.rememberMe}`);
-                alert(`服务器:${this.server} 国家:${this.country} 账号:${this.account} 密码:${this.account} 记住密码:${this.rememberMe}`);
+                const {ipcRenderer} = require('electron');
+                const message={
+                    server:this.server,
+                    country:this.country,
+                    account:this.account,
+                    rememberMe:this.rememberMe
+                }
+                ipcRenderer.send('userLogin', message);
+                //alert(`服务器:${this.server} 国家:${this.country} 账号:${this.account} 密码:${this.account} 记住密码:${this.rememberMe}`);
             }
         }
     }

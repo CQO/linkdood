@@ -3,6 +3,7 @@
 const electron = require('electron');
 const app = electron.app;// 控制应用生命周期的模块。
 const BrowserWindow = electron.BrowserWindow;// 创建原生浏览器窗口的模块
+const {ipcMain} = require('electron');
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window 会被自动地关闭
@@ -49,6 +50,14 @@ function createWindow () {
         mainWindow = null;
     });
 
+    //监听消息userLogin
+    ipcMain.on('userLogin', (event, arg) => {
+        console.log(arg);
+        mainWindow.close();
+        mainWindow = new BrowserWindow({
+            
+        });
+    });
     console.log('程序窗口已打开');
 }
 
