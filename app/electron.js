@@ -1,7 +1,6 @@
 'use strict';
 
 const electron = require('electron');
-const path = require('path');
 const app = electron.app;// 控制应用生命周期的模块。
 const BrowserWindow = electron.BrowserWindow;// 创建原生浏览器窗口的模块
 
