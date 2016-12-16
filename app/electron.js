@@ -31,13 +31,15 @@ function createWindow () {
 
     // 加载应用入口
     mainWindow.loadURL(config.url);
-    //if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development') {
+        // 打开开发工具
+        mainWindow.openDevTools();
         //BrowserWindow.addDevToolsExtension(path.join(__dirname, '../node_modules/devtron'));
         //let installExtension = require('electron-devtools-installer');
         //installExtension.default(installExtension.VUEJS_DEVTOOLS)
         //.then((name) => mainWindow.webContents.openDevTools())
         //.catch((err) => console.log('An error occurred: ', err));
-    //}
+    }
 
     // 当 window 被关闭，这个事件会被发出
     mainWindow.on('closed', () => {
@@ -48,8 +50,6 @@ function createWindow () {
     });
 
     console.log('程序窗口已打开');
-    // 打开开发工具
-    mainWindow.openDevTools();
 }
 
 // 当 Electron 完成了初始化并且准备创建浏览器窗口的时候

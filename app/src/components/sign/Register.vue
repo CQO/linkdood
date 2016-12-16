@@ -269,6 +269,7 @@
     },
     methods:{
         register:function(event){
+            console.log(this);
             //alert(`服务器:${this.server} 账号:${this.account} 密码:${this.password} 国家:${this.country} 名称:${this.name} 验证码:${this.placeholder}`);
         },
         chackAccount:function(event){

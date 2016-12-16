@@ -1,4 +1,4 @@
-<style scoped>
+<style>
   .box{
     background-color: #f0f0f0;
   }
