@@ -56,7 +56,11 @@ function createWindow () {
         signWindow.close();
         chatWindow= new BrowserWindow({
             height: 600,
-            width: 360
+            width: 360,
+            title:"欢迎界面"
+        });
+        chatWindow.on('closed', () => {
+            chatWindow= null;
         });
         chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
         if (process.env.NODE_ENV === 'development') {
@@ -64,6 +68,7 @@ function createWindow () {
             chatWindow.openDevTools();
         }
     });
+
     console.log('程序窗口已打开');
 }
 
