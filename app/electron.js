@@ -7,7 +7,7 @@ const {ipcMain} = require('electron');
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window 会被自动地关闭
-let mainWindow;
+let signWindow,chatWindow;
 let config = {};
 
 if (process.env.NODE_ENV === 'development') {
@@ -20,8 +20,8 @@ else {
 }
 
 function createWindow () {
-    // 创建浏览器窗口。
-    mainWindow = new BrowserWindow({
+    // 创建登录窗口。
+    signWindow = new BrowserWindow({
         height: 400,
         resizable: false,
         autoHideMenuBar:true,//隐藏程序菜单，按alt显示
@@ -31,10 +31,10 @@ function createWindow () {
     });
 
     // 加载应用入口
-    mainWindow.loadURL(config.url);
+    signWindow.loadURL(config.url);
     if (process.env.NODE_ENV === 'development') {
         // 打开开发工具
-        mainWindow.openDevTools();
+        signWindow.openDevTools();
         //BrowserWindow.addDevToolsExtension(path.join(__dirname, '../node_modules/devtron'));
         //let installExtension = require('electron-devtools-installer');
         //installExtension.default(installExtension.VUEJS_DEVTOOLS)
@@ -43,20 +43,26 @@ function createWindow () {
     }
 
     // 当 window 被关闭，这个事件会被发出
-    mainWindow.on('closed', () => {
+    signWindow.on('closed', () => {
         // 取消引用 window 对象，如果你的应用支持多窗口的话，
         // 通常会把多个 window 对象存放在一个数组里面，
         // 但这次不是。
-        mainWindow = null;
+        signWindow = null;
     });
 
     //监听消息userLogin
     ipcMain.on('userLogin', (event, arg) => {
-        console.log(arg);
-        mainWindow.close();
-        mainWindow = new BrowserWindow({
-            
+        //如果登录成功，关闭登录窗口打开聊天窗口
+        signWindow.close();
+        chatWindow= new BrowserWindow({
+            height: 600,
+            width: 360
         });
+        chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
+        if (process.env.NODE_ENV === 'development') {
+            // 打开开发工具
+            chatWindow.openDevTools();
+        }
     });
     console.log('程序窗口已打开');
 }
@@ -75,7 +81,7 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-    if (mainWindow === null) {
+    if (signWindow === null&&chatWindow===null) {
         createWindow();
     }
 });
