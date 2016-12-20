@@ -37,7 +37,7 @@ function createWindow () {
     });
     //监听消息userLogin
     ipcMain.on('userLogin', (event, arg) => {
-        chatWindow= new BrowserWindow({height: 600,width: 360,title:"欢迎界面"});
+        chatWindow= new BrowserWindow({height: 600,autoHideMenuBar:true,width: 360,title:"欢迎界面"});
         //关闭登录窗口打开聊天窗口
         signWindow.close();
         //加载聊天窗口
