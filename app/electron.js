@@ -21,55 +21,42 @@ else {
 
 function createWindow () {
     // 创建登录窗口。
-    signWindow = new BrowserWindow({
-        height: 400,
-        resizable: false,
-        autoHideMenuBar:true,//隐藏程序菜单，按alt显示
-        maximizable:false,//窗口是否可以最大化
-        fullscreenable:false,
-        width: 280
-    });
+    // 高400px 宽280px
+    // resizable:大小不可变
+    // autoHideMenuBar:隐藏程序菜单，按alt显示
+    // maximizable:窗口是否可以最大化
+    signWindow = new BrowserWindow({height: 400,resizable: false,autoHideMenuBar:true,maximizable:false,fullscreenable:false,width: 280});
 
     // 加载应用入口
     signWindow.loadURL(config.url);
-    if (process.env.NODE_ENV === 'development') {
-        // 打开开发工具
-        signWindow.openDevTools();
-        //BrowserWindow.addDevToolsExtension(path.join(__dirname, '../node_modules/devtron'));
-        //let installExtension = require('electron-devtools-installer');
-        //installExtension.default(installExtension.VUEJS_DEVTOOLS)
-        //.then((name) => mainWindow.webContents.openDevTools())
-        //.catch((err) => console.log('An error occurred: ', err));
-    }
-
-    // 当 window 被关闭，这个事件会被发出
+    // 打开开发工具
+    if (process.env.NODE_ENV === 'development') {signWindow.openDevTools();}
+    // 登陆窗口关闭事件
     signWindow.on('closed', () => {
-        // 取消引用 window 对象，如果你的应用支持多窗口的话，
-        // 通常会把多个 window 对象存放在一个数组里面，
-        // 但这次不是。
         signWindow = null;
-    });
-
-    //监听消息userLogin
-    ipcMain.on('userLogin', (event, arg) => {
-        //如果登录成功，关闭登录窗口打开聊天窗口
-        signWindow.close();
-        chatWindow= new BrowserWindow({
-            height: 600,
-            width: 360,
-            title:"欢迎界面"
-        });
-        chatWindow.on('closed', () => {
-            chatWindow= null;
-        });
-        chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
-        if (process.env.NODE_ENV === 'development') {
-            // 打开开发工具
-            chatWindow.openDevTools();
+        if (chatWindow===null) {
+            app.quit();
         }
     });
-
-    console.log('程序窗口已打开');
+    //监听消息userLogin
+    ipcMain.on('userLogin', (event, arg) => {
+        //关闭登录窗口打开聊天窗口
+        signWindow.close();
+        chatWindow= new BrowserWindow({height: 600,width: 360,title:"欢迎界面"});
+        //加载聊天窗口
+        chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
+        //聊天窗口关闭事件
+        chatWindow.on('close', (event) => {
+            //如果窗口可见那么最小化，否则关闭应用
+            if(chatWindow.isVisible()){
+                event.preventDefault();
+            }
+            chatWindow.hide();
+        });
+        //判断打开开发者工具条
+        if (process.env.NODE_ENV === 'development') {chatWindow.openDevTools();}
+    });
+    console.log('登录窗口已打开');
 }
 
 // 当 Electron 完成了初始化并且准备创建浏览器窗口的时候
@@ -80,13 +67,11 @@ app.on('ready', createWindow);
 app.on('window-all-closed', () => {
     // 在 OS X 上，通常用户在明确地按下 Cmd + Q 之前
     // 应用会保持活动状态
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    if (process.platform !== 'darwin') {app.quit();}
 });
 
 app.on('activate', () => {
-    if (signWindow === null&&chatWindow===null) {
-        createWindow();
+    if (chatWindow!==null) {
+        chatWindow.show();
     }
 });
