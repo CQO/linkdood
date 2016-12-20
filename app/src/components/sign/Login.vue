@@ -155,14 +155,14 @@
 <template lang="jade">
     .login-box
         .input-box
-            input.server-input(placeholder="服务器", type="text",v-model="server")
-            .select-box
+            input.server-input#server(placeholder="服务器", type="text",v-model="server")
+            .select-box#country
                 .styled-select
-                    select#country.country(v-model="country")
+                    select.country(v-model="country")
                         option(v-for="item in countryItems",v-bind:value="item.value") {{item.country}}
                     input.account-input(type="text", placeholder="手机号/邮箱/ID",v-model="account")
                     .clear
-            input(type="password", placeholder="密码",v-model="password",v-on:keyup.enter="login")
+            input#password(type="password", placeholder="密码",v-model="password",v-on:keyup.enter="login")
         .check-box
             input#info.switch-box-input(type="checkbox",v-model="rememberMe")	    
             label.switch-box-slider(for="info")	    
@@ -179,6 +179,8 @@
 
 <script>
     import Router from 'vue-router';
+    import ui from './ui';
+
     export default {
         data(){
             return{
@@ -374,7 +376,8 @@
             }
         },
         methods:{
-            login: function (event) {
+            login(event) {
+                const _this=this;
                 const {ipcRenderer} = require('electron');
                 const message={
                     server:this.server,
@@ -382,7 +385,24 @@
                     account:this.account,
                     rememberMe:this.rememberMe
                 }
-                ipcRenderer.send('userLogin', message);
+                //判断服务器地址是否填写
+                if(_this.server!==""){
+                    if(_this.account!==""&&_this.account.length>3){
+                        if(_this.password!==""&&_this.password.length>5){
+                            ipcRenderer.send('userLogin', message);
+                        }
+                        else{
+                            ui.shakeDOM("password");
+                        }
+                    }
+                    else{
+                        ui.shakeDOM("country");
+                    }
+                }
+                else{
+                    ui.shakeDOM("server");
+                }
+            
                 //alert(`服务器:${this.server} 国家:${this.country} 账号:${this.account} 密码:${this.account} 记住密码:${this.rememberMe}`);
             }
         }

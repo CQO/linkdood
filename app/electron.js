@@ -7,8 +7,7 @@ const {ipcMain} = require('electron');
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window 会被自动地关闭
-let signWindow,chatWindow;
-let config = {};
+let signWindow=null,chatWindow=null,config = {};
 
 if (process.env.NODE_ENV === 'development') {
     config = require('../config');
@@ -25,7 +24,7 @@ function createWindow () {
     // resizable:大小不可变
     // autoHideMenuBar:隐藏程序菜单，按alt显示
     // maximizable:窗口是否可以最大化
-    signWindow = new BrowserWindow({height: 400,resizable: false,autoHideMenuBar:true,maximizable:false,fullscreenable:false,width: 280});
+    signWindow = new BrowserWindow({height: 400,resizable: false,autoHideMenuBar:true,maximizable:false,fullscreenable:false,width: 280,title:"登陆窗口"});
 
     // 加载应用入口
     signWindow.loadURL(config.url);
