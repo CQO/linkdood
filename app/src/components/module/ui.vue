@@ -1,11 +1,5 @@
 <script>
 export default {
-    //the first arg is the instance of Vuex.Store , another is custom
-
-    searchUser: ({ dispatch }, filterUser) => {
-        dispatch('FILTER_USER', filterUser);
-    },
-
     //                          让一个元素左右抖动     
     //－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
     // [参数]           target         oncomplete    distance     time

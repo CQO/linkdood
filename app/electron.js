@@ -24,8 +24,7 @@ function createWindow () {
     // resizable:大小不可变
     // autoHideMenuBar:隐藏程序菜单，按alt显示
     // maximizable:窗口是否可以最大化
-    signWindow = new BrowserWindow({height: 400,resizable: false,autoHideMenuBar:true,maximizable:false,fullscreenable:false,width: 280,title:"登陆窗口"});
-
+    signWindow = new BrowserWindow({height: 400,autoHideMenuBar:true,maximizable:false,fullscreenable:false,width: 280,title:"登陆窗口"});
     // 加载应用入口
     signWindow.loadURL(config.url);
     // 打开开发工具
@@ -33,27 +32,31 @@ function createWindow () {
     // 登陆窗口关闭事件
     signWindow.on('closed', () => {
         signWindow = null;
-        if (chatWindow===null) {
-            app.quit();
-        }
+        //如果聊天窗口没有创建  那么结束程序
+        if (chatWindow===null) {app.quit();}
     });
     //监听消息userLogin
     ipcMain.on('userLogin', (event, arg) => {
+        chatWindow= new BrowserWindow({height: 600,width: 360,title:"欢迎界面"});
         //关闭登录窗口打开聊天窗口
         signWindow.close();
-        chatWindow= new BrowserWindow({height: 600,width: 360,title:"欢迎界面"});
         //加载聊天窗口
-        chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
+        if (process.env.NODE_ENV === 'development') {
+            chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
+            //打开开发者工具条
+            chatWindow.openDevTools();
+        } 
+        else {
+            chatWindow.loadURL(`file://${__dirname}/dist/index.html#/chatMainWindow`);
+        }
         //聊天窗口关闭事件
         chatWindow.on('close', (event) => {
-            //如果窗口可见那么最小化，否则关闭应用
-            if(chatWindow.isVisible()){
+            //如果窗口处于获得焦点状态 隐藏，否则关闭应用
+            if(chatWindow.isFocused()){
                 event.preventDefault();
             }
             chatWindow.hide();
         });
-        //判断打开开发者工具条
-        if (process.env.NODE_ENV === 'development') {chatWindow.openDevTools();}
     });
     console.log('登录窗口已打开');
 }
