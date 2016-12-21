@@ -24,12 +24,12 @@
             user-select: none
             -webkit-user-select: none
     
-        .verification-button:hover
+        &:hover
             background: #3498db
             box-shadow: rgb(57, 73, 193) 0px 1px
             color: white
     
-        .verification-button:active
+        &:active
             position: relative
             top: 1px
             box-shadow: rgb(57, 73, 193) 0px 0px
