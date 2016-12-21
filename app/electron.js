@@ -54,8 +54,8 @@ function createWindow () {
             //如果窗口处于获得焦点状态 隐藏，否则关闭应用
             if(chatWindow.isFocused()){
                 event.preventDefault();
+                chatWindow.hide();
             }
-            chatWindow.hide();
         });
     });
     console.log('登录窗口已打开');
