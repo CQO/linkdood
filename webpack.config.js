@@ -1,12 +1,12 @@
 'use strict';
 
-const path = require('path')
-const pkg = require('./app/package.json')
-const settings = require('./config.js')
-const webpack = require('webpack')
+const path = require('path');
+const pkg = require('./app/package.json');
+const settings = require('./config.js');
+const webpack = require('webpack');
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let config = {
   devtool: '#eval-source-map',
@@ -89,13 +89,13 @@ let config = {
       scss: 'vue-style-loader!css-loader!sass-loader'
     }
   }
-}
+};
 
 /**
  * Adjust config for production settings
  */
 if (process.env.NODE_ENV === 'production') {
-  config.devtool = ''
+  config.devtool = '';
 
   config.plugins.push(
     new webpack.DefinePlugin({
@@ -107,7 +107,7 @@ if (process.env.NODE_ENV === 'production') {
         warnings: false
       }
     })
-  )
+  );
 }
 
-module.exports = config
+module.exports = config;
