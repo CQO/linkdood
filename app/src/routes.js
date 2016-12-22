@@ -13,6 +13,10 @@ export default [
     component: require('components/chat')
   },
   {
+    path: '/Screenshot',
+    component: require('components/tools/Screenshot')
+  },
+  {
     path: '*',
     redirect: '/'
   }
