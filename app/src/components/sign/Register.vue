@@ -1,47 +1,5 @@
 <style lang="less">
-    .verification-box
-        width: 80%
-        margin: 0 auto
-        height: 2rem
-        border: 1px solid #ccc
-        border-top: 0
-        input
-            width: 60%
-            float: left
-            border: 0
-            height: 100%
-    
-        .verification-button
-            width: 40%
-            float: right
-            height: calc(100% - 1px)
-            line-height: 2rem
-            background-color: #9191c3
-            color: white
-            border-radius: 3px
-            font-size: 0.8rem
-            box-shadow: rgb(88, 97, 197) 0px 1px
-            user-select: none
-            -webkit-user-select: none
-    
-        &:hover
-            background: #3498db
-            box-shadow: rgb(57, 73, 193) 0px 1px
-            color: white
-    
-        &:active
-            position: relative
-            top: 1px
-            box-shadow: rgb(57, 73, 193) 0px 0px
-    
-    .register-box 
-        .input-box
-            position: absolute
-            top: 2rem 
-    
-    .isOK
-        background-color: #ebfbca !important
-    
+    @import './Register.less';
 </style>
 
 <template lang="jade">
@@ -87,7 +45,7 @@
         },
         methods:{
             register:function(event){
-                alert(`服务器:${this.server} 账号:${this.account} 密码:${this.password} 国家:${this.country} 名称:${this.name} 验证码:${this.placeholder}`);
+                
             },
             chackAccount:function(event){
                 (this.account.length===11)?this.accountOK=true:this.accountOK=false;

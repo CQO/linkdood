@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const path = require('path')
 const pkg = require('./app/package.json')
@@ -51,7 +51,11 @@ let config = {
           limit: 10000,
           name: 'fonts/[name].[hash:7].[ext]'
         }
-      }
+      },
+      {
+		      test: /\.less/,
+		      loaders: ['style', 'css', 'autoprefixer', 'less'],
+	    }
     ]
   },
   plugins: [
