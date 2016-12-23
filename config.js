@@ -9,6 +9,7 @@ let config = {
 
   // webpack-dev-server port
   port: 9080,
+  icon16: path.join(__dirname, 'app/icons', 'icon16.png'),
 
   // electron-packager options
   // Docs: https://simulatedgreg.gitbooks.io/electron-vue/content/docs/building_your_app.html
