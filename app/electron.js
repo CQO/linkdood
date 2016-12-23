@@ -34,12 +34,12 @@ function createChatWindow(){
     tray = new Tray(config.icon16);
     const trayMenuTemplate = [
         // 恢复窗口
-        {label: '显示主窗口',click: function() {chatWindow.restore();chatWindow.show();}}, 
-        // 最小化窗口
+        {label: '显示主窗口',accelerator: 'CmdOrCtrl+R',click: function() {chatWindow.restore();chatWindow.show();}}, 
         {label: '最小化窗口',accelerator: 'CmdOrCtrl+M',click: function() {chatWindow.minimize();}}, 
-        {type: 'separator'}, {label: '关于我们',click: function() {}}, 
+        {type: 'separator'}, {label: '关于我们',accelerator: 'CmdOrCtrl+A',click: function() {}}, 
         {type: 'separator'}, {
             label: '退出',
+            accelerator: 'CmdOrCtrl+Q',
             click: function() {
                 Dialog.showMessageBox({
                     type: 'question',
@@ -49,8 +49,7 @@ function createChatWindow(){
                     message: '确定退出吗?'
                 }, 
                 function(response) {
-                    console.log('应用被托盘关闭: ' + response);
-                    if (!response) app.quit();
+                    if (response===0) app.quit();
                 });
             }
         }
