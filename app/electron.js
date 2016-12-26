@@ -66,8 +66,12 @@ function createChatWindow(){
     chatWindow.on('close', (event) => {
         //如果窗口处于获得焦点状态 隐藏，否则关闭应用
         if(chatWindow.isFocused()){
+            console.log("阻止关闭，隐藏窗口。");
             event.preventDefault();
             chatWindow.hide();
+        }
+        else{
+            app.quit();
         }
     });
 }
