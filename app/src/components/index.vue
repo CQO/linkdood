@@ -1,6 +1,4 @@
-<style lang="less">
-    @import './index.less';
-</style>
+
 <template lang="jade">
     .box
         img(src="./sign/assets/logo.png", alt="electron-vue",draggable="false")
