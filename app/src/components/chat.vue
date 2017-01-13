@@ -2,5 +2,20 @@
     @import './chat.less';
 </style>
 <template lang="pug">
-    .hellow hellow!
+    .main-window
+        .side-bar.box
+            ChatSideBar
+        .contacts.box
+            Contacts
+        .chat-box.box
 </template>
+<script>
+  import ChatSideBar from './dashboard/ChatSideBar'
+  import Contacts from './chat/Contacts'
+  export default {
+    components: {
+      ChatSideBar,
+      Contacts
+    }
+  }
+</script>

@@ -25,7 +25,6 @@ let config = {
       {test: /\.js$/ , loader: 'babel-loader',exclude: /node_modules/},
       {test: /\.json$/ , loader: 'json-loader'},
       {test: /\.vue$/ , loader: 'vue-loader'},
-      {test: /\.less/ , loaders: ['style', 'css', 'autoprefixer', 'less'],},
       {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 8192 , name: 'imgs/[name].[hash:7].[ext]'}},
       {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 8192 , name: 'fonts/[name].[hash:7].[ext]'}}
     ]
@@ -45,13 +44,7 @@ let config = {
   resolveLoader: {
     root: path.join(__dirname, 'node_modules')
   },
-  target: 'electron-renderer',
-  vue: {
-    loaders: {
-      sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-      scss: 'vue-style-loader!css-loader!sass-loader'
-    }
-  }
+  target: 'electron-renderer'
 };
 
 /**
