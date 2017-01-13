@@ -1,7 +1,7 @@
 <style lang="less">
     @import './Login.less';
 </style>
-<template lang="jade">
+<template lang="pug">
     .login-box
         .input-box
             input.server-input#server(placeholder="服务器", type="text",v-model="server")

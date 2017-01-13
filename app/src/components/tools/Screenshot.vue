@@ -2,7 +2,7 @@
     @import './Screenshot.less';
 </style>
 
-<template lang="jade">
+<template lang="pug">
     .video
          video
          .screen-shot-button(v-on:click="screenShot")

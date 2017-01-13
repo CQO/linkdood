@@ -2,7 +2,7 @@
     @import './Register.less';
 </style>
 
-<template lang="jade">
+<template lang="pug">
     .register-box
         .input-box
             input.server-input(placeholder="服务器", type="text",v-model="server",v-bind:class="{ isOK: server }")

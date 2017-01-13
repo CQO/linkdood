@@ -1,5 +1,5 @@
 
-<template lang="jade">
+<template lang="pug">
     .box
         img(src="./sign/assets/logo.png", alt="electron-vue",draggable="false")
         Login
