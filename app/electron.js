@@ -17,7 +17,7 @@ function createChatWindow(){
         width: 860,
         height: 590,
         autoHideMenuBar:true,
-        title:"欢迎界面"
+        title:"聊天窗口"
     });
     //关闭登录窗口打开聊天窗口
     signWindow.close();
