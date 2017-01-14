@@ -6,14 +6,14 @@
         .side-bar.box
             .side-bar-ico
                 .user
-                    router-link.userMenu.ico(to="/chatMainWindow/contacts")
+                    .userMenu.ico
                 .tab
-                    .chat.ico
-                    .contacts.ico
-                    .group.ico
-                    .organization.ico
+                    router-link.chat.ico(to="/chatMainWindow/chat")
+                    router-link.contacts.ico(to="/chatMainWindow/Contacts")
+                    router-link.group.ico(to="/chatMainWindow/group")
+                    router-link.organization.ico(to="/chatMainWindow/organization")
                 .set
-                    .more.ico
+                    router-link.more.ico(to="/chatMainWindow/more")
                     .setting.ico
         .contacts.box
             router-view

@@ -12,7 +12,11 @@ export default [
     path: '/chatMainWindow',
     component: require('components/chat'),
     children:[
-      {path: 'contacts',component: require('components/chat/Contacts')}
+      {path: 'chat',component: require('components/chat/Chat')},
+      {path: 'contacts',component: require('components/chat/Contacts')},
+      {path: 'group',component: require('components/chat/Group')},
+      {path: 'organization',component: require('components/chat/Organization')},
+      {path: 'more',component: require('components/chat/More')}
     ]
   },
   {
