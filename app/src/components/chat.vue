@@ -8,6 +8,7 @@
         .contacts.box
             Contacts
         .chat-box.box
+        .clear
 </template>
 <script>
   import ChatSideBar from './dashboard/ChatSideBar'

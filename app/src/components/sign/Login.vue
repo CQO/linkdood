@@ -9,9 +9,9 @@
                 .styled-select
                     select.country(v-model="country")
                         option(v-for="item in countryItems",v-bind:value="item.value") {{item.country}}
-                input.account-input(type="text", placeholder="手机号/邮箱/ID",v-model="account")
-            .clear 
+                    input.account-input(type="text", placeholder="手机号/邮箱/ID",v-model="account")
             input#password(type="password", placeholder="密码",v-model="password",v-on:keyup.enter="login") 
+            .clear
         .check-box
             input.switch-box-input#info( type="checkbox",v-model="rememberMe")
             label.switch-box-slider(for="info")

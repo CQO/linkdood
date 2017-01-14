@@ -3,11 +3,14 @@
 </style>
 <template lang="pug">
     .side-bar-ico
-        .userMenu.ico
-        .chat.big.ico
-        .contacts.big.ico
-        .group.big.ico
-        .organization.big.ico
-        .more.small.ico
-        .setting.small.ico
+        .user
+            .userMenu.ico
+        .tab
+            .chat.ico
+            .contacts.ico
+            .group.ico
+            .organization.ico
+        .set
+            .more.ico
+            .setting.ico
 </template>
