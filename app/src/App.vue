@@ -14,6 +14,7 @@
   a{text-decoration:none;color:#666}
   a:hover{text-decoration:underline}
   i{font-style:normal}
+  .hide{display: none}
   body {
     font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, sans-serif;
     background:

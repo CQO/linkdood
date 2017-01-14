@@ -1,12 +1,7 @@
 <style lang="less">
-    @import './Contacts.less';
+    @import './More.less';
 </style>
 <template lang="pug">
-    .contacts-dialogue
-        ul
-            li 
-                .contacts-dialogue-box
-                    img.contacts-dialogue-item
-                    p.contacts-dialogue-item 7777777
-                    .clear
+    .application
+        img(src="../../../img/yingyong.png")
 </template>
