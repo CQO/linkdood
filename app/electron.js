@@ -85,6 +85,7 @@ function createSignWindow () {
         fullscreenable:false,
         title:"登陆窗口"
     });
+    
     if (process.env.NODE_ENV === 'development') {
         config=require('../config');
         signWindow.openDevTools();
