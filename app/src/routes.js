@@ -10,7 +10,10 @@ export default [
   },
   {
     path: '/chatMainWindow',
-    component: require('components/chat')
+    component: require('components/chat'),
+    children:[
+      {path: 'contacts',component: require('components/chat/Contacts')}
+    ]
   },
   {
     path: '/Screenshot',

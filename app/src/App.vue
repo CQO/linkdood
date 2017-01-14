@@ -9,7 +9,7 @@
   caption,th{text-align:left}
   h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
   q:before,q:after{content:""}
-  
+  div{width: 100%;height: 100%;}
   html,body{background:#fff}
   a{text-decoration:none;color:#666}
   a:hover{text-decoration:underline}

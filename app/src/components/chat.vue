@@ -4,19 +4,22 @@
 <template lang="pug">
     .main-window
         .side-bar.box
-            ChatSideBar
+            .side-bar-ico
+                .user
+                    router-link.userMenu.ico(to="/chatMainWindow/contacts")
+                .tab
+                    .chat.ico
+                    .contacts.ico
+                    .group.ico
+                    .organization.ico
+                .set
+                    .more.ico
+                    .setting.ico
         .contacts.box
-            Contacts
+            router-view
         .chat-box.box
         .clear
 </template>
 <script>
-  import ChatSideBar from './dashboard/ChatSideBar'
-  import Contacts from './chat/Contacts'
-  export default {
-    components: {
-      ChatSideBar,
-      Contacts
-    }
-  }
+
 </script>
