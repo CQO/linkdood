@@ -2,7 +2,6 @@
 const {ipcMain} = require('electron');
 const electron = require('electron');
 const Dialog = require('electron').dialog;
-const config = require('../config');
 const app = electron.app;// 控制应用生命周期的模块。
 const BrowserWindow = electron.BrowserWindow;// 创建原生浏览器窗口的模块
 const Menu = electron.Menu;
@@ -10,7 +9,7 @@ const Tray = electron.Tray;
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window 会被自动地关闭
-let signWindow=null,chatWindow=null,tray=null;
+let signWindow=null,chatWindow=null,tray=null,config = {};
 
 //创建聊天窗口
 function createChatWindow(){
