@@ -1,5 +1,5 @@
 <style lang="less">
-    @import './Contacts.less';
+   
 </style>
 <template lang="pug">
     .contacts-dialogue
