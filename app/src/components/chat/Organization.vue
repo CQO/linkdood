@@ -1,13 +1,11 @@
 <style lang="less">
-   
+    
 </style>
 <template lang="pug">
     .contacts-dialogue
-        ul
-            li 
-                .contacts-dialogue-box
-                    img.contacts-dialogue-item
-                    p.contacts-dialogue-item iiiiiii
-                    .clear
-
+        .list
+            .search
+                input(type="text")
+            .noOrganization(style="margin-top: 10px;") 未加入任何组织
+        router-view.chat-window
 </template>

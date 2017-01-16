@@ -28,6 +28,7 @@
     justify-content: center;
     text-align: center;
     font-size: 1rem;
+    overflow: hidden;
   }
 </style>
 

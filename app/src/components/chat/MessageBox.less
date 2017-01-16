@@ -1,0 +1,88 @@
+.message-box{
+    background-color: #f8fbff;
+    float: left;
+    
+    .title-box{
+        height: 30px;
+        padding-top: 10px;
+        .title{
+            width: 220px;
+            margin: 0 auto;
+            height: 17px;
+            line-height: 17px;
+            p{
+                width: 170px;
+                float: left;
+            }
+            .icon{
+                float: left;
+                width: 17px;
+                height: 17px;
+                background-repeat: no-repeat;
+                margin-left: 5px;
+            }
+            .file{
+                background-image: url("../../../img/file.png")
+            }
+            .people{
+                background-image: url("../../../img/people.png");
+                position: relative;
+                bottom: 1px;
+            }
+        }
+    }
+    .file-box{
+        position: absolute;
+        width: 200px;
+        position: absolute;
+        right: 0;
+        background-color: #f0f0f0;
+        .title{
+            height: 30px;
+            background-color: #e0f0fa;
+            line-height: 30px;
+            text-align: left;
+            padding-left: 6px;
+        }
+        .file-list{
+            margin: 48% auto;
+            height: 20px;
+            width: 100px;
+        }
+    }
+    .chatContent{
+        height: 400px;
+        .time{
+            font-size: 12px;
+            color: gray;
+            height: 12px;
+            line-height: 12px;
+            margin: 10px 0;
+        }
+        .message-left{
+            height: 45px;
+            .message{
+                width: 120px; 
+                height: 45px; 
+                background: #eeeeee; 
+                position: relative; 
+                border-radius: 10px; 
+            }
+            .message:before{
+                    content: "";
+                    position: absolute;
+                    right: 100%;
+                    top: 16px;
+                    width: 0;
+                    height: 0;
+                    border-top: 7px solid transparent;
+                    border-right: 14px solid #eeeeee;
+                    border-bottom: 7px solid transparent;
+            }
+            img{
+                height: 45px;
+                width: 45px;
+            }
+        }
+    }
+}
