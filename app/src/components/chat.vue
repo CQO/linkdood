@@ -9,12 +9,12 @@
                     .userMenu.ico(v-on:click.stop="userMenuClick = false")
                 .tab
                     router-link.chat.ico(to="/chatMainWindow/chat")
-                    router-link.contacts.ico(to="/chatMainWindow/Contacts")
-                    router-link.group.ico(to="/chatMainWindow/group")
+                    router-link.contacts.ico(to="/chatMainWindow/contacts")
+                    router-link.group.ico(to="/chatMainWindow/contacts")
                     router-link.organization.ico(to="/chatMainWindow/organization")
                 .set
                     router-link.more.ico(to="/chatMainWindow/more")
-                    .setting.ico
+                    .setting.ico(v-on:click="error")
         .contacts.box(v-on:click="userMenuClick = true")
             router-view
         .clear
@@ -58,7 +58,9 @@
             }
         },
         methods:{
-
+            error(){
+                alert("里面还没有内容！")
+            }
         },
     }
 </script>

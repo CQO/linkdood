@@ -12,7 +12,7 @@
   div{width: 100%;height: 100%;}
   html,body{background:#fff}
   a{text-decoration:none;color:#666}
-  a:hover{text-decoration:underline}
+  a:hover{text-decoration:none}
   i{font-style:normal}
   .hide{display: none}
   body {

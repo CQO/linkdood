@@ -1,5 +1,4 @@
-.contacts-dialogue {
-    
+.chat-dialogue {
     li{
         height: 75px;
         border-bottom: 1px solid #dae2e7;
@@ -43,6 +42,66 @@
                 color: #c8c5c6;
             }
         }
+    }
+    li:hover{
+        background-color: #cce5f7;
+    }
+    .list{
+        width: 250px;
+        background: #e5f1fa;
+        float: left;
+        .search{
+            height: 50px;
+            background-image: url("../../../img/search.png");
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #dae2e7;
+            input{
+                height: 30px;
+                margin-top: 10px;
+                width: 155px;
+                border: none;
+                outline: medium;
+            }
+        }
+        ul{
+            height: 100%;
+            background: #e5f1fa;
+            float: left;
+            overflow-y: auto;
+            width: inherit;
+            height:e("calc(100% - 50px)");
+            overflow-x: hidden;
+        }
+    }
+}
+.contacts-dialogue {
+    li{
+        height: 50px;
+        .contacts-dialogue-box{
+            height: 45px;
+            width: 240px;
+            display: block;
+            div{
+                float: left;
+                height: 45px;
+            }
+            .user-img{
+                width: 60px;
+                img{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                }
+            }
+            .contacts-dialogue-item{
+                height: 45px;
+                line-height: 48px;
+                text-align: left;
+            }
+        }
+    }
+    li:hover{
+        background-color: #cce5f7;
     }
     .list{
         width: 250px;
