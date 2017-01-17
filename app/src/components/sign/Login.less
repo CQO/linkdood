@@ -16,22 +16,55 @@ a {
 }
 .login-box{
 	height: 50%;
-}
-.input-box {
-	width: @width3;
-	height: 15px;
-	input {
-		border: 1px solid @color0;
-		border-top: 0;
-		font-size: 0.8rem;
-		height: @height1;
-		text-indent: 10px;
-		width: @width4;
+	.input-box {
+		width: @width3;
+		height: 15px;
+		input {
+			border: 1px solid @color0;
+			border-top: 0;
+			font-size: 0.8rem;
+			height: @height1;
+			text-indent: 10px;
+			width: @width4;
+		}
+		.server-input {
+			border-top:1px solid @color0;
+		}
+		.select-box {
+			border: 1px solid @color0;
+			border-top: 0;
+			height: @height1;
+			margin: 0 auto;
+			width: @width4;
+			.styled-select {
+				width: @width3;
+				.select {
+					height: @height1;
+				}
+				select {
+					background: white;
+					border: 0;
+					color: #bdb1b1;
+					float: left;
+					font-size: 0.8rem;
+					height: @height1;
+					padding-left: 4px;
+					padding: 0;
+					text-indent: 2px;
+					width: 40%;
+				}
+			}
+			.account-input {
+				border-left: 1px solid @color0;
+				border: 0;
+				float: right;
+				width: calc(60% - 1px);
+			}
+		}
 	}
-	.server-input {
-		border-top:1px solid @color0;
-	}
 }
+
+
 .clear {
 	clear: both;
     width: 0;
@@ -43,7 +76,7 @@ a {
     position: absolute;
     right: 18px;
     bottom: 105px;
-    width: 110px;
+    width: 115px;
 	.href {
 		color: @color3;
 		float: right;
@@ -136,35 +169,4 @@ a {
 		    }
 	    }
     }
-}
-.select-box {
-	border: 1px solid @color0;
-	border-top: 0;
-	height: @height1;
-	margin: 0 auto;
-	width: @width4;
-	.styled-select {
-		width: @width3;
-		.select {
-			height: @height1;
-		}
-		select {
-			background: white;
-			border: 0;
-			color: #bdb1b1;
-			float: left;
-			font-size: 0.8rem;
-			height: @height1;
-			padding-left: 4px;
-			padding: 0;
-			text-indent: 2px;
-			width: 40%;
-		}
-	}
-	.account-input {
-		border-left: 1px solid @color0;
-		border: 0;
-		float: right;
-		width: calc(60% - 1px);
-	}
 }

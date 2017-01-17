@@ -25,18 +25,35 @@
             .title
                 p 北信源西安分公司(108)
                 .file.icon(v-on:click.stop="showFile = !showFile")
-                .people.icon
+                .people.icon(v-on:click.stop="showPeople = !showPeople")
                 .clear
         .chatContent
             .time 15:45
             .message-left
-                img
-                .message
+                img(src="../../../img/chatUserImg.png")
+                .message 发来一段测试消息
+                .clear
+            .message-right(v-for="talk in talks")
+                img(src="../../../img/chatUserImg.png")
+                .message {{talk}}
+                .clear
+        .input-box
+            .tool-bar
+                .jietu
+                .clear
+            textarea(v-model="newTodoText")
+            .send
+                .send-button(v-on:click="sendMessage") 发送(S)
+
 
         transition(name="file")
             .file-box(v-if="showFile")
                 .title 群文件
                 .file-list 没有群文件
+        transition(name="file")
+            .members-box(v-if="showPeople")
+                .title 群成员
+                .file-list 没有群成员
         
 </template>
 <script>
@@ -44,7 +61,19 @@
         data(){
             return{
                 showFile:false,
-                showPeople:false
+                showPeople:false,
+                newTodoText: "",
+                talks: [
+                    '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'
+                    ,'Learn Vue' 
+                    ,'Build something awesome' 
+                ]
+            }
+        },
+        methods:{
+            sendMessage(){
+                this.talks.push(this.newTodoText)
+                this.newTodoText = ''
             }
         }
     }
