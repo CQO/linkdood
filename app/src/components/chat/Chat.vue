@@ -7,7 +7,7 @@
             .search
                 input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
             ul
-                li(v-for=" mess in messageList")
+                li.contactsList(v-for=" mess in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
                         .user-img
                             img(src="../../../img/qun.png")
