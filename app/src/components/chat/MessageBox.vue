@@ -41,7 +41,7 @@
             .tool-bar
                 .jietu
                 .clear
-            textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage")
+            textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-on:onpaste="ale")
             .send
                 .send-button(v-on:click="sendMessage") 发送(S)
 
@@ -73,6 +73,9 @@
             sendMessage(){
                 this.talks.push(this.newTodoText);
                 this.newTodoText = '';
+            },
+            ale(){
+                alert("sss");
             }
         }
     }

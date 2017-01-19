@@ -5,7 +5,7 @@
     .contacts-dialogue
         .list
             .search
-                input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
+                input(type="text",placeholder="联系人搜索不可用",v-model="searchText")
             ul
                 li.classification(v-if="B[0]") B
                 li.contactsList(v-for=" list in B")
