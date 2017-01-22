@@ -1,5 +1,10 @@
-<style lang="less">
-     @import './More.less';
+<style lang="postcss">
+.application{
+    background-color: white;
+    img{
+        margin: 14% auto;
+    }
+}
 </style>
 <template lang="pug">
     .application

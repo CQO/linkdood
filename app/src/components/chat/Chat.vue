@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
     @import './Contacts.less';
 </style>
 <template lang="pug">

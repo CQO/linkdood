@@ -1,5 +1,48 @@
-<style lang="less">
-    @import './Register.less';
+<style lang="postcss">
+.register-box{
+    .input-box{
+        position: absolute;
+        top: 2rem ;
+        .verification-box{
+            width: 80%;
+            margin: 0 auto;
+            height: 2rem;
+            border: 1px solid #ccc;
+            border-top: 0;
+            input{
+                width: 60%;
+                float: left;
+                border: 0;
+                height: 100%;
+            }
+            .verification-button{
+                width: 40%;
+                float: right;
+                height: calc(100% - 1px);
+                line-height: 2rem;
+                background-color: #9191c3;
+                color: white;
+                border-radius: 3px;
+                font-size: 0.8rem;
+                box-shadow: rgb(88, 97, 197) 0px 1px;
+                user-select: none;
+                -webkit-user-select: none;
+            }
+            .verification-button{
+                &:hover{
+                    background: #3498db;
+                    box-shadow: rgb(57, 73, 193) 0px 1px;
+                    color: white;
+                }
+                &:active{
+                    position: relative;
+                    top: 1px;
+                    box-shadow: rgb(57, 73, 193) 0px 0px;
+                }
+            }
+        }
+    }
+}    
 </style>
 
 <template lang="pug">

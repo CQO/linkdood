@@ -23,4 +23,6 @@
         "README.md": true,
         ".gitignore": true
     }  
+,
+"css.validate": false
 }

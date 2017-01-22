@@ -1,5 +1,11 @@
-<style lang="less">
-    @import './Screenshot.less';
+<style lang="postcss">
+.screen-shot-button{
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    border-radius: 15px;
+} 
+    
 </style>
 
 <template lang="pug">
