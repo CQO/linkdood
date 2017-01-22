@@ -98,6 +98,9 @@
                 .organization{
                     background-image: url("../../img/organization.png")
                 }
+                .router-link-active{
+                    background-color: black;
+                }
             }
             .set {
                 height: 20%;
@@ -183,7 +186,7 @@
             .side-bar-ico(v-on:click="userMenuClick = true")
                 .user
                     .userMenu.ico(v-on:click.stop="userMenuClick = false")
-                .tab
+                .tab(v-on:click="chackActive('ddd')")
                     router-link.chat.ico(to="/chatMainWindow/chat")
                     router-link.contacts.ico(to="/chatMainWindow/contacts")
                     router-link.group.ico(to="/chatMainWindow/contacts")
@@ -230,7 +233,7 @@
     export default {
         data(){
             return{
-                userMenuClick:true,
+                userMenuClick:true
             }
         },
         methods:{
@@ -242,9 +245,8 @@
                 ipcRenderer.sendSync('main-window-message', 'minimize');
             },
             close(){
-                //向主进程发送关闭消息
                 ipcRenderer.sendSync('main-window-message', 'close');
-            }
+            },
         },
     }
 </script>
