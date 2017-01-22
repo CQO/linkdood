@@ -16,6 +16,46 @@
         position: absolute;
         top: 0;
         -webkit-app-region: drag;
+        .ico{
+            float:right;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+            position: relative;
+            font-style: normal;
+            color: #ddd;
+            text-align: left;
+            text-indent: -9999px;
+            direction: ltr;
+            width: 30px;
+            height: 30px;
+            margin: 2px;
+        }
+        .ico:before{
+            width: 20px;
+            height: 2px;
+            left: 20%;
+            top: 50%;
+        }
+
+        .ico:before, .ico:after{
+            content: '';
+            pointer-events: none;
+            box-shadow: inset 0 0 0 32px;
+            position: absolute;
+        }
+        .close-ico:after{
+            height: 20px;
+            width: 2px;
+            left: 50%;
+            top: 20%;
+        }
+        .close-ico{
+            transform: rotate(45deg);
+        }
+        .ico:hover{
+            color: black;
+        }
     }
     .side-bar{
         background: #008cee;
@@ -137,6 +177,8 @@
 <template lang="pug">
     .main-window
         .title-bar
+            .close-ico.ico(v-on:click="close")
+            .minimize-ico.ico(v-on:click="minimize")
         .side-bar.box
             .side-bar-ico(v-on:click="userMenuClick = true")
                 .user
@@ -184,6 +226,7 @@
                         input(type="text",value='')
 </template>
 <script>
+    const ipcRenderer = require('electron').ipcRenderer;
     export default {
         data(){
             return{
@@ -192,7 +235,15 @@
         },
         methods:{
             error(){
-                alert("里面还没有内容！")
+                alert("里面还没有内容！");
+            },
+            minimize(){
+                //向主进程发送最小化消息
+                ipcRenderer.sendSync('main-window-message', 'minimize');
+            },
+            close(){
+                //向主进程发送关闭消息
+                ipcRenderer.sendSync('main-window-message', 'close');
             }
         },
     }

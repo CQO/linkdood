@@ -64,15 +64,8 @@ function createChatWindow(){
     tray.setContextMenu(contextMenu);
     //聊天窗口关闭事件
     chatWindow.on('close', (event) => {
-        //如果窗口处于获得焦点状态 隐藏，否则关闭应用
-        if(chatWindow.isFocused()){
-            console.log("阻止关闭，隐藏窗口。");
-            event.preventDefault();
-            chatWindow.hide();
-        }
-        else{
-            app.quit();
-        }
+        //关闭应用
+        app.quit();
     });
 }
 
@@ -91,4 +84,14 @@ app.on('activate', () => {
     if (chatWindow!==null) {
         chatWindow.show();
     }
+});
+
+//监听程序最小化请求
+ipcMain.on('main-window-message', function(event, arg) {
+  console.log(`收到主进程消息:${arg}`);
+  event.returnValue = 'ok';
+  switch (arg){
+      case "minimize":chatWindow.minimize();break;
+      case "close":chatWindow.hide();break;
+  }  
 });
