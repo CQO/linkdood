@@ -2,11 +2,7 @@
 export default [
   {
     path: '/',
-    component: require('components/index')
-  },
-  {
-    path: '/register',
-    component: require('components/register')
+    component: require('components/chat')
   },
   {
     path: '/chatMainWindow',

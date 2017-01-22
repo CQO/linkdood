@@ -10,7 +10,7 @@ const path = require('path');
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window 会被自动地关闭
-let signWindow=null,chatWindow=null,tray=null,config = {};
+let chatWindow=null,tray=null,config = {};
 
 //创建聊天窗口
 function createChatWindow(){
@@ -20,10 +20,9 @@ function createChatWindow(){
         autoHideMenuBar:true,
         title:"聊天窗口"
     });
-    //关闭登录窗口打开聊天窗口
-    signWindow.close();
     //加载聊天窗口
     if (process.env.NODE_ENV === 'development') {
+        config=require('../config');
         chatWindow.loadURL(`http://localhost:${config.port}/#/chatMainWindow`);
         //打开开发者工具条
         chatWindow.openDevTools();
@@ -76,46 +75,9 @@ function createChatWindow(){
     });
 }
 
-//创建登陆窗口
-function createSignWindow () {
-    signWindow = new BrowserWindow({
-        height: 400,
-        width: 280,
-        autoHideMenuBar:true,//windows隐藏程序菜单，按alt显示
-        maximizable:false,//窗口是否可以最大化
-        fullscreenable:false,
-        title:"登陆窗口"
-    });
-    if (process.env.NODE_ENV === 'development') {
-        config=require('../config');
-        signWindow.openDevTools();
-        config.url = `http://localhost:${config.port}`;
-    } 
-    else {
-        config.devtron = false;
-        config.url = `file://${__dirname}/dist/index.html`;
-    }
-    // 加载应用入口
-    signWindow.loadURL(config.url);
-    // 打开开发工具
-    //if (process.env.NODE_ENV === 'development') {signWindow.openDevTools();}
-
-    // 登陆窗口关闭事件
-    signWindow.on('closed', () => {
-        signWindow = null;
-        //如果聊天窗口没有创建  那么结束程序
-        if (chatWindow===null) {app.quit();}
-    });
-    //监听消息userLogin
-    ipcMain.on('userLogin', () => {
-        createChatWindow();
-    });
-    console.log('登录窗口已打开');
-}
-
 // 当 Electron 完成了初始化并且准备创建浏览器窗口的时候
 // 这个方法就被调用
-app.on('ready', createSignWindow);
+app.on('ready', createChatWindow);
 
 // 当所有窗口被关闭了，退出。
 app.on('window-all-closed', () => {
