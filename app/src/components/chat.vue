@@ -1,0 +1,199 @@
+<style lang="postcss">
+.main-window{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .box{
+        float:left;
+    }
+    .contacts{
+        width: 94%;
+        background: url("../../img/linkdood.png") no-repeat 70% 40%;
+        background-color: #f8fbff;
+    }
+    .title-bar{
+        height: 30px;
+        position: absolute;
+        top: 0;
+        -webkit-app-region: drag;
+    }
+    .side-bar{
+        background: #008cee;
+        width: 6%;
+        .side-bar-ico {
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .ico{
+                background: aquamarine;
+                margin: 0.5rem auto;
+                border-radius: 50%;
+            }
+            .user{
+                height: 10%;
+                .userMenu{
+                    width: 45px;
+                    height: 45px;
+                    background-image: url("../../img/userMenu.png");
+                    border-radius: 0;
+                }
+            }
+            .tab {
+                height: 70%;
+                .ico{
+                    width: 40px;
+                    height: 40px;
+                }
+                .chat{
+                    background-image: url("../../img/chat.png")
+                }
+                .contacts{
+                    background-image: url("../../img/contacts.png")
+                }
+                .group{
+                    background-image: url("../../img/group.png")
+                }
+                .organization{
+                    background-image: url("../../img/organization.png")
+                }
+            }
+            .set {
+                height: 20%;
+                .ico{
+                    width: 22px;
+                    height: 22px;
+                }
+                .more{
+                    background-image: url("../../img/more.png")
+                }
+                .setting{
+                    background-image: url("../../img/setting.png")
+                }
+            }
+        }  
+    }
+    .user-menu-box{
+        height: 403px;
+        width: 222px;
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        background-color: rgba(255, 255, 255, 0.9);
+        .user-img{
+            height: 180px;
+            background-image: url("../../img/userImg.jpg");
+            background-position: 0 center;
+            display: table-cell;
+            vertical-align: bottom;
+            width: 222px;
+            .blinker{
+                height: 50px;
+                background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.7));
+                p{
+                    line-height: 50px;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 400;
+                }
+            }
+        }
+        .user-information{
+            height: auto;
+            .information{
+                margin-top: 10px;
+                overflow-y: auto;
+                height: 196px;
+                .item{
+                    height: 35px;
+                    line-height: 35px;
+                    text-align: left;
+                    p{
+                        float: left;
+                        width: 55px;
+                        line-height: 35px;
+                        color: #a8a8a8;
+                        font-weight: 500;
+                        font-size: 14px;
+                        margin-left: 10px;
+                    }
+                    input{
+                        height: 30px;
+                        width: 125px;
+                        clear: both;
+                        border: none;
+                        padding-left: 5px;
+                        font-size: 13px;
+                        position: relative;
+                        bottom: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+</style>
+<template lang="pug">
+    .main-window
+        .title-bar
+        .side-bar.box
+            .side-bar-ico(v-on:click="userMenuClick = true")
+                .user
+                    .userMenu.ico(v-on:click.stop="userMenuClick = false")
+                .tab
+                    router-link.chat.ico(to="/chatMainWindow/chat")
+                    router-link.contacts.ico(to="/chatMainWindow/contacts")
+                    router-link.group.ico(to="/chatMainWindow/contacts")
+                    router-link.organization.ico(to="/chatMainWindow/organization")
+                .set
+                    router-link.more.ico(to="/chatMainWindow/more")
+                    .setting.ico(v-on:click="error")
+        .contacts.box(v-on:click="userMenuClick = true")
+            router-view
+        .clear
+        .user-menu-box(v-bind:class="{ hide: userMenuClick }")
+            .user-img
+                .blinker
+                    p.user-name 蒲鸽
+            .user-information
+                .information
+                    .item 
+                        p.name 姓 名:
+                        input(type="text",value='蒲鸽')
+                    .item 
+                        p.number 豆豆号:
+                        input(type="text",value='7750')
+                    .item 
+                        p.id 豆豆ID:
+                        input(type="text",value='123456789')
+                    .item 
+                        p.sex 性 别:
+                        input(type="text",value='男')
+                    .item 
+                        p.phone 电 话:
+                        input(type="text",value='18092852085')
+                    .item 
+                        p.mail 邮 箱:
+                        input(type="text",value='my@owo.help')
+                    .item 
+                        p.department 部 门
+                        input(type="text",value='')
+                    .item 
+                        p.job 职 位
+                        input(type="text",value='')
+</template>
+<script>
+    export default {
+        data(){
+            return{
+                userMenuClick:true,
+            }
+        },
+        methods:{
+            error(){
+                alert("里面还没有内容！")
+            }
+        },
+    }
+</script>

@@ -17,6 +17,7 @@ function createChatWindow(){
     chatWindow= new BrowserWindow({
         width: 860,
         height: 590,
+        frame:false,
         autoHideMenuBar:true,
         title:"聊天窗口"
     });

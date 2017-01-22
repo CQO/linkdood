@@ -25,7 +25,8 @@
                 margin-left: 5px;
             }
             .file{
-                background-image: url("../../../img/file.png")
+                background-image: url("../../../img/file.png");
+                position: relative;
             }
             .people{
                 background-image: url("../../../img/people.png");
@@ -95,6 +96,7 @@
             }
         }
         .message-left{
+            float: left;
             .message{
                 background: #eeeeee; 
                 margin-left: 20px;
@@ -109,6 +111,7 @@
             }
         }
         .message-right{
+            float: right;
             .message{
                 background-color: #d0edfe;
                 margin-right: 20px;

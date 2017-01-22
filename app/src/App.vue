@@ -1,6 +1,6 @@
 <style lang="postcss">
   * {margin: 0;padding: 0;}
-  html,body,.box { height: 100%; width: 100%}
+  html,body,.box { height: 100%; width: 100%;}
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
   table{border-collapse:collapse;border-spacing:0}
   fieldset,img{border:0;vertical-align:top}
@@ -30,6 +30,7 @@
     font-size: 1rem;
     overflow: hidden;
   }
+  
 </style>
 
 <template>
