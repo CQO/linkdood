@@ -186,7 +186,7 @@
             .side-bar-ico(v-on:click="userMenuClick = true")
                 .user
                     .userMenu.ico(v-on:click.stop="userMenuClick = false")
-                .tab(v-on:click="chackActive('ddd')")
+                .tab
                     router-link.chat.ico(to="/chatMainWindow/chat")
                     router-link.contacts.ico(to="/chatMainWindow/contacts")
                     router-link.group.ico(to="/chatMainWindow/contacts")

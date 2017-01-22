@@ -1,5 +1,5 @@
 <style lang="postcss">
-    @import './Contacts.less';
+    @import './Contacts.postcss';
 </style>
 <template lang="pug">
     .chat-dialogue
