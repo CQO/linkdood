@@ -6,22 +6,24 @@
         .list
             .search
                 input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
-                .addFriends
             ul
-                group
-                    cell(title="title",value="value")
+                li.contactsList(v-for=" mess in messageList")
+                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
+                        Avatar(username="测试")
+                        .text
+                            p.contacts-dialogue-item {{ mess.item }}
+                            p.last-message-text {{ mess.lastMessage }}
+                        .time
+                            p.contacts-time {{ mess.time }}
                         
         router-view.chat-window
         .clear
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar';
-    import { Group, Cell } from 'vux';
+    import Avatar from 'vue-avatar/dist/Avatar'
     export default {
         components: {
-            Avatar,
-            Group,
-            Cell
+            Avatar
         },
         data(){
             return{
@@ -49,7 +51,6 @@
                     if(searchText!==""&&msg.item.indexOf(searchText)<0){
                         return false;
                     }
-
                     return true;
                 })
             }

@@ -1,6 +1,5 @@
 <style>
   * {margin: 0;padding: 0;}
-  html,body,.box { height: 100%; width: 100%;}
   body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}
   table{border-collapse:collapse;border-spacing:0}
   fieldset,img{border:0;vertical-align:top}
@@ -9,8 +8,8 @@
   caption,th{text-align:left}
   h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
   q:before,q:after{content:""}
-  div{width: 100%;height: 100%;}
-  html,body{background:#fff}
+  .box{width: 100%;height: 100%;}
+  html,body{background:#fff;width: 100%;height: 100%;}
   a{text-decoration:none;color:#666}
   a:hover{text-decoration:none}
   i{font-style:normal}
@@ -25,9 +24,6 @@
       );
     background-position: center;
     display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 1rem;
     overflow: hidden;
   }
   

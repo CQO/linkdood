@@ -42,7 +42,7 @@
 				border-left: 1px solid #cccccc;
 				border: 0;
 				float: right;
-				width: calc(60% - 1px);
+				width: e("calc(60% - 1px)");
 			}
 		}
 	}
