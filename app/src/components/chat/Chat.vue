@@ -9,7 +9,7 @@
             ul
                 li.contactsList(v-for=" mess in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
-                        Avatar.user-img(username="Jane Doe")
+                        Avatar.user-img(v-bind:username="mess.item")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
                             p.last-message-text {{ mess.lastMessage }}

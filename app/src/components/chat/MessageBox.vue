@@ -90,7 +90,7 @@
                     border-top: 7px solid transparent;
                     border-bottom: 7px solid transparent;     
             }
-            img{
+            .user-img{
                 height: 45px;
                 width: 45px;
             }
@@ -106,8 +106,13 @@
                 right: 100%;
                 border-right: 14px solid #eeeeee;
             }
-            img{
+            .user-img{
+                height: 45px;
+                width: 45px;
                 float: left;
+                .avatar{
+
+                }
             }
         }
         .message-right{
@@ -196,7 +201,7 @@
         .chatContent
             .time 15:45
             .message-left
-                img(src="../../../img/chatUserImg.png")
+                Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
                 .message 欢迎来到 {{ $route.params.item }} 群
                 .clear
             .message-right(v-for="talk in talks")
@@ -223,7 +228,11 @@
         
 </template>
 <script>
+    import Avatar from 'vue-avatar/dist/Avatar'
     export default {
+        components: {
+            Avatar
+        },
         data(){
             return{
                 showFile:false,
