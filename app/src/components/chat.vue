@@ -30,6 +30,7 @@
             width: 30px;
             height: 30px;
             margin: 2px;
+            -webkit-app-region: no-drag;
         }
         .ico:before{
             width: 20px;
