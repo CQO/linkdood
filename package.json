@@ -36,8 +36,9 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.1",
     "json-loader": "^0.5.4",
-    "less": "^2.7.1",
-    "less-loader": "^2.2.3",
+    "postcss-loader": "^1.2.2",
+    "postcss-smart-import": "^0.6.7",
+    "precss": "^1.4.0",
     "pug": "",
     "style-loader": "^0.13.1",
     "tree-kill": "^1.1.0",
@@ -50,6 +51,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "vux": "^2.1.0-rc.15"
+    "vue-avatar": "^2.0.0"
   }
 }

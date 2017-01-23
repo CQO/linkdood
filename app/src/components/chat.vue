@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
 .main-window{
     width: 100%;
     height: 100%;
@@ -14,7 +14,6 @@
     .title-bar{
         height: 30px;
         position: absolute;
-        width: 100%;
         top: 0;
         -webkit-app-region: drag;
         .ico{
@@ -61,61 +60,62 @@
     .side-bar{
         background: #008cee;
         width: 6%;
-        a {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .ico{
-            background: aquamarine;
-            margin: 0.5rem auto;
-            border-radius: 50%;
-        }
-        .user{
-            height: 10%;
-            .userMenu{
-                width: 45px;
-                height: 45px;
-                background-image: url("../../img/userMenu.png");
-                border-radius: 0;
+        .side-bar-ico {
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
             }
-        }
-        .tab {
-            height: 70%;
             .ico{
-                width: 40px;
-                height: 40px;
-                background-color: white;
+                background: aquamarine;
+                margin: 0.5rem auto;
+                border-radius: 50%;
             }
-            .chat{
-                background-image: url("../../img/chat.png")
+            .user{
+                height: 10%;
+                .userMenu{
+                    width: 45px;
+                    height: 45px;
+                    background-image: url("../../img/userMenu.png");
+                    border-radius: 0;
+                }
             }
-            .contacts{
-                background-image: url("../../img/contacts.png")
+            .tab {
+                height: 70%;
+                .ico{
+                    width: 40px;
+                    height: 40px;
+                }
+                .chat{
+                    background-image: url("../../img/chat.png")
+                }
+                .contacts{
+                    background-image: url("../../img/contacts.png")
+                }
+                .group{
+                    background-image: url("../../img/group.png")
+                }
+                .organization{
+                    background-image: url("../../img/organization.png")
+                }
+                .router-link-active{
+                    background-color: black;
+                }
             }
-            .group{
-                background-image: url("../../img/group.png")
+            .set {
+                height: 20%;
+                .ico{
+                    width: 22px;
+                    height: 22px;
+                }
+                .more{
+                    background-image: url("../../img/more.png")
+                }
+                .setting{
+                    background-image: url("../../img/setting.png")
+                }
             }
-            .organization{
-                background-image: url("../../img/organization.png")
-            }
-            .router-link-active{
-                background-color: #acec66;
-            }
-        }
-        .set {
-            height: 20%;
-            .ico{
-                width: 22px;
-                height: 22px;
-            }
-            .more{
-                background-image: url("../../img/more.png")
-            }
-            .setting{
-                background-image: url("../../img/setting.png")
-            }
-        }
+        }  
     }
     .user-menu-box{
         height: 403px;
@@ -182,17 +182,18 @@
         .title-bar
             .close-ico.ico(v-on:click.stop="close")
             .minimize-ico.ico(v-on:click.stop="minimize")
-        .side-bar.box(v-on:click="userMenuClick = true")
-            .user
-                .userMenu.ico(v-on:click.stop="userMenuClick = false")
-            .tab
-                router-link.chat.ico(to="/chatMainWindow/chat")
-                router-link.contacts.ico(to="/chatMainWindow/contacts")
-                router-link.group.ico(to="/chatMainWindow/contacts")
-                router-link.organization.ico(to="/chatMainWindow/organization")
-            .set
-                router-link.more.ico(to="/chatMainWindow/more")
-                .setting.ico(v-on:click="error")
+        .side-bar.box
+            .side-bar-ico(v-on:click="userMenuClick = true")
+                .user
+                    .userMenu.ico(v-on:click.stop="userMenuClick = false")
+                .tab
+                    router-link.chat.ico(to="/chatMainWindow/chat")
+                    router-link.contacts.ico(to="/chatMainWindow/contacts")
+                    router-link.group.ico(to="/chatMainWindow/contacts")
+                    router-link.organization.ico(to="/chatMainWindow/organization")
+                .set
+                    router-link.more.ico(to="/chatMainWindow/more")
+                    .setting.ico(v-on:click="error")
         .contacts.box(v-on:click="userMenuClick = true")
             router-view
         .clear

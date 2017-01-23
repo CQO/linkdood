@@ -1,13 +1,12 @@
 .chat-dialogue {
-    height: 100%;
     .contactsList{
-        height: 70px;
+        height: 75px;
         border-bottom: 1px solid #dae2e7;
         .contacts-dialogue-box{
-            padding: 10px 5px;
+            padding: 15px 5px;
             .text{
                 width: 135px;
-                margin-left: 10px;
+                padding-left: 10px;
                 p{
                     text-align: left;
                     line-height: 23px;
@@ -57,7 +56,7 @@
 .chat-dialogue,.contacts-dialogue{
     .contactsList{
         .contacts-dialogue-box{
-            height: 50px;
+            height: 45px;
             width: 240px;
             display: block;
             float: left;
@@ -66,12 +65,8 @@
                 height: 50px;
             }
             .user-img{
-                width: 60px;
-                img{
-                    width: 45px;
-                    height: 45px;
-                    border-radius: 50%;
-                }
+                width: 50px;
+                
             }
             .contacts-dialogue-item{
                 height: 45px;
@@ -103,8 +98,11 @@
             }
         }
         ul{
-            height:e("calc(100% - 50px)");
+            background: #e5f1fa;
+            float: left;
             overflow-y: auto;
+            width: inherit;
+            height: calc( 100% - 50px );
             overflow-x: hidden;
         }
     }

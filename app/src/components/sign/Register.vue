@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
 .register-box{
     .input-box{
         position: absolute;
@@ -18,7 +18,7 @@
             .verification-button{
                 width: 40%;
                 float: right;
-                height: e("calc(100% - 1px)");
+                height: calc( 100% - 1px );
                 line-height: 2rem;
                 background-color: #9191c3;
                 color: white;

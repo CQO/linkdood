@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
 .screen-shot-button{
     width: 100px;
     height: 50px;

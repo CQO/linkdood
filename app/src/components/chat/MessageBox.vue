@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
 .message-box{
     background-color: #f8fbff;
     float: left;
@@ -129,7 +129,7 @@
     .input-box{
         background-color: #f9f9fb;
         border-top: 1px solid #cfd2d5;
-        height:e("calc(100% - 400px)");
+        height:calc( 100% - 400px );
         .tool-bar{
             height: 30px;
             .jietu{
@@ -147,8 +147,8 @@
             outline: none;
             font-size: 15px;
             padding: 0 10px;
-            width:e("calc(100% - 20px)");
-            height:e("calc(100% - 60px)");
+            width:calc( 100% - 20px );
+            height:calc( 100% - 60px );
         }
         .send{
             height: 30px;
@@ -167,12 +167,12 @@
     }
 }
 </style>
-<style lang="less">
+<style lang="postcss">
     .message-box{
-        width: calc(100% - 250px);
+        width: calc( 100% - 250px );
     }
     .file-box{
-        height: calc(100% - 40px);
+        height: calc( 100% - 40px );
 
     }
     .file-enter-active {

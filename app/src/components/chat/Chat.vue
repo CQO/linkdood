@@ -1,5 +1,5 @@
-<style lang="less">
-    @import './Contacts.less';
+<style lang="postcss">
+    @import './Contacts.postcss';
 </style>
 <template lang="pug">
     .chat-dialogue
@@ -9,7 +9,7 @@
             ul
                 li.contactsList(v-for=" mess in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
-                        Avatar(username="测试")
+                        Avatar.user-img(username="Jane Doe")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
                             p.last-message-text {{ mess.lastMessage }}
@@ -51,6 +51,7 @@
                     if(searchText!==""&&msg.item.indexOf(searchText)<0){
                         return false;
                     }
+
                     return true;
                 })
             }

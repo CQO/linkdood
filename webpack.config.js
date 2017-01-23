@@ -1,7 +1,6 @@
 'use strict';
 const path = require('path');
 const webpack = require('webpack');
-const vuxLoader = require('vux-loader')
 const settings = require('./config.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,14 +20,13 @@ let config = {
   //当需要加载的文件匹配test的正则时，就会调用后面的loader对文件进行处理，这正是webpack强大的原因。
   module: {
     loaders: [
-      {test: /\.css$/ , loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
+      {test: /\.css$/ , loader: ExtractTextPlugin.extract('style-loader', 'css-loader?importLoaders=1','postcss-loader')},
       {test: /\.html$/ , loader: 'vue-html-loader'},
       {test: /\.js$/ , loader: 'babel-loader',exclude: /node_modules/},
       {test: /\.json$/ , loader: 'json-loader'},
       {test: /\.vue$/ , loader: 'vue-loader'},
       {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 10 , name: 'imgs/[name].[ext]'}},
-      {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 8192 , name: 'fonts/[name].[hash:7].[ext]'}},
-      {test: /vux.src.*?js$/,loader: 'babel'}
+      {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 8192 , name: 'fonts/[name].[hash:7].[ext]'}}
     ]
   },
   //插件项
@@ -68,11 +66,4 @@ if (process.env.NODE_ENV === 'production') {
   );
 }
 
-module.exports = vuxLoader.merge(config, {
-  options: {},
-  plugins: [
-    {
-      name: 'vux-ui'
-    }
-    ]
-});
+module.exports = config;

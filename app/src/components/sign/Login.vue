@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="postcss">
 .login-box,.register-box{
 	.input-box {
 		width: 100%;
@@ -42,7 +42,7 @@
 				border-left: 1px solid #cccccc;
 				border: 0;
 				float: right;
-				width: e("calc(60% - 1px)");
+				width: calc( 60% - 1px );
 			}
 		}
 	}

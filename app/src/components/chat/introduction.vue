@@ -1,6 +1,6 @@
-<style lang="less">
+<style lang="postcss">
 .introduction-box{
-    width: e("calc(100% - 250px)");
+    width: calc( 100% - 250px );
     float: left;
     background-color: #f8fbff;
     .box{
