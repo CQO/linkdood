@@ -180,8 +180,8 @@
 <template lang="pug">
     .main-window
         .title-bar
-            .close-ico.ico(v-on:click="close")
-            .minimize-ico.ico(v-on:click="minimize")
+            .close-ico.ico(v-on:click.stop="close")
+            .minimize-ico.ico(v-on:click.stop="minimize")
         .side-bar.box
             .side-bar-ico(v-on:click="userMenuClick = true")
                 .user
