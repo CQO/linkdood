@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .introduction-box{
     width: e("calc(100% - 250px)");
     float: left;

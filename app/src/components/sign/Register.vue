@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .register-box{
     .input-box{
         position: absolute;

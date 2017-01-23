@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .message-box{
     background-color: #f8fbff;
     float: left;
@@ -167,7 +167,7 @@
     }
 }
 </style>
-<style lang="postcss">
+<style lang="less">
     .message-box{
         width: calc(100% - 250px);
     }

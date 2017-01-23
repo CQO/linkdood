@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .main-window{
     width: 100%;
     height: 100%;
@@ -85,6 +85,7 @@
                 .ico{
                     width: 40px;
                     height: 40px;
+                    background-color: white;
                 }
                 .chat{
                     background-image: url("../../img/chat.png")
@@ -99,7 +100,7 @@
                     background-image: url("../../img/organization.png")
                 }
                 .router-link-active{
-                    background-color: black;
+                    background-color: #acec66;
                 }
             }
             .set {

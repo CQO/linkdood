@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .login-box,.register-box{
 	.input-box {
 		width: 100%;

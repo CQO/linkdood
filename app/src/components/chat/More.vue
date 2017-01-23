@@ -1,4 +1,4 @@
-<style lang="postcss">
+<style lang="less">
 .application{
     background-color: white;
     img{

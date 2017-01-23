@@ -1,27 +1,28 @@
-<style lang="postcss">
-    @import './Contacts.postcss';
+<style lang="less">
+    @import './Contacts.less';
 </style>
 <template lang="pug">
     .chat-dialogue
         .list
             .search
                 input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
+                .addFriends
             ul
-                li.contactsList(v-for=" mess in messageList")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        .text
-                            p.contacts-dialogue-item {{ mess.item }}
-                            p.last-message-text {{ mess.lastMessage }}
-                        .time
-                            p.contacts-time {{ mess.time }}
+                group
+                    cell(title="title",value="value")
                         
         router-view.chat-window
         .clear
 </template>
 <script>
+    import Avatar from 'vue-avatar/dist/Avatar';
+    import { Group, Cell } from 'vux';
     export default {
+        components: {
+            Avatar,
+            Group,
+            Cell
+        },
         data(){
             return{
                 searchText:"",
