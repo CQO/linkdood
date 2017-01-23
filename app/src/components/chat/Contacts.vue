@@ -4,7 +4,7 @@
 <template lang="pug">
     .contacts-dialogue
         .list
-            .search
+            .search(v-on:click="click")
                 input(type="text",placeholder="联系人搜索不可用",v-model="searchText")
             ul
                 li.classification(v-if="B[0]") B
@@ -69,6 +69,7 @@
         .clear
 </template>
 <script>
+    import fun from '../module/fun';
     export default {
         data(){
             return{
@@ -90,16 +91,9 @@
                 ]
             }
         },
-        computed: {
-            messageList: function () {
-                const searchText = this.searchText;
-                return this.message.filter(function (msg) {                  
-                    if(searchText!==""&&msg.item.indexOf(searchText)<0){
-                        return false;
-                    }
-
-                    return true;
-                })
+        methods: {
+            click(){
+                fun.getSpell('好');
             }
         }
     }
