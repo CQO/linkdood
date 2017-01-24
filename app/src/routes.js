@@ -2,11 +2,11 @@
 export default [
   {
     path: '/',
-    component: require('components/chat')
+    component: require('components/mainWindow')
   },
   {
     path: '/chatMainWindow',
-    component: require('components/chat'),
+    component: require('components/mainWindow'),
     children:[
       {
         path: 'chat',
