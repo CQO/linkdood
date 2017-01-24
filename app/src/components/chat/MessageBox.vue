@@ -199,19 +199,23 @@
                 .clear
         .chatContent
             .time 15:45
-            .message-left
-                Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
-                .message 欢迎来到 {{ $route.params.item }} 群
+            template(v-for="item in talks")
+                template(v-if="item.id===0")
+                    .message-left
+                        Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
+                        .message 欢迎来到 {{ $route.params.item }} 群
+                        .clear
+                template(v-else)
+                    .message-right
+                        img(src="../../../img/chatUserImg.png")
+                        .message {{item.msg}}
+                        .clear
                 .clear
-            .message-right(v-for="talk in talks")
-                img(src="../../../img/chatUserImg.png")
-                .message {{talk}}
-            .clear
         .input-box
             .tool-bar
                 .jietu
                 .clear
-            textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-on:onpaste="ale")
+            textarea(v-model="newTodoText.msg",v-on:keyup.enter="sendMessage",v-on:onpaste="ale")
             .send
                 .send-button(v-on:click="sendMessage") 发送(S)
 
@@ -236,17 +240,18 @@
             return{
                 showFile:false,
                 showPeople:false,
-                newTodoText: "",
-                talks: [
-                    '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'
-                    ,'Learn Vue' 
+                newTodoText: {id:1,msg:""},
+                talks:[
+                    {id:0,msg:"我是"},
+                    {id:1,msg:"你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder"},
+                    {id:1,msg:"Learn Vue"}
                 ]
             }
         },
         methods:{
             sendMessage(){
                 this.talks.push(this.newTodoText);
-                this.newTodoText = '';
+                this.newTodoText = {id:1,msg:""};
             },
             ale(){
                 alert("sss");

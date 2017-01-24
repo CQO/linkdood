@@ -31,7 +31,20 @@
     font-size: 1rem;
     overflow: hidden;
   }
-  
+  /* 滚动条样式 */
+  div::-webkit-scrollbar,ul::-webkit-scrollbar{
+    width: 6px;
+  }
+  div::webkit-scrollbar-track-piece,ul::webkit-scrollbar-track-piece{
+    background-color:black;
+  }
+  div::-webkit-scrollbar-thumb,ul::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(112, 137, 212);   
+  }     
+  div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{
+    background-color: #e5f1fa;
+  }
 </style>
 
 <template>
