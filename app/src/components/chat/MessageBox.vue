@@ -80,6 +80,7 @@
                 min-height: 25px;
                 line-height: 25px;
                 max-width: 300px;
+                -webkit-user-select: text;
             }
             .message:before{
                     content: "";

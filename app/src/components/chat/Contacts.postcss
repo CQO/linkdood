@@ -2,6 +2,7 @@
     .contactsList{
         height: 65px;
         border-bottom: 1px solid #dae2e7;
+        position:relative;
         .contacts-dialogue-box{
             padding: 10px 5px;
             .text{
@@ -27,6 +28,16 @@
                 line-height: 22px;
                 color: #c8c5c6;
             }
+        }
+        .removeMessage{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            display: none;
+            background-color: #b9bfcd;
+            color: white;
+            padding: 0 5px;
+            border-radius: 50%;
         }
     }
 }
@@ -80,6 +91,12 @@
     }
     .contactsList:hover{
         background-color: #d9e9f9;
+        .removeMessage{
+            display:inline;
+        }
+        .removeMessage:hover{
+            background-color: #d4d495;
+        }
     }
     .list{
         width: 250px;

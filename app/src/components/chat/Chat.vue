@@ -7,7 +7,7 @@
             .search
                 input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
             ul
-                li.contactsList(v-for=" mess in messageList")
+                li.contactsList(v-for=" (mess,index) in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
                         Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
@@ -15,6 +15,8 @@
                             p.last-message-text {{ mess.lastMessage }}
                         .time
                             p.contacts-time {{ mess.time }}
+                     .clear
+                     p.removeMessage(v-on:click="remove(index)") ×
                         
         router-view.chat-window
         .clear
@@ -48,6 +50,12 @@
                 ]
             }
         },
+        methods:{
+            remove:function (index){
+                console.log(this);
+                this.message.splice(index, 1);
+            }
+        },
         computed: {
             messageList: function () {
                 const searchText = this.searchText;
@@ -55,7 +63,6 @@
                     if(searchText!==""&&msg.item.indexOf(searchText)<0){
                         return false;
                     }
-
                     return true;
                 })
             }
