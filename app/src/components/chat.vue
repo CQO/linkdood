@@ -190,7 +190,7 @@
                 .tab
                     router-link.chat.ico(to="/chatMainWindow/chat")
                     router-link.contacts.ico(to="/chatMainWindow/contacts")
-                    router-link.group.ico(to="/chatMainWindow/contacts")
+                    router-link.group.ico(to="/chatMainWindow/group")
                     router-link.organization.ico(to="/chatMainWindow/organization")
                 .set
                     router-link.more.ico(to="/chatMainWindow/more")

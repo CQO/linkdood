@@ -22,6 +22,13 @@ export default [
           {path: 'userIntroduction/:item',component: require('components/chat/introduction')}
         ]
       },
+      {
+        path: 'group',
+        component: require('components/chat/Group'),
+        children:[
+          {path: 'userIntroduction/:item',component: require('components/chat/introduction')}
+        ]
+      },
       {path: 'organization',component: require('components/chat/Organization')},
       {path: 'more',component: require('components/chat/More')},
     ]

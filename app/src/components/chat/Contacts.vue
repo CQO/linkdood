@@ -1,5 +1,33 @@
 <style lang="postcss">
-    
+.contacts-dialogue {
+    .contactsList{
+        height: 50px;
+        .contacts-dialogue-box{
+            padding-top: 2px;
+            height: 48px;
+            width: 100%;
+            .user-img{
+                margin: 0 4px;
+            }
+            .contacts-dialogue-item{
+                height: 45px;
+                line-height: 48px;
+                text-align: left;
+            }
+        }
+    }
+    .classification{
+        height: 25px;
+        line-height: 25px;
+        text-align: left;
+        background-color: #d1e7f8;
+        padding-left: 13px;
+        font-size: 16px;
+    }
+    .list{
+        font-size: 14px;
+    }
+}
 </style>
 <template lang="pug">
     .contacts-dialogue
@@ -7,88 +35,55 @@
             .search
                 input(type="text",placeholder="联系人搜索不可用",v-model="searchText")
             ul
-                li.classification(v-if="list.B[0]") B
-                li.contactsList(v-for=" list in list.B")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.C[0]") C
-                li.contactsList(v-for=" list in list.C")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.G[0]") G
-                li.contactsList(v-for=" list in list.G")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.K[0]") K
-                li.contactsList(v-for=" list in list.K")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.L[0]") L
-                li.contactsList(v-for=" list in list.L")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.M[0]") M
-                li.contactsList(v-for=" list in list.M")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.S[0]") S
-                li.contactsList(v-for=" list in list.S")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                li.classification(v-if="list.X[0]") X
-                li.contactsList(v-for=" list in list.X")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
-                        .user-img
-                            img(src="../../../img/qun.png")
-                        p.contacts-dialogue-item {{ list }}
-                        .clear
-                
-        
+                template(v-for="(item,key) in list")
+                    template(v-if="item[0]")
+                        li.classification {{key}}
+                        li.contactsList(v-for=" list in item")
+                            router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
+                                Avatar.user-img(v-bind:size='45',v-bind:username="list")
+                                p.contacts-dialogue-item {{ list }}
+                                .clear
         router-view.chat-window
         .clear
 </template>
 <script>
     import fun from '../module/fun';
+    import Avatar from 'vue-avatar/dist/Avatar'
     export default {
+        components: {
+            Avatar
+        },
         data(){
             return{
                 searchText:"",
                 list:{
-                    A:[],B:[],C:[],D:[],E:[],F:[],G:[],H:[],I:[],G:[],K:[],L:[],M:[],N:[],O:[],P:[],Q:[],R:[],S:[],T:[],U:[],V:[],W:[],X:[],Y:[],Z:[],
+                    A:[],B:[],C:[],D:[],E:[],F:[],G:[],H:[],I:[],J:[],K:[],L:[],M:[],N:[],O:[],P:[],Q:[],R:[],S:[],T:[],U:[],V:[],W:[],X:[],Y:[],Z:[],
                 },
                 message: [
-                    { item: '北信源西安研发公司',firstLetter:'B'},
-                    { item: 'SDK测试',firstLetter:'S'},
-                    { item: '客户端问题收集群',firstLetter:'K'},
-                    { item: '公司内部千人测试群',firstLetter:'G'},
-                    { item: '北信源西安分公司',firstLetter:'B'},
-                    { item: '陕西互联西安',firstLetter:'S'},
-                    { item: '日常事物提醒群',firstLetter:'R'},
-                    { item: 'MAC包测试群',firstLetter:'M'},
-                    { item: '西安连豆豆测试群',firstLetter:'X'},
-                    { item: '测试群',firstLetter:'C'},
-                    { item: '另一个测试群',firstLetter:'L'}
+                    { item: '北京办事处',firstLetter:'B'},
+                    { item: '李红',firstLetter:'L'},
+                    { item: '王宏伟',firstLetter:'W'},
+                    { item: '李雪涛',firstLetter:'L'},
+                    { item: '小蓝',firstLetter:'X'},
+                    { item: '白小双',firstLetter:'B'},
+                    { item: '吴彦祖',firstLetter:'W'},
+                    { item: '马云',firstLetter:'M'},
+                    { item: '郭德纲',firstLetter:'G'},
+                    { item: '王艳',firstLetter:'W'},
+                    { item: '西门吹雪',firstLetter:'X'},
+                    { item: '孙悟空',firstLetter:'S'},
+                    { item: '猪八戒',firstLetter:'Z'},
+                    { item: '沙僧',firstLetter:'S'},
+                    { item: '唐僧',firstLetter:'T'},
+                    { item: '牛魔王',firstLetter:'N'},
+                    { item: '铁扇公主',firstLetter:'T'},
+                    { item: '红孩儿',firstLetter:'H'},
+                    { item: '太上老君',firstLetter:'T'},
+                    { item: '齐天大圣',firstLetter:'Q'},
+                    { item: '夜明珠',firstLetter:'Y'},
+                    { item: 'JD',firstLetter:'J'},
+                    { item: 'kiss me',firstLetter:'K'},
+                    { item: 'my word',firstLetter:'M'}
                 ]
             }
         },

@@ -1,5 +1,48 @@
 <style lang="postcss">
     @import './Contacts.postcss';
+.chat-dialogue {
+    .contactsList{
+        height: 65px;
+        border-bottom: 1px solid #dae2e7;
+        position:relative;
+        .contacts-dialogue-box{
+            padding: 10px 5px;
+            .text{
+                width: 135px;
+                padding-left: 10px;
+                p{
+                    text-align: left;
+                    line-height: 23px;
+                    font-size: 13px;
+                    font-family: arial, sans-serif;
+                }
+                .contacts-dialogue-item{
+                    height: 25px;
+                }
+                .last-message-text{
+                    color: #b9bfcd;
+                }
+            }
+            .time{
+                width: 35px;
+                height: 22px;
+                font-size: 12px;
+                line-height: 22px;
+                color: #c8c5c6;
+            }
+        }
+        .removeMessage{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+            display: none;
+            background-color: #b9bfcd;
+            color: white;
+            padding: 0 5px;
+            border-radius: 50%;
+        }
+    }
+}
 </style>
 <template lang="pug">
     .chat-dialogue
