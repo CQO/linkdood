@@ -198,8 +198,7 @@
         .contacts.box(v-on:click="userMenuClick = true")
             router-view
         .clear
-        .user-menu-box(v-bind:class="{ hide: userMenuClick }")
-            MyInformation
+        MyInformation(v-bind:class="{ hide: userMenuClick }")
 </template>
 <script>
     import MyInformation from './card/myInformation'
