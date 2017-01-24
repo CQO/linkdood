@@ -1,9 +1,9 @@
 .chat-dialogue {
     .contactsList{
-        height: 75px;
+        height: 65px;
         border-bottom: 1px solid #dae2e7;
         .contacts-dialogue-box{
-            padding: 15px 5px;
+            padding: 10px 5px;
             .text{
                 width: 135px;
                 padding-left: 10px;
@@ -22,7 +22,7 @@
             }
             .time{
                 width: 35px;
-                height: 15px;
+                height: 22px;
                 font-size: 12px;
                 line-height: 22px;
                 color: #c8c5c6;
@@ -62,11 +62,11 @@
             float: left;
             div{
                 float: left;
-                height: 50px;
+                height: 45px;
             }
             .user-img{
-                width: 50px;
-                
+                width: 45px;
+                padding-left: 2px;
             }
             .contacts-dialogue-item{
                 height: 45px;
@@ -107,6 +107,19 @@
             width: inherit;
             height: calc( 100% - 50px );
             overflow-x: hidden;
+        }
+        ul::-webkit-scrollbar{
+            width: 6px;
+        }
+        ul::webkit-scrollbar-track-piece{
+            background-color:black;
+        }
+        ul::-webkit-scrollbar-thumb{
+            border-radius: 10px;
+            background-color: rgb(112, 137, 212);   
+        }     
+        ul::-webkit-scrollbar-track{
+            background-color: #e5f1fa;
         }
     }
 }

@@ -9,12 +9,13 @@
   caption,th{text-align:left}
   h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}
   q:before,q:after{content:""}
-  div{width: 100%;height: 100%;}
+  div{width: 100%;height: 100%;-webkit-user-select: none;}
   html,body{background:#fff}
-  a{text-decoration:none;color:#666}
+  a{text-decoration:none;color:#666;-webkit-user-drag: none;}
   a:hover{text-decoration:none}
   i{font-style:normal}
   .hide{display: none}
+  .clear{clear:both;width: 0;height: 0;}
   body {
     font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, sans-serif;
     background:

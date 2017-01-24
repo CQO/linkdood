@@ -56,7 +56,7 @@
         }
     }
     .chatContent{
-        height: 350px;
+        height: calc( 70% - 43px );
         overflow-y: auto;
         overflow-x: hidden;
         .time{
@@ -67,7 +67,7 @@
             margin: 10px 0;
         }
         .message-left,.message-right{
-            margin: 10px 0;
+            margin: 10px;
             height: initial;
             .message{
                 width: 120px; 
@@ -110,9 +110,7 @@
                 height: 45px;
                 width: 45px;
                 float: left;
-                .avatar{
 
-                }
             }
         }
         .message-right{
@@ -134,7 +132,7 @@
     .input-box{
         background-color: #f9f9fb;
         border-top: 1px solid #cfd2d5;
-        height:calc( 100% - 400px );
+        height:30%;
         .tool-bar{
             height: 30px;
             .jietu{
@@ -207,7 +205,7 @@
             .message-right(v-for="talk in talks")
                 img(src="../../../img/chatUserImg.png")
                 .message {{talk}}
-                .clear
+            .clear
         .input-box
             .tool-bar
                 .jietu

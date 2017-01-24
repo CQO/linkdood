@@ -9,7 +9,7 @@
             ul
                 li.contactsList(v-for=" mess in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
-                        Avatar.user-img(v-bind:username="mess.item")
+                        Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
                             p.last-message-text {{ mess.lastMessage }}
@@ -36,11 +36,15 @@
                     { item: '北信源西安分公司',lastMessage:'好的',time:'昨天' },
                     { item: '陕西互联西安',lastMessage:'cxs',time:'昨天' },
                     { item: '日常事物提醒群',lastMessage:'OK',time:'昨天' },
-                    { item: '公司内部千人测试群',lastMessage:'测试',time:'昨天' },
                     { item: 'MAC包测试群',lastMessage:'好的',time:'昨天' },
                     { item: '西安连豆豆测试群',lastMessage:'cxs',time:'昨天' },
                     { item: '测试群',lastMessage:'OK',time:'昨天' },
-                    { item: '另一个测试群',lastMessage:'测试',time:'昨天' }
+                    { item: '刘清辉',lastMessage:'测试',time:'昨天' },
+                    { item: 'IMH5',lastMessage:'测试',time:'昨天' },
+                    { item: '海龙会所',lastMessage:'测试',time:'昨天' },
+                    { item: '李盼',lastMessage:'测试',time:'昨天' },
+                    { item: '赵雯',lastMessage:'测试',time:'昨天' },
+                    { item: '罗进',lastMessage:'测试',time:'昨天' }
                 ]
             }
         },

@@ -7,7 +7,7 @@
         float:left;
     }
     .contacts{
-        width: 94%;
+        width: calc( 100% - 50px );
         background: url("../../img/linkdood.png") no-repeat 70% 40%;
         background-color: #f8fbff;
     }
@@ -59,7 +59,7 @@
     }
     .side-bar{
         background: #008cee;
-        width: 6%;
+        width: 50px;
         .side-bar-ico {
             a {
                 display: block;
