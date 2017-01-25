@@ -3,18 +3,23 @@
     width: calc( 100% - 250px );
     float: left;
     background-color: #f8fbff;
+    position: relative;
     .box{
-        height: 190px;
+        height: 220px;
         position: absolute;
-        width: 250px;
-        top: 25%;
-    left: 51%;
+        width: 260px;
+        top: 50%;
+        left: 50%;
+        margin-top: -110px;
+        margin-left: -130px;
         .user-img{
+            height: 100px;
+            width: 100px;
             margin: 0 auto;
         }
         .user-name{
-            height: 30px;
-            line-height: 30px;
+            height: 3rem;
+            line-height: 3rem;
         }
         .buttom{
             background-color: #2c89f2;
@@ -33,6 +38,7 @@
         .box
             Avatar.user-img(v-bind:size='100',v-bind:username="$route.params.item")
             .user-name {{ $route.params.item }}
+
             router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item") 发起聊天 
 </template>
 <script>
