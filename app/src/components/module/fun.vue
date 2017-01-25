@@ -2,6 +2,7 @@
 import data from './data';
 export default {
      getSpell: function (str) {
+        alert("sd");
         if(typeof(str) != "string") {console.error("传入参数不是一个字符串！"); return "Null"};
         let arrResult = new Array(); 
         for(let i=0,len=str.length;i<len;i++){
@@ -35,7 +36,7 @@ export default {
                 }
             }
         }
-        String.prototype.trim = function() { return this.replace(/(^\s*)|(\s*$)/g,""); }
+        alert(""+arrRslt[0])
         alert(""+arrRslt[0].charAt(0))
     }
 };

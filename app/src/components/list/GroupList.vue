@@ -3,7 +3,7 @@
         .list
             .search
                 input(type="text",placeholder="搜索：群",v-model="searchText")
-                .add(v-on:click="add")
+                .add(v-on:click="click")
             ul
                 template(v-for="(item,key) in list")
                     template(v-if="item[0]")
@@ -46,7 +46,7 @@
         },
         methods: {
             click(){
-                fun.getSpell('好');
+                fun.getSpell('sdsdsdds');
             },
             add:function(){
                 if(this.searchText===""){
