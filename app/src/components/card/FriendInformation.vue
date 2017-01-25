@@ -12,7 +12,7 @@
         .user-img{
             height: 100px;
             width: 116px;
-            background-image: url("img/big_user.png");
+            background-image: url("../img/big_user.png");
             background-repeat: no-repeat;
             margin: 0 auto;
         }

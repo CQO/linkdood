@@ -207,7 +207,7 @@
                         .clear
                 template(v-else)
                     .message-right
-                        img(src="img/chatUserImg.png")
+                        img(src="./img/chatUserImg.png")
                         .message {{item.msg}}
                         .clear
                 .clear
