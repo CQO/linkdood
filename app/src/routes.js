@@ -22,7 +22,7 @@ export default [
         path: 'group',
         component: require('components/list/GroupList'),
         children:[
-          {path: 'userIntroduction/:item',component: require('components/card/ContactsInformation')}
+          {path: 'groupIntroduction/:item',component: require('components/card/GroupInformation')}
         ]
       },
       {path: 'organization',component: require('components/Organization')},

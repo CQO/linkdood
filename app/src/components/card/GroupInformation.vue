@@ -1,5 +1,5 @@
 <style lang="postcss">
-.contacts-information-box{
+.group-information-box{
     width: calc( 100% - 250px );
     float: left;
     background-color: #f8fbff;
@@ -10,8 +10,6 @@
         top: 25%;
     left: 51%;
         .user-img{
-            height: 100px;
-            width: 116px;
             margin: 0 auto;
         }
         .user-name{
@@ -31,7 +29,7 @@
 }
 </style>
 <template lang="pug">
-    .contacts-information-box
+    .group-information-box
         .box
             Avatar.user-img(v-bind:size='100',v-bind:username="$route.params.item")
             .user-name {{ $route.params.item }}
