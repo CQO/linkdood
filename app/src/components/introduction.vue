@@ -12,7 +12,7 @@
         .user-img{
             height: 100px;
             width: 116px;
-            background-image: url("../../../img/big_user.png");
+            background-image: url("img/big_user.png");
             background-repeat: no-repeat;
             margin: 0 auto;
         }
@@ -37,5 +37,5 @@
         .box
             .user-img
             .user-name {{ $route.params.item }}
-            router-link.buttom(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+$route.params.item") 发起聊天 
+            router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item") 发起聊天 
 </template>

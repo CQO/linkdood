@@ -39,7 +39,7 @@
                     template(v-if="item[0]")
                         li.classification {{key}}
                         li.contactsList(v-for=" list in item")
-                            router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/contacts/userIntroduction/'+list")
+                            router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list")
                                 Avatar.user-img(v-bind:size='45',v-bind:username="list")
                                 p.contacts-dialogue-item {{ list }}
                                 .clear

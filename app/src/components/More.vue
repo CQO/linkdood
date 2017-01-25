@@ -8,7 +8,7 @@
 </style>
 <template lang="pug">
     .application
-        img(src="../../../img/yingyong.png",v-on:click="error")
+        img(src="img/yingyong.png",v-on:click="error")
 </template>
 <script>
     

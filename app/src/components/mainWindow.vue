@@ -8,7 +8,7 @@
     }
     .contacts{
         width: calc( 100% - 50px );
-        background: url("../../img/linkdood.png") no-repeat 70% 40%;
+        background: url("img/linkdood.png") no-repeat 70% 40%;
         background-color: #f8fbff;
     }
     .title-bar{
@@ -77,7 +77,7 @@
                 .userMenu{
                     width: 45px;
                     height: 45px;
-                    background-image: url("../../img/userMenu.png");
+                    background-image: url("img/userMenu.png");
                     border-radius: 0;
                 }
             }
@@ -88,16 +88,16 @@
                     height: 40px;
                 }
                 .chat{
-                    background-image: url("../../img/chat.png")
+                    background-image: url("img/chat.png")
                 }
                 .contacts{
-                    background-image: url("../../img/contacts.png")
+                    background-image: url("img/contacts.png")
                 }
                 .group{
-                    background-image: url("../../img/group.png")
+                    background-image: url("img/group.png")
                 }
                 .organization{
-                    background-image: url("../../img/organization.png")
+                    background-image: url("img/organization.png")
                 }
                 .router-link-active{
                     background-color: black;
@@ -110,10 +110,10 @@
                     height: 22px;
                 }
                 .more{
-                    background-image: url("../../img/more.png")
+                    background-image: url("img/more.png")
                 }
                 .setting{
-                    background-image: url("../../img/setting.png")
+                    background-image: url("img/setting.png")
                 }
             }
         }  
@@ -127,7 +127,7 @@
         background-color: rgba(255, 255, 255, 0.9);
         .user-img{
             height: 180px;
-            background-image: url("../../img/userImg.jpg");
+            background-image: url("img/userImg.jpg");
             background-position: 0 center;
             display: table-cell;
             vertical-align: bottom;
@@ -188,24 +188,24 @@
                 .user
                     .userMenu.ico(v-on:click.stop="userMenuClick = false")
                 .tab
-                    router-link.chat.ico(to="/chatMainWindow/chat")
-                    router-link.contacts.ico(to="/chatMainWindow/contacts")
-                    router-link.group.ico(to="/chatMainWindow/group")
-                    router-link.organization.ico(to="/chatMainWindow/organization")
+                    router-link.chat.ico(to="/chat")
+                    router-link.contacts.ico(to="/contacts")
+                    router-link.group.ico(to="/group")
+                    router-link.organization.ico(to="/organization")
                 .set
-                    router-link.more.ico(to="/chatMainWindow/more")
+                    router-link.more.ico(to="/more")
                     .setting.ico(v-on:click="error")
         .contacts.box(v-on:click="userMenuClick = true")
             router-view
         .clear
-        MyInformation(v-bind:class="{ hide: userMenuClick }")
+        myInformation(v-bind:class="{ hide: userMenuClick }")
 </template>
 <script>
-    import MyInformation from './card/myInformation'
+    import myInformation from './card/MyInformation'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
         components: {
-            MyInformation
+            myInformation
         },
         data(){
             return{

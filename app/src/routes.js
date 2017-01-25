@@ -2,35 +2,31 @@
 export default [
   {
     path: '/',
-    component: require('components/mainWindow')
-  },
-  {
-    path: '/chatMainWindow',
-    component: require('components/mainWindow'),
+    component: require('components/MainWindow'),
     children:[
       {
         path: 'chat',
-        component: require('components/chat/Chat'),
+        component: require('components/list/ChatList'),
         children:[
-          {path: 'chatToPeople/:item',component: require('components/chat/MessageBox')}
+          {path: 'chatToPeople/:item',component: require('components/MessageBox')}
         ]
       },
       {
         path: 'contacts',
-        component: require('components/chat/Contacts'),
+        component: require('components/list/ContactsList'),
         children:[
-          {path: 'userIntroduction/:item',component: require('components/chat/introduction')}
+          {path: 'userIntroduction/:item',component: require('components/introduction')}
         ]
       },
       {
         path: 'group',
-        component: require('components/chat/Group'),
+        component: require('components/list/GroupList'),
         children:[
-          {path: 'userIntroduction/:item',component: require('components/chat/introduction')}
+          {path: 'userIntroduction/:item',component: require('components/introduction')}
         ]
       },
-      {path: 'organization',component: require('components/chat/Organization')},
-      {path: 'more',component: require('components/chat/More')},
+      {path: 'organization',component: require('components/Organization')},
+      {path: 'more',component: require('components/More')},
     ]
   },
   {

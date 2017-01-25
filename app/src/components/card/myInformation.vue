@@ -9,7 +9,7 @@
         background-color: rgba(255, 255, 255, 0.9);
         .user-img{
             height: 180px;
-            background-image: url("../../../img/userImg.jpg");
+            background-image: url("../img/userImg.jpg");
             background-position: 0 center;
             display: table-cell;
             vertical-align: bottom;

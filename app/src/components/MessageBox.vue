@@ -25,11 +25,11 @@
                 margin-left: 5px;
             }
             .file{
-                background-image: url("../../../img/file.png");
+                background-image: url("img/file.png");
                 position: relative;
             }
             .people{
-                background-image: url("../../../img/people.png");
+                background-image: url("img/people.png");
                 position: relative;
                 bottom: 1px;
             }
@@ -139,7 +139,7 @@
             .jietu{
                 height: 20px;
                 width: 20px;
-                background-image: url("../../../img/jietu.png");
+                background-image: url("img/jietu.png");
                 margin: 5px;
                 float: left;
             }
@@ -207,7 +207,7 @@
                         .clear
                 template(v-else)
                     .message-right
-                        img(src="../../../img/chatUserImg.png")
+                        img(src="img/chatUserImg.png")
                         .message {{item.msg}}
                         .clear
                 .clear

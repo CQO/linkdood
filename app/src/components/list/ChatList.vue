@@ -1,5 +1,5 @@
 <style lang="postcss">
-    @import './Contacts.postcss';
+@import './List.postcss';
 .chat-dialogue {
     .contactsList{
         height: 65px;
@@ -51,7 +51,7 @@
                 input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
             ul
                 li.contactsList(v-for=" (mess,index) in messageList")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chatMainWindow/chat/chatToPeople/'+mess.item")
+                     router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item")
                         Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
