@@ -3,6 +3,7 @@
         .list
             .search
                 input(type="text",placeholder="搜索：群",v-model="searchText")
+                .add(v-on:click="add")
             ul
                 template(v-for="(item,key) in list")
                     template(v-if="item[0]")
@@ -46,7 +47,17 @@
         methods: {
             click(){
                 fun.getSpell('好');
-            }
+            },
+            add:function(){
+                if(this.searchText===""){
+                    alert("请在左侧输入框中输入会话名称！");
+                }
+                else{
+                    this.list.A.push("sdsd");
+                    this.searchText="";
+                }
+                //fun.getSpell('好');
+            },
         },
         created: function () {
             const message = this.message;

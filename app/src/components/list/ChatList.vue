@@ -48,7 +48,8 @@
     .chat-dialogue
         .list
             .search
-                input(type="text",placeholder="搜索：会话",v-model="searchText")
+                input(type="text",placeholder="搜索：会话 或 添加会话",v-model="searchText")
+                .add(v-on:click="add")
             ul
                 li.contactsList(v-for=" (mess,index) in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item")
@@ -95,9 +96,18 @@
         },
         methods:{
             remove:function (index){
-                console.log(this);
                 this.message.splice(index, 1);
-            }
+            },
+            add:function(){
+                if(this.searchText===""){
+                    alert("请在左侧输入框中输入会话名称！");
+                }
+                else{
+                    this.message.push({ item: this.searchText,lastMessage:'',time:'现在' });
+                    this.searchText="";
+                }
+                //fun.getSpell('好');
+            },
         },
         computed: {
             messageList: function () {
