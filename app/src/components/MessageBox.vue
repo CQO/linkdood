@@ -197,7 +197,7 @@
                 .file.icon(v-on:click.stop="showFile = !showFile")
                 .people.icon(v-on:click.stop="showPeople = !showPeople")
                 .clear
-        .chatContent
+        .chatContent(v-bind:key="Math.random()")
             .time 15:45
             template(v-for="item in talks")
                 template(v-if="item.id===0")

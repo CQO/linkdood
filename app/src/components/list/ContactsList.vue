@@ -33,12 +33,12 @@
     .contacts-dialogue
         .list
             .search
-                input(type="text",placeholder="联系人搜索不可用",v-model="searchText")
+                input(type="text",placeholder="搜索：联系人",v-model="searchText")
             ul
                 template(v-for="(item,key) in list")
                     template(v-if="item[0]")
-                        li.classification {{key}}
-                        li.contactsList(v-for=" list in item")
+                        li.classification(v-if="searchText==''") {{key}}
+                        li.contactsList(v-for=" list in item",v-if="searchText==''||list.indexOf(searchText)>=0")
                             router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list")
                                 Avatar.user-img(v-bind:size='45',v-bind:username="list")
                                 p.contacts-dialogue-item {{ list }}
@@ -90,6 +90,9 @@
         methods: {
             click(){
                 fun.getSpell('好');
+            },
+            searchItem(){
+                
             }
         },
         created: function () {

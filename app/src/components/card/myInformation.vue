@@ -53,6 +53,7 @@
                         font-size: 13px;
                         position: relative;
                         bottom: 2px;
+                        background-color: rgba(127, 255, 212, 0.1);
                     }
                 }
             }

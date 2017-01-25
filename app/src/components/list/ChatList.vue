@@ -48,7 +48,7 @@
     .chat-dialogue
         .list
             .search
-                input(type="text",placeholder="搜索:联系人，群",v-model="searchText")
+                input(type="text",placeholder="搜索：会话",v-model="searchText")
             ul
                 li.contactsList(v-for=" (mess,index) in messageList")
                      router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item")
