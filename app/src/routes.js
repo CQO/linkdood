@@ -15,14 +15,14 @@ export default [
         path: 'contacts',
         component: require('components/list/ContactsList'),
         children:[
-          {path: 'userIntroduction/:item',component: require('components/card/FriendInformation')}
+          {path: 'userIntroduction/:item',component: require('components/card/ContactsInformation')}
         ]
       },
       {
         path: 'group',
         component: require('components/list/GroupList'),
         children:[
-          {path: 'userIntroduction/:item',component: require('components/card/FriendInformation')}
+          {path: 'userIntroduction/:item',component: require('components/card/ContactsInformation')}
         ]
       },
       {path: 'organization',component: require('components/Organization')},
