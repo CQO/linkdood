@@ -46,7 +46,7 @@
         },
         methods: {
             click(){
-                fun.getSpell('sdsdsdds');
+                fun.getSpell(this.searchText);
             },
             add:function(){
                 if(this.searchText===""){

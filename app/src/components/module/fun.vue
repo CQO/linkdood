@@ -2,9 +2,9 @@
 import data from './data';
 export default {
      getSpell: function (str) {
-        alert("sd");
+        console.log(str);
         if(typeof(str) != "string") {console.error("传入参数不是一个字符串！"); return "Null"};
-        let arrResult = new Array(); 
+        let arrResult = new Array();
         for(let i=0,len=str.length;i<len;i++){
             const ch = str.charAt(i);
             const uni = ch.charCodeAt(0);
@@ -30,15 +30,14 @@ export default {
                 for(k=0;k<strlen;k++){
                     let tmp = tmpArr.slice(0);
                     for(let j=0;j<tmp.length;j++){
-                tmp[j] += str.charAt(k);
+                        tmp[j] += str.charAt(k);
                     }
                     arrRslt = arrRslt.concat(tmp);
                 }
             }
         }
-        console.log(arrRslt[0]);
-        alert(""+arrRslt[0]);
-        alert(""+arrRslt[0].charAt(0));
+        alert(""+arrRslt[0])
+        alert(""+arrRslt[0].charAt(0))
     }
 };
 </script>
