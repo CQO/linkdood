@@ -2,7 +2,7 @@
 .message-box{
     background-color: #f8fbff;
     float: left;
-    
+    width: calc( 100% - 250px );
     .title-box{
         height: 30px;
         padding-top: 10px;
@@ -42,6 +42,7 @@
         right: 0;
         top: 40px;
         background-color: #f0f0f0;
+        height: calc( 100% - 40px );
         .title{
             height: 30px;
             background-color: #e0f0fa;
@@ -170,24 +171,6 @@
         }
     }
 }
-</style>
-<style lang="postcss">
-    .message-box{
-        width: calc( 100% - 250px );
-    }
-    .file-box{
-        height: calc( 100% - 40px );
-
-    }
-    .file-enter-active {
-        transition: all .3s ease;
-    }
-
-    .file-enter, .slide-fade-leave-to
-    {
-        transform: translateX(10px);
-        opacity: 0;
-    }
 </style>
 <template lang="pug">
     .message-box(v-on:click="showFile=false")

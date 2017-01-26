@@ -36,8 +36,9 @@ export default {
                 }
             }
         }
-        alert(""+arrRslt[0])
-        alert(""+arrRslt[0].charAt(0))
+        console.log(arrRslt[0]);
+        alert(""+arrRslt[0]);
+        alert(""+arrRslt[0].charAt(0));
     }
 };
 </script>
