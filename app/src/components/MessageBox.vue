@@ -215,6 +215,7 @@
 </template>
 <script>
     import Avatar from 'vue-avatar/dist/Avatar'
+    import fun from './module/fun'
     export default {
         components: {
             Avatar
@@ -235,6 +236,10 @@
             sendMessage(){
                 this.talks.push(this.newTodoText);
                 this.newTodoText = {id:1,msg:""};
+                fun.Ajax.get("https://www.baidu.com/",function(e){
+                    console.log(e);
+                    alert(e);
+                })
             },
             ale(){
                 alert("sss");
