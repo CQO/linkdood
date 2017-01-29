@@ -40,6 +40,7 @@
             color: white;
             padding: 0 5px;
             border-radius: 50%;
+            cursor: pointer;
         }
     }
 }

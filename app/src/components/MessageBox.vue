@@ -95,6 +95,7 @@
             .user-img{
                 height: 45px;
                 width: 45px;
+                cursor: pointer;
             }
         }
         .message-left{
@@ -190,7 +191,7 @@
                         .clear
                 template(v-else)
                     .message-right
-                        img(src="./img/chatUserImg.png")
+                        img.user-img(src="./img/chatUserImg.png")
                         .message {{item.msg}}
                         .clear
                 .clear
