@@ -33,7 +33,7 @@ function createChatWindow(){
     else {
         chatWindow.loadURL(`file://${__dirname}/dist/index.html#`);
     }
-    tray = new Tray(path.join(__dirname, './src/components/img/icon16.png'));
+    tray = new Tray(path.join(__dirname, 'img/icon16.png'));
     const trayMenuTemplate = [
         // 恢复窗口
         {label: '显示主窗口',accelerator: 'CmdOrCtrl+R',click: function() {chatWindow.restore();chatWindow.show();}}, 
