@@ -187,7 +187,7 @@
                 template(v-if="item.id===0")
                     .message-left
                         Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
-                        .message 欢迎来到 {{ $route.params.item }} 群
+                        .message {{item.msg}}
                         .clear
                 template(v-else)
                     .message-right
@@ -226,8 +226,9 @@
                 showFile:false,
                 showPeople:false,
                 newTodoText: {id:1,msg:""},
+                receiveMessage: {id:0,msg:""},
                 talks:[
-                    {id:0,msg:"我是"},
+                    {id:0,msg:"欢迎来到 {{ $route.params.item }} 群"},
                     {id:1,msg:"你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder"},
                     {id:1,msg:"Learn Vue"}
                 ]
@@ -235,11 +236,14 @@
         },
         methods:{
             sendMessage(){
+                const talk= this.newTodoText;
+                const _this = this;
                 this.talks.push(this.newTodoText);
                 this.newTodoText = {id:1,msg:""};
-                fun.Ajax.get("https://www.baidu.com/",function(e){
-                    console.log(e);
-                    alert(e);
+                fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
+                    const message = JSON.parse(e);
+                    _this.receiveMessage = {id:0,msg:message.text};
+                    _this.talks.push(_this.receiveMessage);
                 })
             },
             ale(){
