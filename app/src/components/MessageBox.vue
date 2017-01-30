@@ -181,7 +181,7 @@
                 .file.icon(v-on:click.stop="showFile = !showFile")
                 .people.icon(v-on:click.stop="showPeople = !showPeople")
                 .clear
-        .chatContent(v-bind:key="Math.random()")
+        .chatContent
             .time 15:45
             template(v-for="item in talks")
                 template(v-if="item.id===0")
@@ -199,7 +199,7 @@
             .tool-bar
                 .jietu
                 .clear
-            textarea(v-model="newTodoText.msg",v-on:keyup.enter="sendMessage",v-on:onpaste="ale")
+            textarea(v-model="newTodoText.msg",v-on:keyup.enter="sendMessage")
             .send
                 .send-button(v-on:click="sendMessage") 发送(S)
 
@@ -212,7 +212,6 @@
             .members-box(v-if="showPeople")
                 .title 群成员
                 .file-list 没有群成员
-        
 </template>
 <script>
     import Avatar from 'vue-avatar/dist/Avatar'
@@ -228,7 +227,7 @@
                 newTodoText: {id:1,msg:""},
                 receiveMessage: {id:0,msg:""},
                 talks:[
-                    {id:0,msg:"欢迎来到 {{ $route.params.item }} 群"},
+                    {id:0,msg:"欢迎来到"+ this.$route.params.item +"群"},
                     {id:1,msg:"你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder"},
                     {id:1,msg:"Learn Vue"}
                 ]
@@ -244,10 +243,19 @@
                     const message = JSON.parse(e);
                     _this.receiveMessage = {id:0,msg:message.text};
                     _this.talks.push(_this.receiveMessage);
+                    
                 })
             },
             ale(){
                 alert("sss");
+            }
+        },
+        watch:{
+            talks:function(){
+                //获取聊天窗口DOM
+                    const chatContent = this.$el.getElementsByClassName("chatContent")[0];
+                    //console.log(chatContent.offsetHeight-chatContent.scrollTop);
+                    chatContent.scrollTop=chatContent.scrollHeight+40;
             }
         }
     }
