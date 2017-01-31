@@ -214,7 +214,9 @@
         },
         methods:{
             error(){
-                alert("里面还没有内容！");
+                console.log(this);
+                console.log(this.$store);
+                console.log(this.$store.actions);
             },
             minimize(){
                 //向主进程发送最小化消息
