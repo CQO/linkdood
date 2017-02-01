@@ -8,7 +8,7 @@
 # 安装依赖包
 npm install
 
-# serve with hot reload at localhost:9080
+# 快速运行程序
 npm run dev
 
 # build electron app for production
