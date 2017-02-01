@@ -254,8 +254,7 @@
             talks:function(){
                 //获取聊天窗口DOM
                     const chatContent = this.$el.getElementsByClassName("chatContent")[0];
-                    
-                    //console.log(chatContent.offsetHeight-chatContent.scrollTop);
+                    //console.log(chatContent.offsetHeight-chatContent.scrollTop);2222222
                     chatContent.scrollTop=chatContent.scrollHeight+40;
             }
         }
