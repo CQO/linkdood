@@ -1,10 +1,10 @@
-import * as types from './mutation-types'
+"use strict";
+import * as types from './mutation-types';
 
-// 窗口 window
-export const toggleWindowMax = ({ dispatch }) => {
-	dispatch(types.TOGGLE_WINDOW_MAX)
-}
-export const toggleWindowMini = ({ dispatch }) => {
-	dispatch(types.TOGGLE_WINDOW_MINI)
-}
+export const decrementMain = ({ commit }) => {
+  commit(types.DECREMENT_MAIN_COUNTER);
+};
 
+export const incrementMain = ({ commit }) => {
+  commit(types.INCREMENT_MAIN_COUNTER);
+};

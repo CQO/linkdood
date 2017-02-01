@@ -202,15 +202,14 @@
 </template>
 <script>
     import myInformation from './card/MyInformation';
-    import { toggleWindowMax, toggleWindowMini } from '../vuex/actions'
+    import {mapGetters} from 'vuex'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
-        vuex: {
-			actions: {
-				toggleWindowMax,
-				toggleWindowMini
-			}
-		},
+        computed:{
+		    ...mapGetters({
+                apps : 'mainCounter'
+            })
+	    },
         components: {
             myInformation
         },
@@ -221,6 +220,7 @@
         },
         created() {
             console.log(this);
+            console.log(this.$store.state.counters.main);
         },
         methods:{
             minimizeHandler(){
