@@ -194,16 +194,23 @@
                     router-link.organization.ico(to="/organization")
                 .set
                     router-link.more.ico(to="/more")
-                    .setting.ico(v-on:click="error")
+                    .setting.ico(@click.prevent.stop="minimizeHandler")
         .contacts.box(v-on:click="userMenuClick = true")
             router-view
         .clear
         myInformation(v-bind:class="{ hide: userMenuClick }")
 </template>
 <script>
-    import myInformation from './card/MyInformation'
+    import myInformation from './card/MyInformation';
+    import { toggleWindowMax, toggleWindowMini } from '../vuex/actions'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
+        vuex: {
+			actions: {
+				toggleWindowMax,
+				toggleWindowMini
+			}
+		},
         components: {
             myInformation
         },
@@ -212,11 +219,20 @@
                 userMenuClick:true
             }
         },
+        created() {
+            console.log(this);
+        },
         methods:{
+            minimizeHandler(){
+		        this.toggleWindowMini()
+			},
+			maximizeHandler(){
+				this.toggleWindowMax()
+			},
             error(){
                 console.log(this);
                 console.log(this.$store);
-                console.log(this.$store.actions);
+                this.setModel("", "sd");
             },
             minimize(){
                 //向主进程发送最小化消息

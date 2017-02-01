@@ -15,42 +15,6 @@
     "vuex:module": "node tasks/vuex/module.js",
     "postinstall": "cd app && npm install"
   },
-  "build": {
-    "productName": "linkdood",
-    "appId": "org.simulatedgreg.electron-vue",
-    "category": "public.app-category.tools",
-    "dmg": {
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
-        }
-      ]
-    },
-    "files": [
-      "dist/",
-      "node_modules/",
-      "package.json"
-    ],
-    "mac": {
-      "icon": "app/icons/icon.icns"
-    },
-    "win": {
-      "icon": "app/icons/icon.ico"
-    },
-    "linux": {
-      "target": [
-        "AppImage"
-      ]
-    }
-  },
   "author": "Greg Holguin <simulatedgreg@gmail.com>",
   "license": "MIT",
   "devDependencies": {
@@ -87,6 +51,7 @@
   },
   "dependencies": {
     "vue-avatar": "^2.0.0",
-    "vue-template-compiler": "^2.1.10"
+    "vue-template-compiler": "^2.1.10",
+    "vuex": "^2.1.1"
   }
 }
