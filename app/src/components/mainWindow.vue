@@ -202,14 +202,13 @@
 </template>
 <script>
     import myInformation from './card/MyInformation';
-    import {mapGetters} from 'vuex'
+    import { mapState } from 'vuex'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
-        computed:{
-		    ...mapGetters({
-                apps : 'mainCounter'
-            })
-	    },
+        computed: mapState([
+            // 映射 this.count 为 store.state.count
+            'counters'
+        ]),
         components: {
             myInformation
         },
@@ -220,6 +219,8 @@
         },
         created() {
             console.log(this);
+            console.log(this.$store.state.counters.main);
+            this.$store.commit("DECREMENT_MAIN_COUNTER")
             console.log(this.$store.state.counters.main);
         },
         methods:{
