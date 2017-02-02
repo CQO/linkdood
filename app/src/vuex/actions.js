@@ -8,3 +8,11 @@ export const decrementMain = ({ commit }) => {
 export const incrementMain = ({ commit }) => {
   commit(types.INCREMENT_MAIN_COUNTER);
 };
+
+export const userMenuClick = ({ commit }) => {
+  commit(types.USER_MENU_CLICK);
+};
+
+export const userMenuHide = ({ commit }) => {
+  commit(types.USER_MENU_HIDE);
+};

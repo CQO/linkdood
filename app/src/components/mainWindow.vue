@@ -184,9 +184,9 @@
             .close-ico.ico(v-on:click.stop="close")
             .minimize-ico.ico(v-on:click.stop="minimize")
         .side-bar.box
-            .side-bar-ico(v-on:click="userMenuClick = true")
+            .side-bar-ico(v-on:click.stop="hideUserMenu")
                 .user
-                    .userMenu.ico(v-on:click.stop="userMenuClick = false")
+                    .userMenu.ico(v-on:click.stop="clickUserMenu")
                 .tab
                     router-link.chat.ico(to="/chat")
                     router-link.contacts.ico(to="/contacts")
@@ -194,11 +194,11 @@
                     router-link.organization.ico(to="/organization")
                 .set
                     router-link.more.ico(to="/more")
-                    .setting.ico(@click.prevent.stop="minimizeHandler")
-        .contacts.box(v-on:click="userMenuClick = true")
+                    .setting.ico(@click.prevent.stop="error")
+        .contacts.box(v-on:click="hideUserMenu")
             router-view
         .clear
-        myInformation(v-bind:class="{ hide: userMenuClick }")
+        myInformation(v-bind:class="{ hide: this.status.userMenuShow }")
 </template>
 <script>
     import myInformation from './card/MyInformation';
@@ -207,33 +207,20 @@
     export default {
         computed: mapState([
             // 映射 this.count 为 store.state.count
-            'counters'
+            'status'
         ]),
         components: {
             myInformation
         },
-        data(){
-            return{
-                userMenuClick:true
-            }
-        },
-        created() {
-            console.log(this);
-            console.log(this.$store.state.counters.main);
-            this.$store.commit("DECREMENT_MAIN_COUNTER")
-            console.log(this.$store.state.counters.main);
-        },
         methods:{
-            minimizeHandler(){
-		        this.toggleWindowMini()
-			},
-			maximizeHandler(){
-				this.toggleWindowMax()
-			},
             error(){
                 console.log(this);
-                console.log(this.$store);
-                this.setModel("", "sd");
+            },
+            clickUserMenu(){
+                this.$store.commit("USER_MENU_CLICK")
+            },
+            hideUserMenu(){
+                this.$store.commit("USER_MENU_HIDE");
             },
             minimize(){
                 //向主进程发送最小化消息
