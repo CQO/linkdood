@@ -198,7 +198,7 @@
         .contacts.box(v-on:click="hideUserMenu")
             router-view
         .clear
-        myInformation(v-bind:class="{ hide: this.status.userMenuShow }")
+        myInformation(v-if="this.status.userMenuShow")
 </template>
 <script>
     import myInformation from './card/MyInformation';
@@ -220,7 +220,7 @@
                 this.$store.commit("USER_MENU_CLICK")
             },
             hideUserMenu(){
-                this.$store.commit("USER_MENU_HIDE");
+                this.$store.commit("ALL_HIDE");
             },
             minimize(){
                 //向主进程发送最小化消息

@@ -178,8 +178,8 @@
         .title-box
             .title
                 p {{ $route.params.item }}(108)
-                .file.icon(v-on:click.stop="showFile = !showFile")
-                .people.icon(v-on:click.stop="showPeople = !showPeople")
+                .file.icon(v-on:click.stop="clickFileMenu")
+                .people.icon(v-on:click.stop="clickPeopleMenu")
                 .clear
         .chatContent
             .time 15:45
@@ -205,18 +205,23 @@
 
 
         transition(name="file")
-            .file-box(v-if="showFile")
+            .file-box(v-if="this.status.fileBoxShow")
                 .title 群文件
                 .file-list 没有群文件
         transition(name="file")
-            .members-box(v-if="showPeople")
+            .members-box(v-if="this.status.peopleBoxShow")
                 .title 群成员
                 .file-list 没有群成员
 </template>
 <script>
     import Avatar from 'vue-avatar/dist/Avatar'
+    import { mapState } from 'vuex'
     import fun from './module/fun'
     export default {
+        computed: mapState([
+            // 映射 this.count 为 store.state.count
+            'status'
+        ]),
         components: {
             Avatar
         },
@@ -245,6 +250,12 @@
                     _this.talks.push(_this.receiveMessage);
                     
                 })
+            },
+            clickFileMenu(){
+                this.$store.commit("CLICK_FILE_BOX")
+            },
+            clickPeopleMenu(){
+                this.$store.commit("CLICK_PEOPLE_BOX");
             },
             ale(){
                 alert("sss");
