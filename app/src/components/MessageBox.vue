@@ -199,7 +199,7 @@
             .tool-bar
                 .jietu
                 .clear
-            textarea(v-model="newTodoText.msg",v-on:keyup.enter="sendMessage")
+            textarea(v-model="newTodoText.msg",v-on:keyup.enter="sendMessage",v-create="")
             .send
                 .send-button(v-on:click="sendMessage") 发送(S)
 
@@ -261,12 +261,13 @@
                 alert("sss");
             }
         },
-        watch:{
-            talks:function(){
-                //获取聊天窗口DOM
-                    const chatContent = this.$el.getElementsByClassName("chatContent")[0];
-                    //console.log(chatContent.offsetHeight-chatContent.scrollTop);2222222
-                    chatContent.scrollTop=chatContent.scrollHeight+40;
+        directives: {
+            // 发送消息后滚动到底部
+            'create': {
+                //文本输入框加载完毕后获取焦点
+                inserted:function (el){
+                    el.focus()
+                }
             }
         }
     }
