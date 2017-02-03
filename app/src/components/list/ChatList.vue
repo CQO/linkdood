@@ -21,6 +21,9 @@
                 }
                 .last-message-text{
                     color: #b9bfcd;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
             }
             .time{
