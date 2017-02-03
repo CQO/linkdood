@@ -240,8 +240,7 @@
             }
         },
         methods:{
-            sendMessage(){
-                console.log(this.chatLog.sessions[10001].messages);
+            sendMessage2(){
                 const talk= this.newTodoText;
                 const _this = this;
                 this.talks.push(this.newTodoText);
@@ -258,6 +257,23 @@
             },
             clickPeopleMenu(){
                 this.$store.commit("CLICK_PEOPLE_BOX");
+            },
+            sendMessage(str){
+                const id = this.$route.params.id
+                const talk= {
+                    id:id,
+                    userID:1,
+                    msg:this.newTodoText.msg
+                }
+                const _this = this
+                this.newTodoText = {id:1,msg:""};
+                this.$store.commit("ADD_DIALOGUE",talk)
+                fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
+                    const message = JSON.parse(e);
+                    const talk= {id:id,userID:0,msg:message.text}
+                    _this.$store.commit("ADD_DIALOGUE",talk)
+                })
+                
             },
             ale(){
                 alert("sss");

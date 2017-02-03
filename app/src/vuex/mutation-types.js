@@ -5,3 +5,4 @@ export const USER_MENU_CLICK = 'USER_MENU_CLICK';
 export const CLICK_FILE_BOX = 'CLICK_FILE_BOX';
 export const CLICK_PEOPLE_BOX = 'CLICK_PEOPLE_BOX';
 export const ALL_HIDE = 'ALL_HIDE';
+export const ADD_DIALOGUE = 'ADD_DIALOGUE';

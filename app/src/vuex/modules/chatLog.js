@@ -27,6 +27,9 @@ let state = {
 };
 
 const mutations = {
+  [types.ADD_DIALOGUE] (state,date) {
+    state.sessions[date.id].messages.push({type:"text",userID:date.userID,content: date.msg});
+  },
 };
 
 export default {
