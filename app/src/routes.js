@@ -8,7 +8,7 @@ export default [
         path: 'chat',
         component: require('components/list/ChatList'),
         children:[
-          {path: 'chatToPeople/:item',component: require('components/MessageBox')}
+          {path: 'chatToPeople/:item/:id',component: require('components/MessageBox')}
         ]
       },
       {

@@ -52,8 +52,8 @@
                 input(type="text",placeholder="搜索：会话 或 添加会话",v-model="searchText")
                 .add(v-on:click="add")
             ul
-                li.contactsList(v-for=" (mess,index) in messageList")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item")
+                li.contactsList(v-for=" (mess,index) in this.chatLog.chatList")
+                     router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item+'/'+mess.id")
                         Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
@@ -68,7 +68,11 @@
 </template>
 <script>
     import Avatar from 'vue-avatar/dist/Avatar'
+    import { mapState } from 'vuex'
     export default {
+        computed: mapState([
+            'chatLog'
+        ]),
         components: {
             Avatar
         },
@@ -109,17 +113,6 @@
                 }
                 //fun.getSpell('好');
             },
-        },
-        computed: {
-            messageList: function () {
-                const searchText = this.searchText;
-                return this.message.filter(function (msg) {                  
-                    if(searchText!==""&&msg.item.indexOf(searchText)<0){
-                        return false;
-                    }
-                    return true;
-                })
-            }
         }
     }
 </script>

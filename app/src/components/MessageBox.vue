@@ -183,16 +183,16 @@
                 .clear
         .chatContent
             .time 15:45
-            template(v-for="item in talks")
-                template(v-if="item.id===0")
+            template(v-for="item in this.chatLog.sessions[$route.params.id].messages")
+                template(v-if="item.userID===0")
                     .message-left
                         Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
-                        .message {{item.msg}}
+                        .message {{item.content}}
                         .clear
                 template(v-else)
                     .message-right
                         img.user-img(src="./img/chatUserImg.png")
-                        .message {{item.msg}}
+                        .message {{item.content}}
                         .clear
                 .clear
         .input-box
@@ -220,7 +220,8 @@
     export default {
         computed: mapState([
             // 映射 this.count 为 store.state.count
-            'status'
+            'status',
+            'chatLog'
         ]),
         components: {
             Avatar
@@ -240,6 +241,7 @@
         },
         methods:{
             sendMessage(){
+                console.log(this.chatLog.sessions[10001].messages);
                 const talk= this.newTodoText;
                 const _this = this;
                 this.talks.push(this.newTodoText);
