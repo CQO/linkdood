@@ -110,9 +110,7 @@
         directives: {
             // 发送消息后滚动到底部
             'scrollToTheBottom'(el){
-                console.log(el.scrollHeight)
-                console.log(el.clientHeight)
-                el.scrollTop = 9999;
+                el.scrollTop = el.scrollHeight - el.clientHeight;
             }
         }
     }

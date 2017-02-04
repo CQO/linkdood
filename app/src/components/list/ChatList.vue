@@ -64,7 +64,7 @@
                         .time
                             p.contacts-time {{ mess.time }}
                      .clear
-                     p.removeMessage(v-on:click="remove(index)") ×
+                     p.removeMessage(v-on:click="remove(mess.id)") ×
                         
         router-view.chat-window
         .clear
@@ -81,37 +81,19 @@
         },
         data(){
             return{
-                searchText:"",
-                message: [
-                    { item: '北信源西安研发公司',lastMessage:'好的',time:'昨天' },
-                    { item: 'SDK测试',lastMessage:'cxs',time:'昨天' },
-                    { item: '客户端问题收集群',lastMessage:'OK',time:'昨天' },
-                    { item: '公司内部千人测试群',lastMessage:'测试',time:'昨天' },
-                    { item: '北信源西安分公司',lastMessage:'好的',time:'昨天' },
-                    { item: '陕西互联西安',lastMessage:'cxs',time:'昨天' },
-                    { item: '日常事物提醒群',lastMessage:'OK',time:'昨天' },
-                    { item: 'MAC包测试群',lastMessage:'好的',time:'昨天' },
-                    { item: '西安连豆豆测试群',lastMessage:'cxs',time:'昨天' },
-                    { item: '测试群',lastMessage:'OK',time:'昨天' },
-                    { item: '刘清辉',lastMessage:'测试',time:'昨天' },
-                    { item: 'IMH5',lastMessage:'测试',time:'昨天' },
-                    { item: '海龙会所',lastMessage:'测试',time:'昨天' },
-                    { item: '李盼',lastMessage:'测试',time:'昨天' },
-                    { item: '赵雯',lastMessage:'测试',time:'昨天' },
-                    { item: '罗进',lastMessage:'测试',time:'昨天' }
-                ]
+                searchText:""
             }
         },
         methods:{
-            remove:function (index){
-                this.message.splice(index, 1);
+            remove:function (id){
+                this.$store.commit("DELETE_THE_CONVERSATION_MEMBER",id)
             },
             add:function(){
                 if(this.searchText===""){
                     alert("请在左侧输入框中输入会话名称！");
                 }
                 else{
-                    this.message.push({ item: this.searchText,lastMessage:'',time:'现在' });
+                    alert("追加成功");
                     this.searchText="";
                 }
                 //fun.getSpell('好');
