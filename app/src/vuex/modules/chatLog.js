@@ -2,14 +2,22 @@
 import * as types from '../mutation-types';
 let state = {
   friends:{
-    10001:"西门吹雪",
-    10002:"葫芦头",
-    10003:"惨惨戚戚",
-    10004:"财务人员",
-    10005:"笔记本电脑",
-    10006:"风和日丽",
-    10007:"吴",
-    10008:"一人独上西楼，月如钩",
+    10001:{name:"西门吹雪",pinyin:"ximenchuixue",initials:"X"},
+    10002:{name:"葫芦头",pinyin:"hulutou",initials:"H"},
+    10003:{name:"惨惨戚戚",pinyin:"cancanqiqi",initials:"C"},
+    10004:{name:"财务人员",pinyin:"caiwurenyuan",initials:"C"},
+    10005:{name:"笔记本电脑",pinyin:"bijibendiannao",initials:"B"},
+    10006:{name:"风和日丽",pinyin:"fengherili",initials:"F"},
+    10007:{name:"吴",pinyin:"wu",initials:"W"},
+    10008:{name:"一人独上西楼，月如钩",pinyin:"yirendushangxilou,yuerugou",initials:"Y"},
+    10009:{name:"中关村",pinyin:"zhongguancun",initials:"Z"},
+    10010:{name:"月亮",pinyin:"yueliang",initials:"Y"},
+    10011:{name:"划船",pinyin:"huachuan",initials:"H"},
+    10012:{name:"叶子",pinyin:"yezi",initials:"Y"},
+    10013:{name:"石头",pinyin:"shitou",initials:"S"},
+    10014:{name:"芝麻开门",pinyin:"zhimakaimen",initials:"Z"},
+    10015:{name:"理解",pinyin:"lijie",initials:"L"},
+    10016:{name:"文章",pinyin:"wenzhang",initials:"W"},
   },
     
   chatList:{

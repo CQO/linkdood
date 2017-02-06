@@ -48,9 +48,13 @@
         .clear
 </template>
 <script>
-    import fun from '../module/fun';
+    import fun from '../module/fun'
+    import { mapState } from 'vuex'
     import Avatar from 'vue-avatar/dist/Avatar'
     export default {
+        computed: mapState([
+            'chatLog'
+        ]),
         components: {
             Avatar
         },
@@ -104,10 +108,11 @@
             },
         },
         created: function () {
-            const message = this.message;
-            for(let i=0;i<message.length;i++){
+            const message = this.chatLog.friends;
+            for(let item in message){
                 //将条目添加到对应数组
-                this.list[message[i].firstLetter].push(message[i].item)
+                //console.log(message[item].initials)
+                this.list[message[item].initials].push(message[item].name)
             }
         },
     }

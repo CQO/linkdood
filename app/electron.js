@@ -51,7 +51,7 @@ function createChatWindow(){
                     message: '确定退出吗?'
                 }, 
                 function(response) {
-                    if (response===0) app.quit();
+                    if (response===0) {app.quit();}
                 });
             }
         }
