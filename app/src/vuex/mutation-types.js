@@ -8,3 +8,5 @@ export const ALL_HIDE = 'ALL_HIDE';
 export const ADD_DIALOGUE = 'ADD_DIALOGUE';
 //删除对话成员
 export const DELETE_THE_CONVERSATION_MEMBER = 'DELETE_THE_CONVERSATION_MEMBER';
+//新增对话
+export const ADD_CHAT = 'ADD_CHAT';

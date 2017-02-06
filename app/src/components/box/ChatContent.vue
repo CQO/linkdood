@@ -86,7 +86,7 @@
     .chatContent(v-scrollToTheBottom='')
         .message
             .time 15:45
-            template(v-for="item in this.chatLog.sessions[$route.params.id].messages")
+            template(v-for="item in chatList")
                 template(v-if="item.userID===0")
                     .message-left
                         Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
@@ -111,6 +111,22 @@
             // 发送消息后滚动到底部
             'scrollToTheBottom'(el){
                 el.scrollTop = el.scrollHeight - el.clientHeight;
+            }
+        },
+        computed:{
+            chatList:function(){
+                const route = this.$route.params;
+                const chatList = this.$store.state.chatLog;
+                //判断聊天列表是否存在
+                if(chatList.messages){
+                    return chatList.sessions[route.id].messages
+                }
+                else{
+                    const talk ={ item: route.item,id:route.id,lastMessage:'测试',time:'昨天' };
+                    this.$store.commit("ADD_CHAT",talk)
+                    return false;
+                }
+                
             }
         }
     }

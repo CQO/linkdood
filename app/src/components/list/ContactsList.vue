@@ -36,14 +36,13 @@
                 input(type="text",placeholder="搜索：联系人",v-model="searchText")
                 .add(v-on:click="add")
             ul
-                template(v-for="(item,key) in list")
-                    template(v-if="item[0]")
-                        li.classification(v-if="searchText==''") {{key}}
-                        li.contactsList(v-for=" list in item",v-if="searchText==''||list.indexOf(searchText)>=0")
-                            router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list")
-                                Avatar.user-img(v-bind:size='45',v-bind:username="list")
-                                p.contacts-dialogue-item {{ list }}
-                                .clear
+                template(v-for="(item,key) in this.chatLog.friends")
+                    li.classification(v-if="searchText==''") {{key}}
+                    li.contactsList(v-for=" (list,key) in item",v-if="searchText==''||list.name.indexOf(searchText)>=0")
+                        router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list.name+'/'+key")
+                            Avatar.user-img(v-bind:size='45',v-bind:username="list.name")
+                            p.contacts-dialogue-item {{ list.name }}
+                            .clear
         router-view.chat-window
         .clear
 </template>
@@ -60,36 +59,7 @@
         },
         data(){
             return{
-                searchText:"",
-                list:{
-                    A:[],B:[],C:[],D:[],E:[],F:[],G:[],H:[],I:[],J:[],K:[],L:[],M:[],N:[],O:[],P:[],Q:[],R:[],S:[],T:[],U:[],V:[],W:[],X:[],Y:[],Z:[],
-                },
-                message: [
-                    { item: '北京办事处',firstLetter:'B'},
-                    { item: '李红',firstLetter:'L'},
-                    { item: '王宏伟',firstLetter:'W'},
-                    { item: '李雪涛',firstLetter:'L'},
-                    { item: '小蓝',firstLetter:'X'},
-                    { item: '白小双',firstLetter:'B'},
-                    { item: '吴彦祖',firstLetter:'W'},
-                    { item: '马云',firstLetter:'M'},
-                    { item: '郭德纲',firstLetter:'G'},
-                    { item: '王艳',firstLetter:'W'},
-                    { item: '西门吹雪',firstLetter:'X'},
-                    { item: '孙悟空',firstLetter:'S'},
-                    { item: '猪八戒',firstLetter:'Z'},
-                    { item: '沙僧',firstLetter:'S'},
-                    { item: '唐僧',firstLetter:'T'},
-                    { item: '牛魔王',firstLetter:'N'},
-                    { item: '铁扇公主',firstLetter:'T'},
-                    { item: '红孩儿',firstLetter:'H'},
-                    { item: '太上老君',firstLetter:'T'},
-                    { item: '齐天大圣',firstLetter:'Q'},
-                    { item: '夜明珠',firstLetter:'Y'},
-                    { item: 'JD',firstLetter:'J'},
-                    { item: 'kiss me',firstLetter:'K'},
-                    { item: 'my word',firstLetter:'M'}
-                ]
+                searchText:""
             }
         },
         methods: {
@@ -106,14 +76,6 @@
                 }
                 //fun.getSpell('好');
             },
-        },
-        created: function () {
-            const message = this.chatLog.friends;
-            for(let item in message){
-                //将条目添加到对应数组
-                //console.log(message[item].initials)
-                this.list[message[item].initials].push(message[item].name)
-            }
-        },
+        }
     }
 </script>

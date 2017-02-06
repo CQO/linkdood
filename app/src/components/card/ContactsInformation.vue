@@ -68,7 +68,7 @@
                 p.item 服务器:
                 p.value test
                 .clear
-            router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item") 发起聊天 
+            router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item+'/'+$route.params.id") 发起聊天 
 </template>
 <script>
     import Avatar from 'vue-avatar/dist/Avatar';
