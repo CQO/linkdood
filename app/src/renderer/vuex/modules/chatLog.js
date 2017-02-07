@@ -71,8 +71,8 @@ const mutations = {
   },
   //新增对话
   [types.ADD_CHAT] (state,date) {
-    console.log("新增对话");
-    Vue.set(state.chatList, 1,{ item: '月亮',id:"10010",lastMessage:'测试',time:'昨天' });
+    console.log(date);
+    Vue.set(state.chatList, 1,{ item: date.item,id:date.id,lastMessage:'',time:'昨天' });
   },
 };
 
