@@ -118,7 +118,7 @@
                 const route = this.$route.params;
                 const chatList = this.$store.state.chatLog;
                 //判断聊天列表是否存在
-                if(chatList.messages){
+                if(chatList.chatList[route.id]){
                     return chatList.sessions[route.id].messages
                 }
                 else{
