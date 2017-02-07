@@ -9,7 +9,6 @@ const path = require('path');
 
 let chatWindow=null,tray=null,config = {};
 const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html`;
-var imgUrl = path.join(__dirname, '', 'imgs/icon16.png');
 //创建聊天窗口
 function createWindow(){
     chatWindow= new BrowserWindow({
@@ -31,7 +30,7 @@ function createWindow(){
     } 
     else {
         chatWindow.loadURL(`file://${__dirname}/index.html#`);
-        tray = new Tray(imgUrl);
+        tray = new Tray(path.join(__dirname, './imgs/icon16.png'));
     }
     const trayMenuTemplate = [
         // 恢复窗口

@@ -26,7 +26,7 @@ let rendererConfig = {
       {test: /\.json$/,loader: 'json-loader'},
       {test: /\.node$/,loader: 'node-loader'},
       {test: /\.vue$/,loader: 'vue-loader',options: {loaders: {sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',scss: 'vue-style-loader!css-loader!sass-loader'}}},
-      {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,loader: 'url-loader',query: {limit: 0,name: 'imgs/[name].[ext]'}},
+      {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,loader: 'url-loader',query: {limit: 1,name: 'imgs/[name].[ext]'}},
       {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,loader: 'url-loader',query: {limit: 10000,name: 'fonts/[name].[ext]'}}
     ]
   },
