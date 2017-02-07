@@ -21,7 +21,7 @@ let mainConfig = {
       {test: /\.js$/ , loader: 'babel-loader',exclude: /node_modules/},
       {test: /\.json$/ , loader: 'json-loader'},
       {test: /\.vue$/ , loader: 'vue-loader'},
-      {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 10 , name: 'imgs/[name].[ext]'}},
+      {test: /\.(png|jpe?g|gif|svg)(\?.*)?$/ , loader: 'file-loader?limit=10000!./file.png' },
       {test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/ , loader: 'url-loader' , query: {limit: 8192 , name: 'fonts/[name].[hash:7].[ext]'}}
     ]
   },
