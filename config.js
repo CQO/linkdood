@@ -1,11 +1,12 @@
-'use strict';
+'use strict'
 
-const path = require('path');
+const path = require('path')
 
 let config = {
   // Name of electron app
   // Will be used in production builds
-  name: 'linkdood',
+  name: 'dood',
+
   // webpack-dev-server port
   port: 9080,
 
@@ -14,15 +15,15 @@ let config = {
   building: {
     arch: 'x64',
     asar: true,
-    icon: path.join(__dirname, 'app/icons/icon'),
     dir: path.join(__dirname, 'app'),
+    icon: path.join(__dirname, 'app/icons/icon'),
     ignore: /\b(src|index\.ejs|icons)\b/,
     out: path.join(__dirname, 'builds'),
     overwrite: true,
     platform: process.env.PLATFORM_TARGET || 'all'
   }
-};
+}
 
-config.building.name = config.name;
+config.building.name = config.name
 
-module.exports = config;
+module.exports = config

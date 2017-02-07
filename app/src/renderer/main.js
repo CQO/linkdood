@@ -12,7 +12,7 @@ import store from './vuex/store';
 Vue.use(Electron);
 Vue.use(Resource);
 Vue.use(Router);
-Vue.use(Vuex)
+Vue.use(Vuex);
 Vue.config.debug = true;
 
 const router = new Router({

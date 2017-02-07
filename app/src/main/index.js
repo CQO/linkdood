@@ -1,19 +1,17 @@
 'use strict';
-const {ipcMain} = require('electron');
-const electron = require('electron');
+
+import { app, BrowserWindow,ipcMain } from 'electron';
 const Dialog = require('electron').dialog;
-const app = electron.app;// 控制应用生命周期的模块。
-const BrowserWindow = electron.BrowserWindow;// 创建原生浏览器窗口的模块
+const electron = require('electron');
 const Menu = electron.Menu;
 const Tray = electron.Tray;
 const path = require('path');
 
-// 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
-// window 会被自动地关闭
 let chatWindow=null,tray=null,config = {};
+const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html`;
 
 //创建聊天窗口
-function createChatWindow(){
+function createWindow(){
     chatWindow= new BrowserWindow({
         width: 860,
         height: 590,
@@ -25,7 +23,7 @@ function createChatWindow(){
     });
     //加载聊天窗口
     if (process.env.NODE_ENV === 'development') {
-        config=require('../config');
+        config=require('../../../config');
         chatWindow.loadURL(`http://localhost:${config.port}/#`);
         //打开开发者工具条
         chatWindow.openDevTools();
@@ -33,7 +31,7 @@ function createChatWindow(){
     else {
         chatWindow.loadURL(`file://${__dirname}/dist/index.html#`);
     }
-    tray = new Tray(path.join(__dirname, 'img/icon16.png'));
+    tray = new Tray(path.join(__dirname, '../../icons/icon16.png'));
     const trayMenuTemplate = [
         // 恢复窗口
         {label: '显示主窗口',accelerator: 'CmdOrCtrl+R',click: function() {chatWindow.restore();chatWindow.show();}}, 
@@ -73,13 +71,15 @@ function createChatWindow(){
 
 // 当 Electron 完成了初始化并且准备创建浏览器窗口的时候
 // 这个方法就被调用
-app.on('ready', createChatWindow);
+app.on('ready', createWindow);
 
 // 当所有窗口被关闭了，退出。
 app.on('window-all-closed', () => {
-    // 在 OS X 上，通常用户在明确地按下 Cmd + Q 之前
-    // 应用会保持活动状态
-    if (process.platform !== 'darwin') {app.quit();}
+  // 在 OS X 上，通常用户在明确地按下 Cmd + Q 之前
+  // 应用会保持活动状态
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
 });
 
 app.on('activate', () => {
