@@ -11,3 +11,5 @@ export const ADD_DIALOGUE = 'ADD_DIALOGUE';
 export const DELETE_THE_CONVERSATION_MEMBER = 'DELETE_THE_CONVERSATION_MEMBER';
 //新增对话
 export const ADD_CHAT = 'ADD_CHAT';
+//设置好友列表
+export const SET_CONTACT_LIST = 'SET_CONTACT_LIST';

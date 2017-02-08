@@ -55,7 +55,7 @@
                 input(type="text",placeholder="搜索：会话 或 添加会话",v-model="searchText")
                 .add(v-on:click="add")
             ul
-                li.contactsList(v-for=" (mess,index) in this.chatLog.chatList")
+                li.contactsList(v-for=" (mess,index) in evenNumbers")
                      router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item+'/'+mess.id")
                         Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
@@ -98,6 +98,10 @@
                 }
                 //fun.getSpell('好');
             },
+            evenNumbers: function () {
+                console.log(this.chatLog.chatList)
+                    return this.chatLog.chatList
+            }
         }
     }
 </script>

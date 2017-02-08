@@ -36,7 +36,7 @@
                 input(type="text",placeholder="搜索：联系人",v-model="searchText")
                 .add(v-on:click="add")
             ul
-                template(v-for="(item,key) in this.chatLog.friends")
+                template(v-for="(item,key) in this.chatLog.contacts")
                     li.classification(v-if="searchText==''") {{key}}
                     li.contactsList(v-for=" (list,key) in item",v-if="searchText==''||list.name.indexOf(searchText)>=0")
                         router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list.name+'/'+key")

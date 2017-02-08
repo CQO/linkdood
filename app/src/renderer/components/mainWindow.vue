@@ -148,11 +148,13 @@
 <script>
     import myInformation from './card/MyInformation';
     import { mapState } from 'vuex'
+    import fun from './module/fun'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
         computed: mapState([
             // 映射 this.count 为 store.state.count
-            'status'
+            'status',
+            'chatLog'
         ]),
         components: {
             myInformation
@@ -175,5 +177,39 @@
                 ipcRenderer.sendSync('main-window-message', 'close');
             },
         },
+        created:function(){
+            console.log("[尝试]进行登陆")
+            const _this = this;
+            fun.Ajax.post(this.status.server,"Landing",function(e){
+                const message =JSON.parse(e);
+                console.log(JSON.parse(e));
+                switch(message.code){
+                    case 0:{
+                        console.log(message);
+                        break;
+                    }
+                    case 113:{
+                        //如果已经登陆，直接获取好友列表
+                        fun.Ajax.post("http://192.168.132.217:3000/","friendsList",function(e){
+                            const message = JSON.parse(e);
+                            switch(message.code){
+                                case 0:{
+                                    console.log(`[成功]获取好友列表`)
+                                    let list = {}
+                                    for(let item of message.msg.contacts){
+                                        const userId = item.userId
+                                        let grouping = list[item.pinyin[0].toUpperCase()]={};
+                                        grouping[userId]={avatar:item.avatar,name:item.name,pinyin:item.pinyin}
+                                        list[item.pinyin[0].toUpperCase()]=grouping
+                                    }
+                                    _this.$store.commit("SET_CONTACT_LIST",list)
+                                    console.log(_this.chatLog);
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+        }
     }
 </script>

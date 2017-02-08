@@ -5,7 +5,8 @@ const state = {
   main: 0,
   userMenuShow:false,
   fileBoxShow:false,
-  peopleBoxShow:false
+  peopleBoxShow:false,
+  server:"http://192.168.132.217:3000/"
 };
 
 const mutations = {
