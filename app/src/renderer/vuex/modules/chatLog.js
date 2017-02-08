@@ -68,12 +68,13 @@ const mutations = {
   [types.DELETE_THE_CONVERSATION_MEMBER] (state,id) {
     history.back();
     Vue.delete(state.chatList,id);
-    console.log(state.chatList);
   },
   //新增对话
   [types.ADD_CHAT] (state,date) {
     Vue.set(state.chatList, date.id,{ item: date.item,id:date.id,lastMessage:'',time:'昨天' });
-    Vue.set(state.sessions, date.id,{type:"people",messages: []});
+    if(!state.sessions[date.id]){
+      Vue.set(state.sessions, date.id,{type:"people",messages: []});
+    }
   },
 };
 

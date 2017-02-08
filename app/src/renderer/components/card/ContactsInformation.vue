@@ -82,13 +82,8 @@
         },
         methods:{
             remove:function (id){
-                console.log(document.URL)
-                //(v-bind:to="'/chat/chatToPeople/'+$route.params.item+'/'+$route.params.id")
-                //this.$store.commit("DELETE_THE_CONVERSATION_MEMBER",id)
                 const route = this.$route.params;
                 const chatList = this.$store.state.chatLog;
-                console.log(chatList)
-                console.log(route)
                 //判断聊天列表是否存在
                 if(!chatList.chatList[route.id]){
                     const talk ={ item: route.item,id:route.id,lastMessage:'测试',time:'昨天' };
