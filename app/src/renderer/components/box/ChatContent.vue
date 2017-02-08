@@ -117,16 +117,7 @@
             chatList:function(){
                 const route = this.$route.params;
                 const chatList = this.$store.state.chatLog;
-                //判断聊天列表是否存在
-                if(chatList.chatList[route.id]){
-                    return chatList.sessions[route.id].messages
-                }
-                else{
-                    const talk ={ item: route.item,id:route.id,lastMessage:'测试',time:'昨天' };
-                    this.$store.commit("ADD_CHAT",talk)
-                    return false;
-                }
-                
+                return chatList.sessions[route.id].messages
             }
         }
     }

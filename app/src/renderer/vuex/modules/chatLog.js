@@ -66,8 +66,7 @@ const mutations = {
   },
   //删除对话成员
   [types.DELETE_THE_CONVERSATION_MEMBER] (state,id) {
-    console.log(id);
-    console.log(state.chatList);
+    history.back();
     Vue.delete(state.chatList,id);
     console.log(state.chatList);
   },

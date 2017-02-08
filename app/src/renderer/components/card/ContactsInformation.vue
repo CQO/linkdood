@@ -68,13 +68,34 @@
                 p.item 服务器:
                 p.value test
                 .clear
-            router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item+'/'+$route.params.id") 发起聊天 
+            .buttom(@click.prevent.stop="remove") 发起聊天 
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar';
+    import Avatar from 'vue-avatar/dist/Avatar'
+    import { mapState } from 'vuex'
     export default {
+        computed: mapState([
+            'chatLog'
+        ]),
         components: {
             Avatar
+        },
+        methods:{
+            remove:function (id){
+                console.log(document.URL)
+                //(v-bind:to="'/chat/chatToPeople/'+$route.params.item+'/'+$route.params.id")
+                //this.$store.commit("DELETE_THE_CONVERSATION_MEMBER",id)
+                const route = this.$route.params;
+                const chatList = this.$store.state.chatLog;
+                console.log(chatList)
+                console.log(route)
+                //判断聊天列表是否存在
+                if(!chatList.chatList[route.id]){
+                    const talk ={ item: route.item,id:route.id,lastMessage:'测试',time:'昨天' };
+                    this.$store.commit("ADD_CHAT",talk)
+                }
+                window.location.href=`#/chat/chatToPeople/${route.item}/${route.id}`
+            },
         }
     }
 </script>
