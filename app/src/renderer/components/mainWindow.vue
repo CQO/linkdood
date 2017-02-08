@@ -148,7 +148,6 @@
 <script>
     import myInformation from './card/MyInformation';
     import { mapState } from 'vuex'
-    import fun from './module/fun'
     const ipcRenderer = require('electron').ipcRenderer;
     export default {
         computed: mapState([
@@ -160,14 +159,7 @@
         },
         methods:{
             error(){
-                fun.Ajax.post("http://192.168.132.217:3000/","Landing",function(e){
-                    console.log(e);
-                    alert(e);
-                })
-                // fun.Ajax.post("http://192.168.132.217:3000/","friendsList",function(e){
-                //     console.log(e);
-                //     alert(e);
-                // })
+                console.log(this)
             },
             clickUserMenu(){
                 this.$store.commit("USER_MENU_CLICK")

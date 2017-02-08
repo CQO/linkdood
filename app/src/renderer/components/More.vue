@@ -6,9 +6,10 @@
         width: 666px;
         margin: 7% auto;
         .box{
-            width: 222px;
+            width: 220px;
             height: 50%;
             float: left;
+            border: 1px solid beige;
         }
     }
 }
@@ -16,19 +17,30 @@
 <template lang="pug">
     .application
         .application-box
-            .box
-            .box
-            .box
+            .box(@click.prevent.stop="denglu") 登陆
+            .box(@click.prevent.stop="haoyou") 获取好友列表
+            .box 
             .box
             .box
             .box
 </template>
 <script>
-    
+    import fun from './module/fun'
     export default {
         methods:{
-            error(){
-                alert("里面还没有内容！")
+            denglu(){
+                alert("开始登陆")
+                fun.Ajax.post("http://192.168.132.217:3000/","Landing",function(e){
+                    console.log(e);
+                    alert(e);
+                })
+            },
+            haoyou(){
+                alert("开始获取好友")
+                fun.Ajax.post("http://192.168.132.217:3000/","friendsList",function(e){
+                    console.log(e);
+                    alert(e);
+                })
             }
         },
     }
