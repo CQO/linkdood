@@ -83,7 +83,7 @@
 }
 </style>
 <template lang="pug">
-    .chatContent(v-scrollToTheBottom='')
+    .chatContent(v-scrollToTheBottom='this')
         .message
             .time 15:45
             template(v-for="item in chatList")
@@ -109,7 +109,7 @@
         },
         directives: {
             // 发送消息后滚动到底部
-            'scrollToTheBottom'(el){
+            'scrollToTheBottom'(el,e){
                 el.scrollTop = el.scrollHeight - el.clientHeight;
             }
         },

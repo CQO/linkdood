@@ -52,6 +52,7 @@
     "webpack-dev-server": "^2.2.0"
   },
   "dependencies": {
+    "awe-dnd": "^0.3.0",
     "postcss-loader": "^1.2.2",
     "postcss-smart-import": "^0.6.7",
     "precss": "^1.4.0",

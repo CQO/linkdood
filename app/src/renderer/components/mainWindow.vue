@@ -177,42 +177,6 @@
                 ipcRenderer.sendSync('main-window-message', 'close');
             },
         },
-        created:function(){
-            console.log("[尝试]进行登陆")
-            const _this = this;
-            //加入好友列表
-            function setContacts(message,){
-                let list = {}
-                for(let item of message.msg.contacts){
-                    const userId = item.userId
-                    let grouping = list[item.pinyin[0].toUpperCase()]={};
-                    grouping[userId]={avatar:item.avatar,name:item.name,pinyin:item.pinyin}
-                    list[item.pinyin[0].toUpperCase()]=grouping
-                }
-                _this.$store.commit("SET_CONTACT_LIST",list)
-            }
-            fun.Ajax.post(this.status.server,"Landing",function(e){
-                const message =JSON.parse(e);
-                console.log(JSON.parse(e));
-                switch(message.code){
-                    case 0:{
-                        setContacts(message)
-                        break;
-                    }
-                    case 113:{
-                        //如果已经登陆，直接获取好友列表
-                        fun.Ajax.post(_this.status.server,"friendsList",function(e){
-                            const message = JSON.parse(e);
-                            switch(message.code){
-                                case 0:{
-                                    console.log(`[成功]获取好友列表`)
-                                    setContacts(message)
-                                }
-                            }
-                        })
-                    }
-                }
-            })
-        }
+
     }
 </script>

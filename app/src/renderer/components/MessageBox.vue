@@ -69,7 +69,6 @@
                 
         ChatContent
         MessageInputBox
-
         transition(name="file")
             .file-box(v-if="this.status.fileBoxShow")
                 .title 群文件

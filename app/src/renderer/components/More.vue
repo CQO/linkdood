@@ -30,14 +30,14 @@
         methods:{
             denglu(){
                 alert("开始登陆")
-                fun.Ajax.post("http://127.0.0.1:3000/","Landing",function(e){
+                fun.Ajax.post("http://192.168.132.217:3000/","Landing",function(e){
                     console.log(e);
                     alert(e);
                 })
             },
             haoyou(){
                 alert("开始获取好友")
-                fun.Ajax.post("http://127.0.0.1:3000/","friendsList",function(e){
+                fun.Ajax.post("http://192.168.132.217:3000/","friendsList",function(e){
                     console.log(e);
                     alert(e);
                 })
