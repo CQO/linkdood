@@ -19,7 +19,7 @@
         .application-box
             .box(@click.prevent.stop="denglu") 登陆
             .box(@click.prevent.stop="haoyou") 获取好友列表
-            .box 
+            .box(@click.prevent.stop="baocun") 保存聊天记录
             .box
             .box
             .box
@@ -41,6 +41,10 @@
                     console.log(e);
                     alert(e);
                 })
+            },
+            baocun(){
+                alert("开始保存聊天记录")
+                this.$store.commit("SAVE_YOUR_CHATS")
             }
         },
     }

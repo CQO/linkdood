@@ -55,7 +55,8 @@
     import fun from '../module/fun'
     export default {
         computed: mapState([
-            'chatLog'
+            'chatLog',
+            'status'
         ]),
         data(){
             return{
@@ -73,12 +74,16 @@
                 const _this = this
                 this.newTodoText = "";
                 this.$store.commit("ADD_DIALOGUE",talk)
-                fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
-                    const message = JSON.parse(e);
-                    const talk= {id:id,userID:0,msg:message.text}
-                    _this.$store.commit("ADD_DIALOGUE",talk)
+                // fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
+                //     const message = JSON.parse(e);
+                //     const talk= {id:id,userID:0,msg:message.text}
+                //     _this.$store.commit("ADD_DIALOGUE",talk)
+                // })
+                const msg={command:"sendMessage",userID:talk.id,msg:talk.msg}
+
+                fun.Ajax.post(this.status.server,JSON.stringify(msg),function(e){
+                    console.log(e)
                 })
-                
             },
         },
         directives: {

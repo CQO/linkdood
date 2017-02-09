@@ -13,3 +13,5 @@ export const DELETE_THE_CONVERSATION_MEMBER = 'DELETE_THE_CONVERSATION_MEMBER';
 export const ADD_CHAT = 'ADD_CHAT';
 //设置好友列表
 export const SET_CONTACT_LIST = 'SET_CONTACT_LIST';
+//保存聊天记录
+export const SAVE_YOUR_CHATS = 'SAVE_YOUR_CHATS';
