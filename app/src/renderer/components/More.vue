@@ -1,16 +1,17 @@
 <style lang="postcss">
 .application{
     .application-box{
-        height: 80%;
-        margin: 7% auto;
         display: flex;
         flex-wrap: wrap;
-        width: 42rem;
-        .box{
-            width: 220px;
-            height: 50%;
-            float: left;
-            border: 1px solid beige;
+        width: 30rem;
+        .color-box{
+            width: 33%;
+            height: 6rem;
+            background: #efefef;
+            line-height: 6rem;
+            text-align: center;
+            color: #fff;
+            transition: transform .3s;
         }
         .Aquamarine{
             background-color: Aquamarine
@@ -32,12 +33,41 @@
         }
     }
 }
+.color-list{
+    width: 48rem;
+    height: 70%;
+    margin: 10% auto;
+    border: 1px solid #d0edfe;
+    .color-item{
+        background-color: yellow;
+        height: 10rem;
+        width: 16rem;
+        float: left;
+    }
+    .Aquamarine{
+        background-image: url("img/card1.png");
+        width: 240px;
+        height: 400px;
+    }
+    .Hotpink{
+        background-image: url("img/card2.png");
+        width: 520px;
+        height: 220px;
+    }
+    .Gold{
+        background-image: url("img/card3.png");
+        width: 320px;
+        height: 155px;
+    }
+    .Crimson{
+        width: 155px;
+        height: 155px;
+    }
+}
 </style>
 <template lang="pug">
-    .application
-        kkk.application-box
-            template(v-for="color in colors")
-                box.box(v-dragging="{ item: color, list: colors, group: 'color' }",v-bind:class="color.text") {{color.text}}
+    .color-list
+        .color-item(v-for="color in colors" v-dragging="{ item: color, list: colors, group: 'color' }",:key="color.text",v-bind:class="color.text")
 </template>
 <script>
     import fun from './module/fun'
@@ -52,10 +82,6 @@
                     text: "Gold"
                 }, {
                     text: "Crimson"
-                }, {
-                    text: "Blueviolet"
-                }, {
-                    text: "Lightblue"
                 }]
             }
         }
