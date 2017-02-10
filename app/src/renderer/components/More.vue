@@ -39,10 +39,15 @@
     margin: 10% auto;
     border: 1px solid #d0edfe;
     .color-item{
-        background-color: yellow;
-        height: 10rem;
-        width: 16rem;
         float: left;
+        margin: 2px;
+        border-radius: 5px;
+        transition: transform .3s;
+        .shadow{
+            background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0));
+            height: 20px;
+            color:#d1e6db;
+        }
     }
     .Aquamarine{
         background-image: url("img/card1.png");
@@ -59,15 +64,15 @@
         width: 320px;
         height: 155px;
     }
-    .Crimson{
-        width: 155px;
-        height: 155px;
+    .color-item.dragging{
+        transform: scale(1.1);
     }
 }
 </style>
 <template lang="pug">
     .color-list
         .color-item(v-for="color in colors" v-dragging="{ item: color, list: colors, group: 'color' }",:key="color.text",v-bind:class="color.text")
+            .shadow {{color.item}}
 </template>
 <script>
     import fun from './module/fun'
@@ -75,13 +80,14 @@
         data () {
             return {
                 colors: [{
-                    text: "Aquamarine"
+                    text: "Aquamarine",
+                    item:"航班提醒"
                 }, {
-                    text: "Hotpink"
+                    text: "Hotpink",
+                    item:""
                 }, {
-                    text: "Gold"
-                }, {
-                    text: "Crimson"
+                    text: "Gold",
+                    item:""
                 }]
             }
         }

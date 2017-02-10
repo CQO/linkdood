@@ -83,7 +83,7 @@
                 }
             }
             .tab {
-                height: 70%;
+                height: 80%;
                 .ico{
                     width: 40px;
                     height: 40px;
@@ -96,27 +96,18 @@
                 .contacts{
                     background-image: url("img/contacts.png")
                 }
-                .group{
-                    background-image: url("img/group.png")
-                }
-                .organization{
-                    background-image: url("img/organization.png")
-                }
                 .router-link-active{
                     background-color: black;
                 }
             }
             .set {
-                height: 20%;
+                height: 10%;
                 .ico{
                     width: 22px;
                     height: 22px;
                 }
                 .more{
                     background-image: url("img/more.png")
-                }
-                .setting{
-                    background-image: url("img/setting.png")
                 }
             }
         }  
@@ -135,11 +126,8 @@
                 .tab
                     router-link.chat.ico(to="/chat")
                     router-link.contacts.ico(to="/contacts")
-                    router-link.group.ico(to="/group")
-                    router-link.organization.ico(to="/organization")
                 .set
                     router-link.more.ico(to="/more")
-                    .setting.ico(@click.prevent.stop="error")
         .contacts.box(v-on:click="hideUserMenu")
             router-view
         .clear
@@ -153,16 +141,12 @@
     export default {
         computed: mapState([
             // 映射 this.count 为 store.state.count
-            'status',
-            'chatLog'
+            'status'
         ]),
         components: {
             myInformation
         },
         methods:{
-            error(){
-                console.log(this)
-            },
             clickUserMenu(){
                 this.$store.commit("USER_MENU_CLICK")
             },

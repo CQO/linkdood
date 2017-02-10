@@ -18,14 +18,6 @@ export default [
           {path: 'userIntroduction/:item/:id',component: require('components/card/ContactsInformation')}
         ]
       },
-      {
-        path: 'group',
-        component: require('components/list/GroupList'),
-        children:[
-          {path: 'groupIntroduction/:item',component: require('components/card/GroupInformation')}
-        ]
-      },
-      {path: 'organization',component: require('components/Organization')},
       {path: 'more',component: require('components/More')},
     ]
   },

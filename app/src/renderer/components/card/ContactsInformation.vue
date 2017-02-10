@@ -66,7 +66,7 @@
                 .clear
             .server
                 p.item 服务器:
-                p.value test
+                p.value vrv
                 .clear
             .buttom(@click.prevent.stop="remove") 发起聊天 
 </template>
