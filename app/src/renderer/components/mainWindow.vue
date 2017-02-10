@@ -175,7 +175,12 @@
                         list[shouzimu]={}
                     }
                     const grouping =list[shouzimu];
-                    grouping[userId]={avatar:item.avatar,name:item.name,pinyin:item.pinyin}
+                    let avatar = item.avatar
+                    if(avatar!==undefined){
+                        avatar=avatar.replace(`C:\\Users\\Alexmurder\\Desktop\\sqlpublic`,"http://192.168.132.217:3000")
+                    }
+                    console.log(avatar)
+                    grouping[userId]={avatar:avatar,name:item.name,pinyin:item.pinyin}
                     list[shouzimu][userId]=grouping[userId]
                 }
                 console.log(list)

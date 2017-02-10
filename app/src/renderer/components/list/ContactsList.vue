@@ -8,6 +8,10 @@
             width: 100%;
             .user-img{
                 margin: 0 4px;
+                float: left;
+                border-radius: 50%;
+                height: 45px;
+                width: 45px;
             }
             .contacts-dialogue-item{
                 height: 45px;
@@ -40,7 +44,8 @@
                     li.classification(v-if="searchText==''") {{key}}
                     li.contactsList(v-for=" (list,key) in item",v-if="searchText==''||list.name.indexOf(searchText)>=0")
                         router-link.contacts-dialogue-box(v-bind:to="'/contacts/userIntroduction/'+list.name+'/'+key")
-                            Avatar.user-img(v-bind:size='45',v-bind:username="list.name")
+                            img.user-img(v-if="list.avatar",v-bind:src="list.avatar")
+                            Avatar.user-img(v-else,v-bind:size='45',v-bind:username="list.name")
                             p.contacts-dialogue-item {{ list.name }}
                             .clear
         router-view.chat-window
