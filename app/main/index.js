@@ -8,7 +8,7 @@ const Tray = electron.Tray;
 const path = require('path');
 
 let chatWindow=null,tray=null,config = {};
-const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html`;
+const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../config').port}`: `file://${__dirname}/index.html`;
 //创建聊天窗口
 function createWindow(){
     chatWindow= new BrowserWindow({
@@ -22,11 +22,11 @@ function createWindow(){
     });
     //加载聊天窗口
     if (process.env.NODE_ENV === 'development') {
-        config=require('../../../config');
+        config=require('../../config');
         chatWindow.loadURL(`http://localhost:${config.port}/#`);
         //打开开发者工具条
         chatWindow.openDevTools();
-        tray = new Tray(path.join(__dirname, '../../icons/icon16.png'));
+        tray = new Tray(path.join(__dirname, '../icons/icon16.png'));
     } 
     else {
         chatWindow.loadURL(`file://${__dirname}/index.html#`);

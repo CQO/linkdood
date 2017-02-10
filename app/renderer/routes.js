@@ -2,7 +2,7 @@
 export default [
   {
     path: '/',
-    component: require('components/MainWindow'),
+    component: require('components/list/ChatList'),
     children:[
       {
         path: 'chat',

@@ -13,7 +13,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 let rendererConfig = {
   devtool: '#eval-source-map',
   entry: {
-    renderer: path.join(__dirname, 'app/src/renderer/main.js')
+    renderer: path.join(__dirname, 'app/renderer/main.js')
   },
   externals: Object.keys(pkg.dependencies || {}),
   //定义了对模块的处理逻辑，这里可以用loaders定义了一系列的加载器，以及一些正则。
@@ -22,7 +22,7 @@ let rendererConfig = {
     rules: [
       {test: /\.css$/,loader: ExtractTextPlugin.extract({fallback: 'style-loader',loader: 'css-loader'})},
       {test: /\.html$/,loader: 'vue-html-loader'},
-      {test: /\.js$/,loader: 'babel-loader',include: [ path.resolve(__dirname, 'app/src/renderer') ],exclude: /node_modules/},
+      {test: /\.js$/,loader: 'babel-loader',include: [ path.resolve(__dirname, 'app/renderer') ],exclude: /node_modules/},
       {test: /\.json$/,loader: 'json-loader'},
       {test: /\.node$/,loader: 'node-loader'},
       {test: /\.vue$/,loader: 'vue-loader',options: {loaders: {sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',scss: 'vue-style-loader!css-loader!sass-loader'}}},
@@ -48,8 +48,8 @@ let rendererConfig = {
   },
   resolve: {
     alias: {
-      'components': path.join(__dirname, 'app/src/renderer/components'),
-      'renderer': path.join(__dirname, 'app/src/renderer')
+      'components': path.join(__dirname, 'app/renderer/components'),
+      'renderer': path.join(__dirname, 'app/renderer')
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node'],
     modules: [
