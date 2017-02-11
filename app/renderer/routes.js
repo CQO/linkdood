@@ -16,10 +16,6 @@ export default [
   },
   {path: '/more',component: require('components/More')},
   {
-    path: '/Screenshot',
-    component: require('components/tools/Screenshot')
-  },
-  {
     path: '*',
     redirect: '/'
   }

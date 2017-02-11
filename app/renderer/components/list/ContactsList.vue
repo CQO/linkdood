@@ -54,7 +54,7 @@
 <script>
     import fun from '../module/fun'
     import { mapState } from 'vuex'
-    import Avatar from 'vue-avatar/dist/Avatar'
+    import Avatar from '../avatar/default'
     export default {
         computed: mapState([
             'chatLog'

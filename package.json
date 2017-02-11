@@ -57,7 +57,6 @@
     "postcss-smart-import": "^0.6.7",
     "precss": "^1.4.0",
     "pug": "^2.0.0-beta11",
-    "vue-avatar": "^2.0.0",
     "vuex": "^2.1.2"
   }
 }

@@ -42,7 +42,7 @@
             router-link.buttom(v-bind:to="'/chat/chatToPeople/'+$route.params.item") 发起聊天 
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar';
+    import Avatar from '../avatar/default';
     export default {
         components: {
             Avatar

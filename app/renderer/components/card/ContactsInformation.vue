@@ -71,7 +71,7 @@
             .buttom(@click.prevent.stop="remove") 发起聊天 
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar'
+    import Avatar from '../avatar/default'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([

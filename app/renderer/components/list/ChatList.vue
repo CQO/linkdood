@@ -56,7 +56,7 @@
                 .add(v-on:click="add")
             ul
                 li.contactsList(v-for=" (mess,index) in this.list")
-                     router-link.contacts-dialogue-box(v-bind:to="'/chat/chatToPeople/'+mess.item+'/'+mess.id")
+                     router-link.contacts-dialogue-box(v-bind:to="'/chatToPeople/'+mess.item+'/'+mess.id")
                         Avatar.user-img(v-bind:size='45',v-bind:username="mess.item")
                         .text
                             p.contacts-dialogue-item {{ mess.item }}
@@ -70,7 +70,7 @@
         .clear
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar'
+    import Avatar from '../avatar/default'
     export default {
         data(){
             return{

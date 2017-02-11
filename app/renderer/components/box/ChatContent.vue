@@ -88,17 +88,14 @@
             .time 15:45
             template(v-for="item in chatList")
                 template(v-if="item.userID===0")
-                    .message-left
-                        Avatar.user-img(v-bind:size='45',v-bind:username="$route.params.item")
-                        .message {{item.content}}
+                    Bubble(left="true",userImg="../img/chatUserImg.png",v-bind:content="item.content")
                 template(v-else)
-                    .message-right
-                        img.user-img(src="../img/chatUserImg.png")
-                        .message {{item.content}}
+                    Bubble(left="flase",userImg="../img/chatUserImg.png",v-bind:content="item.content")
             .clear
 </template>
 <script>
-    import Avatar from 'vue-avatar/dist/Avatar'
+    import Avatar from '../avatar/default'
+    import Bubble from '../bubble/default'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
@@ -106,6 +103,7 @@
         ]),
         components: {
             Avatar,
+            Bubble
         },
         directives: {
             // 发送消息后滚动到底部
