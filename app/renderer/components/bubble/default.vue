@@ -65,12 +65,16 @@
 </style>
 <template lang="pug">
     .bubble(v-bind:class="[left ? 'message-right' : 'message-left']")
-        img.user-img(v-bind:src="userImg")
+        Avatar.user-img(v-bind:size='45',username="me")
         .message {{content}}
         .clear
 </template>
 <script type="text/babel">
+import Avatar from '../avatar/default'
 export default {
+  components: {
+      Avatar
+  },
   props: {
     left:{
       type: Boolean,
