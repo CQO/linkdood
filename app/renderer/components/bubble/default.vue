@@ -1,5 +1,6 @@
 <style lang="postcss">
 .message-left,.message-right{
+    width: initial;
     margin: 10px;
     height: initial;
     .message{
@@ -31,43 +32,33 @@
     }
 }
 .message-left{
-    float: left;
+    display: flex;
     .message{
         background: #eeeeee; 
         margin-left: 20px;
-        float: left;
     }
     .message:before{
         right: 100%;
         border-right: 14px solid #eeeeee;
     }
-    .user-img{
-        height: 45px;
-        width: 45px;
-        float: left;
-    }
 }
 .message-right{
-    float: right;
+    display: flex;
+    flex-direction: row-reverse;
     .message{
         background-color: #d0edfe;
         margin-right: 20px;
-        float: right;
     }
     .message:before{
         left: 100%;
         border-left: 14px solid #d0edfe;
     }
-    img{
-        float: right;
-    }
 }
 </style>
 <template lang="pug">
-    .bubble(v-bind:class="[left ? 'message-right' : 'message-left']")
+    .bubble(v-bind:class="[left ? 'message-left' : 'message-left']")
         Avatar.user-img(v-bind:size='45',username="me")
         .message {{content}}
-        .clear
 </template>
 <script type="text/babel">
 import Avatar from '../avatar/default'
