@@ -12,6 +12,20 @@
                 background-image: url("../img/jietu.png");
                 margin: 5px;
                 float: left;
+            } 
+            .email{
+                height: 20px;
+                width: 20px;
+                background-image: url("../img/email.png");
+                margin: 5px;
+                float: left;
+            }
+            .approval{
+                height: 20px;
+                width: 20px;
+                background-image: url("../img/approval.png");
+                margin: 5px;
+                float: left;
             }
         }
         textarea{
@@ -45,6 +59,8 @@
     .input-box
         .tool-bar
             .jietu
+            .email
+            .approval
             .clear
         textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-create="")
         .send
