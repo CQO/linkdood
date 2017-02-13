@@ -24,14 +24,16 @@
             .time 15:45
             template(v-for="item in chatList")
                 template(v-if="item.userID===0")
-                    Bubble(left="true",userImg="../img/chatUserImg.png",v-bind:content="item.content")
+                    Bubble(left=true,userImg="../img/chatUserImg.png",v-bind:content="item.content")
                 template(v-else)
-                    Bubble(left="flase",userImg="../img/chatUserImg.png",v-bind:content="item.content")
+                    Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
+            Collapse
             .clear
 </template>
 <script>
     import Avatar from '../avatar/default'
     import Bubble from '../bubble/default'
+    import Collapse from '../bubble/collapse'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
@@ -39,7 +41,8 @@
         ]),
         components: {
             Avatar,
-            Bubble
+            Bubble,
+            Collapse
         },
         directives: {
             // 发送消息后滚动到底部

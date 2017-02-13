@@ -6,6 +6,7 @@ const Fs = require('fs');
 let state = {
   contacts:{},
   chatList:[
+    { item: "测试",id:"10002",lastMessage:'测试',time:'昨天' }
   ],
   sessions:{
     "10001":{type:"people",messages: [{type:"text",userID:0,content: '最近在干嘛'},{type:"text",userID:1,content: 'Learn English'},{type:"text",userID:1,content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}]},
@@ -37,13 +38,11 @@ const mutations = {
   //删除对话成员
   [types.DELETE_THE_CONVERSATION_MEMBER] (state,id) {
     history.back();
-    console.log(state.chatList)
     state.chatList.forEach(function(val,i){
       if(val.id===id){
         state.chatList.splice(i, 1);
       }
     });
-    console.log(state.chatList)
   },
   //新增对话
   [types.ADD_CHAT] (state,date) {
