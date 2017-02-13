@@ -28,12 +28,14 @@
                 template(v-else)
                     Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
             Collapse
+            Examine
             .clear
 </template>
 <script>
     import Avatar from '../avatar/default'
     import Bubble from '../bubble/default'
     import Collapse from '../bubble/collapse'
+    import Examine from '../bubble/examine'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
@@ -42,7 +44,8 @@
         components: {
             Avatar,
             Bubble,
-            Collapse
+            Collapse,
+            Examine
         },
         directives: {
             // 发送消息后滚动到底部
