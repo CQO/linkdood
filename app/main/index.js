@@ -97,3 +97,5 @@ ipcMain.on('main-window-message', function(event, arg) {
       case "close":chatWindow.hide();break;
   }  
 });
+
+
