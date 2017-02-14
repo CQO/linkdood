@@ -59,7 +59,7 @@
     .input-box
         .tool-bar
             .jietu
-            .email
+            .email(v-on:click="getMail")
             .approval
             .clear
         textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-create="")
@@ -69,6 +69,7 @@
 <script>
     import { mapState } from 'vuex'
     import fun from '../module/fun'
+    const ipcRenderer = require('electron').ipcRenderer;
     export default {
         computed: mapState([
             'chatLog',
@@ -101,6 +102,10 @@
                     console.log(e)
                 })
             },
+            getMail(){
+                //向主进程发送最小化消息
+                console.log(ipcRenderer.sendSync('main-window-message', 'mail'));
+            }
         },
         directives: {
             'create': {

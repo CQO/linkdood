@@ -1,11 +1,14 @@
 'use strict';
 
 import { app, BrowserWindow,ipcMain } from 'electron';
+//收取邮件功能
+import {getmail} from './mail.js';
 const Dialog = require('electron').dialog;
 const electron = require('electron');
 const Menu = electron.Menu;
 const Tray = electron.Tray;
 const path = require('path');
+
 
 let chatWindow=null,tray=null,config = {};
 const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../config').port}`: `file://${__dirname}/index.html`;
@@ -90,11 +93,17 @@ app.on('activate', () => {
 
 //监听程序最小化请求
 ipcMain.on('main-window-message', function(event, arg) {
-  console.log(`收到主进程消息:${arg}`);
-  event.returnValue = 'ok';
+  console.log(`收到IPC消息:${arg}`);
+  
   switch (arg){
-      case "minimize":chatWindow.minimize();break;
-      case "close":chatWindow.hide();break;
+    case "minimize":chatWindow.minimize();event.returnValue = 'ok';break;
+    case "close":chatWindow.hide();event.returnValue = 'ok';break;
+    case "mail":{
+        getmail("100284685","zhoqwqzgrkhmcbcc","imap.qq.com",function(data){
+            event.returnValue = data;
+        });
+        break;
+    }
   }  
 });
 
