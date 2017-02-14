@@ -29,7 +29,6 @@
                     Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
             Collapse(userImg="../img/email.png",content="邮件提醒",title="您有新短消息")
             Examine(userImg="../img/approval.png",content="今天要花钱",title="资金审批")
-            MailList(userImg="../img/email.png",title='未读邮件：3封')
             .clear
 </template>
 <script>
@@ -37,7 +36,6 @@
     import Bubble from '../bubble/default'
     import Collapse from '../bubble/collapse'
     import Examine from '../bubble/examine'
-    import MailList from '../bubble/mailList'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
@@ -48,7 +46,6 @@
             Bubble,
             Collapse,
             Examine,
-            MailList
         },
         directives: {
             // 发送消息后滚动到底部
