@@ -4,14 +4,32 @@
         .box
             .title
                 .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
-                p.text 你好
-            .list(v-if="isOpen") 这是一封用做测试的邮件，这是一封用做测试的邮件，这是一封用做测试的邮件
+                p.text {{title}}
+            .list(v-if="isOpen") {{content}}
 </template>
 <script>
     import Avatar from '../avatar/default'
     export default {
         components: {
             Avatar
+        },
+        props: {
+            left:{
+                type: Boolean,
+                default: true
+            },
+            userImg: {
+                type: String,
+                required: true
+            },
+            content: {
+                type: String,
+                required: true
+            },
+            title: {
+                type:String,
+                required: true
+            }
         },
         data(){
             return{
