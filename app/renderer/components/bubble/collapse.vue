@@ -6,6 +6,7 @@
                 .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
                 p.text {{title}}
             .list(v-if="isOpen") {{content}}
+            inpute
 </template>
 <script>
     import Avatar from '../avatar/default'

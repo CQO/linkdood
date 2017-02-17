@@ -5,9 +5,9 @@
         .box{
             width: 250px;
             height: initial;
-            border: 1px solid #dfe6ec;
             margin-left: 10px;
             border-radius: 10px;
+            background: #79e279;
             p{
               display: inline;
             }
@@ -15,7 +15,9 @@
                 height: 45px;
                 text-align: left;
                 display: flex;
-                border-radius: 10px;
+                border-radius: 10px 10px 0 0;
+                color: #fef1ff;
+                font-weight: bold;
                 .ico{
                     width: 45px;
                     height: 45px;
@@ -29,8 +31,11 @@
                 }
                 .text{
                     line-height: 45px;
-                    font-size: 1.2rem;
-                    width: 165px;
+                    font-size: 1rem;
+                    width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
                 .button{
                     width: 35px;
@@ -49,7 +54,7 @@
                 width: 230px;
                 height: initial;
                 border-radius: 0 0 10px 10px;
-                color: #c8ccd2;
+                color: #000000;
             }
         }
         .user-img{
