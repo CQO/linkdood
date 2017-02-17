@@ -36,7 +36,17 @@
   div::webkit-scrollbar-track-piece,ul::webkit-scrollbar-track-piece{background-color:black;}
   div::-webkit-scrollbar-thumb,ul::-webkit-scrollbar-thumb{border-radius: 10px;background-color: rgb(112, 137, 212);   }     
   div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1fa;}
-
+  /* 图标字体 */
+  @font-face {
+      font-family: 'owo';
+      src: url('./font/owo.eot?57567435');
+      src: url('./font/owo.eot?57567435#iefix') format('embedded-opentype'),
+           url('./font/owo.woff?57567435') format('woff'),
+           url('./font/owo.ttf?57567435') format('truetype'),
+           url('./font/owo.svg?57567435#owo') format('svg');
+      font-weight: normal;
+      font-style: normal;
+  }
 .main-window{
     width: 100%;
     height: 100%;

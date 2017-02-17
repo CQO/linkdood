@@ -28,14 +28,14 @@
         padding-left: 13px;
         font-size: 16px;
     }
-    .list{
+    .userList{
         font-size: 14px;
     }
 }
 </style>
 <template lang="pug">
     .contacts-dialogue
-        .list
+        .userList
             .search
                 input(type="text",placeholder="搜索：联系人",v-model="searchText")
                 .add(v-on:click="add")

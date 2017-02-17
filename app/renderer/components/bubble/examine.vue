@@ -1,78 +1,34 @@
 <style lang="postcss">
-    .collapse-bubble{
-        margin: 10px;
-        display: flex;
-        .box{
-            width: 250px;
-            height: initial;
-            margin-left: 10px;
-            border-radius: 10px;
-            background: #79e279;
-            p{
-              display: inline;
-            }
-            .title{
-                height: 45px;
-                text-align: left;
+    .examine-bubble{
+        .box.active{
+            .button{
+                width: 40px;
                 display: flex;
-                border-radius: 10px 10px 0 0;
-                color: #fef1ff;
-                font-weight: bold;
                 .ico{
-                    width: 45px;
-                    height: 45px;
-                    line-height: 40px;
-                    text-align: center;
-                    font-size: 1.4rem;
-                    transition: All 0.4s ease-in-out;
+                    width: 20px;
                 }
-                .ico.active{
-                    transform: rotate(90deg);
-                }
-                .text{
-                    line-height: 45px;
-                    font-size: 1rem;
-                    width: 200px;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                }
-                .button{
-                    width: 35px;
-                    line-height: 22px;
-                    font-size: 0.8rem;
-                    p:hover{
-                        color:blue;
-                    }
-                }
-            }
-            .list{
-                padding: 10px;
-                text-indent: 25px;
-                word-wrap: normal;
-                text-align: left;
-                width: 230px;
-                height: initial;
-                border-radius: 0 0 10px 10px;
-                color: #000000;
             }
         }
-        .user-img{
-            height: 45px;
-            width: 45px;
+        .button{
+            width: 40px;
+            line-height: 22px;
+            font-size: 0.8rem;
+            p:hover{
+                color:blue;
+            }
         }
     }
 </style>
 <template lang="pug">
-    .collapse-bubble
+    .examine-bubble
         Avatar.user-img(v-bind:size='45',username="me")
-        .box
+        .box(v-bind:class="{ active: isOpen }")
             .title
-                .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
+                .ico.unfolded(v-on:click="isOpen=!isOpen") 
                 p.text {{title}}
-                    .button
-                        p 同意
-                        p 忽略
+                    .button(v-if="isOpen")
+                        .ico.allow 
+                        .ico.menu 
             .list(v-if="isOpen") {{content}}
 </template>
 <script>

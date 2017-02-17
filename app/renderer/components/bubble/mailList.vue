@@ -4,7 +4,7 @@
         Avatar.user-img(v-bind:size='45',username="me")
         .box
             .title
-                .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
+                .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") 
                 p.text {{title}}
             ul(v-if="isOpen")
                 li(v-for="(key,item) in datas.list") {{item}}

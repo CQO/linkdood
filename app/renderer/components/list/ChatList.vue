@@ -50,7 +50,7 @@
 </style>
 <template lang="pug">
     .chat-dialogue
-        .list
+        .userList
             .search
                 input(type="text",placeholder="搜索：会话 或 添加会话",v-model="searchText")
                 .add(v-on:click="add")

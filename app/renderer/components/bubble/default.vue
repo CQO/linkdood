@@ -1,4 +1,5 @@
 <style lang="postcss">
+@import './default.postcss';
 .message-left,.message-right{
     width: initial;
     margin: 10px;
