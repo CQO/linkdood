@@ -44,7 +44,7 @@ let rendererConfig = {
   output: {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
-    path: path.join(__dirname, 'builds/dist')
+    path: path.join(__dirname, 'app/dist')
   },
   resolve: {
     alias: {

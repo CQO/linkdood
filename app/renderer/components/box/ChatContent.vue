@@ -27,8 +27,9 @@
                     Bubble(left=true,userImg="../img/chatUserImg.png",v-bind:content="item.content")
                 template(v-else)
                     Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
-            Collapse
-            Examine
+            Collapse(userImg="../img/email.png",content="邮件提醒",title="您有新短消息")
+            Examine(userImg="../img/approval.png",content="今天要花钱",title="资金审批")
+            a(href="https://apprtc.appspot.com/") 视频入口
             .clear
 </template>
 <script>
@@ -45,7 +46,7 @@
             Avatar,
             Bubble,
             Collapse,
-            Examine
+            Examine,
         },
         directives: {
             // 发送消息后滚动到底部

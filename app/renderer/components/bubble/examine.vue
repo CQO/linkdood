@@ -64,17 +64,35 @@
         .box
             .title
                 .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
-                p.text 出行费用报销
+                p.text {{title}}
                     .button
                         p 同意
                         p 忽略
-            .list(v-if="isOpen") 2月22日出国20人 需要报销费用50000元 报销票据已经交给公司财务
+            .list(v-if="isOpen") {{content}}
 </template>
 <script>
     import Avatar from '../avatar/default'
     export default {
         components: {
             Avatar
+        },
+        props: {
+            left:{
+                type: Boolean,
+                default: true
+            },
+            userImg: {
+                type: String,
+                required: true
+            },
+            content: {
+                type: String,
+                required: true
+            },
+            title: {
+                type: String,
+                required:true
+            }
         },
         data(){
             return{

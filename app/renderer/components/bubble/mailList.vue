@@ -1,3 +1,4 @@
+
 <template lang="pug">
     .collapse-bubble
         Avatar.user-img(v-bind:size='45',username="me")
@@ -5,7 +6,9 @@
             .title
                 .ico(v-bind:class="{ active: isOpen }",v-on:click="isOpen=!isOpen") > 
                 p.text {{title}}
-            .list(v-if="isOpen") {{content}}
+            ul(v-if="isOpen")
+                li(v-for="(key,item) in datas.list") {{item}}
+            
 </template>
 <script>
     import Avatar from '../avatar/default'
@@ -14,26 +17,26 @@
             Avatar
         },
         props: {
-            left:{
-                type: Boolean,
-                default: true
-            },
             userImg: {
                 type: String,
                 required: true
             },
-            content: {
-                type: String,
-                required: true
-            },
             title: {
-                type:String,
-                required: true
+                type: String,
+                required:true
             }
         },
         data(){
             return{
                 isOpen: false,
+                datas:{
+                    num:3,
+                    list:{
+                        one:'吃饭',
+                        two:'睡觉',
+                        three:'连豆豆'
+                    }
+                }
             }
         },
     }
