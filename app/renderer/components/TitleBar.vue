@@ -16,8 +16,9 @@
         }
         .ico{
             height: 30px;
-            width: 22px;
+            width: 26px;
             color: #ccc;
+            font-size: 20px;
         }
         .ico:hover{
             color: black;
