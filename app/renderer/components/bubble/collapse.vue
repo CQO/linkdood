@@ -29,12 +29,13 @@
             .list(v-if="isOpen") {{content}}
         ul.bubble-menu(v-if="isMenuOpen")
             li.ico  回复邮件
-            li.ico  固定到桌面
+            li.ico(v-on:click="guding")  固定到桌面
             li.ico  稍后提醒
 
 </template>
 <script>
     import Avatar from '../avatar/default'
+    const ipcRenderer = require('electron').ipcRenderer;
     export default {
         components: {
             Avatar
@@ -55,6 +56,12 @@
             title: {
                 type:String,
                 required: true
+            }
+        },
+        methods:{
+            guding(){
+                //向主进程发送最小化消息
+                console.log(ipcRenderer.sendSync('main-window-message', 'fixed'));
             }
         },
         data(){

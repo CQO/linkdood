@@ -15,7 +15,6 @@
 </style>
 
 <template lang="pug">
-  <div class="box">
     .main-window
         TitleBar
         Sidebar
@@ -23,7 +22,6 @@
             router-view
         .clear
         myInformation(v-if="this.status.userMenuShow")
-  </div>
 </template>
 
 <script>
