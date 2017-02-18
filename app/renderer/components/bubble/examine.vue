@@ -24,10 +24,10 @@
         Avatar.user-img(v-bind:size='45',username="me")
         .box(v-bind:class="{ active: isOpen }")
             .title
-                .ico.unfolded(v-on:click="isOpen=!isOpen") 
+                .ico.unfolded(v-on:click="isOpen=!isOpen") 
                 p.text {{title}}
                     .button(v-if="isOpen")
-                        .ico.allow 
+                        .ico.allow 
                         .ico.menu 
             .list(v-if="isOpen") {{content}}
 </template>
