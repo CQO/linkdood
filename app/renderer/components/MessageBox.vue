@@ -5,34 +5,22 @@
     width: calc( 100% - 250px );
     .title-box{
         height: 30px;
-        padding-top: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        p{
+            height: 30px;
+            line-height: 30px;
+        }
+        .ico{
+            width: 20px;
+            color: #ccc;
+            position: relative;
+        }
         .title{
-            width: 245px;
-            margin: 0 auto;
-            height: 17px;
-            line-height: 17px;
-            p{
-                width: 190px;
-                float: left;
-                text-align: right;
-                overflow: hidden;
-            }
-            .icon{
-                float: left;
-                width: 17px;
-                height: 17px;
-                background-repeat: no-repeat;
-                margin-left: 5px;
-            }
-            .file{
-                background-image: url("img/file.png");
-                position: relative;
-            }
-            .people{
-                background-image: url("img/people.png");
-                position: relative;
-                bottom: 1px;
-            }
+            min-width: 40px;
+            color: #c1bcbc;
+            margin-top: 1px;
         }
     }
     .file-box,.members-box{
@@ -61,11 +49,9 @@
 <template lang="pug">
     .message-box
         .title-box
-            .title
-                p {{ $route.params.item }}(108)
-                .file.icon(v-on:click.stop="clickFileMenu")
-                .people.icon(v-on:click.stop="clickPeopleMenu")
-                .clear
+            p.title {{ $route.params.item }}
+            p.ico(v-on:click.stop="clickFileMenu") 
+            p.ico(v-on:click.stop="clickPeopleMenu") 
                 
         ChatContent
         MessageInputBox

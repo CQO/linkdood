@@ -27,8 +27,8 @@
                     Bubble(left=true,userImg="../img/chatUserImg.png",v-bind:content="item.content")
                 template(v-else)
                     Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
-            Collapse(userImg="../img/email.png",content="昨天我因为有些事没有参加周会，能不能把会议内容给我发下",title="昨天开会的主题是什么")
-            Examine(userImg="../img/approval.png",content="今天要花钱",title="资金审批")
+            Collapse(userImg="",content="昨天我因为有些事没有参加周会，能不能把会议内容给我发下",title="昨天开会的主题是什么")
+            Examine(userImg="",content="今天要花钱",title="资金审批")
             .clear
 </template>
 <script>

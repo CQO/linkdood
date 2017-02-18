@@ -6,6 +6,7 @@
         height:30%;
         .tool-bar{
             height: 30px;
+            color: #cccccc;
             .jietu{
                 height: 20px;
                 width: 20px;
@@ -38,15 +39,12 @@
         .send{
             height: 30px;
             .send-button{
-                width: 60px;
+                width: 40px;
                 height: 22px;
-                background-color: #efefef;
                 float: right;
-                border-radius: 2px;
-                border: 1px solid #cccccc;
                 line-height: 22px;
-                font-size: 13px;
-                margin-right: 5px;
+                font-size: 1.4rem;
+                color: #ccc;
             }
         }
     }
@@ -61,7 +59,7 @@
             .clear
         textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-create="")
         .send
-            .send-button(v-on:click="sendMessage") 发送(S)
+            .ico.send-button(v-on:click="sendMessage") 
 </template>
 <script>
     import { mapState } from 'vuex'
