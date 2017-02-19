@@ -4,16 +4,33 @@
             background: #79e279;
             .title{
                 color: #3e4a46;
+                .text{
+                    display: flex;
+                    flex-direction: column;
+                    .theme{
+                        line-height: 30px;
+                        height: 30px;
+                    }
+                    .from{
+                        height: 15px;
+                        line-height: 15px;
+                        font-size: 12px;
+                        color: #4a8271;
+                    }
+                }
             }
             .list{
                 background-color: #c4f9c1;
+            }
+            .from{
+                height: 20px;
             }
         }
         .bubble-menu{
             background-color: rgba(172, 206, 164, 0.8);
             height: 65px;
             li:hover{
-                background-color:#71c399
+                background-color:#71c399;
             }
         }
     }
@@ -24,7 +41,9 @@
         .box(v-bind:class="{ active: isOpen }")
             .title
                 .ico.unfolded(v-on:click="isOpen=!isOpen") 
-                p.text {{title}}
+                .text
+                    p.theme {{title}}
+                    p.from 发件人:蒲鸽(100284685@qq.com)
                 .ico.menu(v-if="isOpen",v-on:click.stop="isMenuOpen=!isMenuOpen") 
             .list(v-if="isOpen") {{content}}
         ul.bubble-menu(v-if="isMenuOpen")
