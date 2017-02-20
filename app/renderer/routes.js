@@ -2,14 +2,14 @@
 export default [
   {
     path: '/',
-    component: require('components/list/ChatList'),
+    component: require('components/list/Chat'),
     children:[
       {path: 'chatToPeople/:item/:id',component: require('components/MessageBox')}
     ]
   },
   {
     path: '/contacts',
-    component: require('components/list/ContactsList'),
+    component: require('components/list/Contacts'),
     children:[
       {path: 'userIntroduction/:item/:id',component: require('components/card/ContactsInformation')}
     ]
