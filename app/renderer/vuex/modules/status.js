@@ -6,6 +6,8 @@ const state = {
   userMenuShow:false,
   fileBoxShow:false,
   peopleBoxShow:false,
+  isSendMail:false,
+  step:0,
   server:"http://127.0.0.1:3000/"
 };
 
@@ -35,6 +37,18 @@ const mutations = {
     state.userMenuShow=false;
     state.fileBoxShow=false;
     state.peopleBoxShow=false;
+  },
+  [types.ADD_STEP] (state) {
+    //增加步骤
+    state.step++;
+  },
+  [types.SEND_MAIL] (state) {
+    //发送邮件
+    state.isSendMail=true;
+  },
+  [types.NO_SEND_MAIL] (state) {
+    //不是发送邮件
+    state.isSendMail=false;
   }
 };
 

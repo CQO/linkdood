@@ -35,6 +35,7 @@
                 }
                 .chat{
                     /* 如果删掉 托盘图标会报错 */
+                    background-image: url("./img/chatUserImg.png");
                     background-image: url("./img/icon16.png");
                     background: #5fd05d;
                 }

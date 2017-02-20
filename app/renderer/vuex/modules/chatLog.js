@@ -6,6 +6,7 @@ const Fs = require('fs');
 let state = {
   contacts:{},
   chatList:[
+    { item: "Maer",id:"10002",lastMessage:'[特殊消息]',time:'9:20' },
     { item: "提醒机器人",id:"10002",lastMessage:'测试',time:'昨天' },
     { item: "邮箱机器人",id:"10002",lastMessage:'测试',time:'昨天' }
   ],

@@ -47,7 +47,7 @@
                 .ico.menu(v-if="isOpen",v-on:click.stop="isMenuOpen=!isMenuOpen") 
             .list(v-if="isOpen") {{content}}
         ul.bubble-menu(v-if="isMenuOpen")
-            li.ico  回复邮件
+            li.ico(v-on:click="sendMail")  回复邮件
             li.ico(v-on:click="guding")  固定到桌面
             li.ico  稍后提醒
 
@@ -81,6 +81,9 @@
             guding(){
                 //向主进程发送最小化消息
                 console.log(ipcRenderer.sendSync('main-window-message', 'fixed'));
+            },
+            sendMail(){
+                this.$store.commit("SEND_MAIL")
             }
         },
         data(){

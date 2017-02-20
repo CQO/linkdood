@@ -24,24 +24,22 @@
             .time 15:45
             template(v-for="item in chatList")
                 template(v-if="item.userID===0")
-                    Bubble(left=true,userImg="../img/chatUserImg.png",v-bind:content="item.content")
+                    Bubble(left=true,v-bind:content="item.content")
                 template(v-else)
-                    Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
+                    Bubble(left=flase,userImg="imgs/chatUserImg.png",v-bind:content="item.content")
             Collapse(userImg="",content=`我把最近的经营情况发给你，你看对吗一月，二月，三月销量分别为25432，22745，28900。利润分别为223765，256221，300001。`,title="最近的经营情况")
-            Examine(userImg="",content="今天要花钱",title="资金审批")
-            Table(userImg="",content="今天要花钱",title="资金审批")
             .clear
 </template>
 <script>
     import Avatar from '../avatar/default'
     import Bubble from '../bubble/default'
     import Collapse from '../bubble/collapse'
-    import Examine from '../bubble/examine'
-    import Table from '../bubble/table'
+    import Examine from '../bubble/Examine'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
-            'chatLog'
+            'chatLog',
+            'status'
         ]),
         components: {
             Avatar,

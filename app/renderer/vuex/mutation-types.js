@@ -15,3 +15,9 @@ export const ADD_CHAT = 'ADD_CHAT';
 export const SET_CONTACT_LIST = 'SET_CONTACT_LIST';
 //保存聊天记录
 export const SAVE_YOUR_CHATS = 'SAVE_YOUR_CHATS';
+//增加步骤
+export const ADD_STEP = 'ADD_STEP';
+//发送邮件
+export const SEND_MAIL = 'SEND_MAIL';
+//不是发送邮件
+export const NO_SEND_MAIL = 'NO_SEND_MAIL';

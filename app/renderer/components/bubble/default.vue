@@ -57,8 +57,8 @@
 }
 </style>
 <template lang="pug">
-    .bubble(v-bind:class="[left ? 'message-left' : 'message-left']")
-        Avatar.user-img(v-bind:size='45',username="me")
+    .bubble(v-bind:class="[this.left ? 'message-left' : 'message-right']")
+        Avatar.user-img(v-bind:src="userImg",v-bind:size='45',username="me")
         .message {{content}}
 </template>
 <script type="text/babel">
@@ -70,11 +70,10 @@ export default {
   props: {
     left:{
       type: Boolean,
-      default: true
+      default: false
     },
     userImg: {
       type: String,
-      required: true
     },
     content: {
       type: String,

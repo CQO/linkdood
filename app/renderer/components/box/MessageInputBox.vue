@@ -16,6 +16,11 @@
             .active{
                 color: blue;
             }
+            .sendMail{
+                line-height: 30px;
+                height: 30px;
+                color: green;
+            }
         }
         textarea{
             border: none;
@@ -48,8 +53,9 @@
             .ico.email(v-on:click="getMail") 
             .ico.approval 
             .ico.code(v-on:click="code=!code",v-bind:class="{ active: code }") 
+            p.sendMail(v-if="this.status.isSendMail") 接收人:蒲鸽 100284685@qq.com
             .clear
-        textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-create="")
+        textarea(v-model="newTodoText",v-create="")
         .send
             .ico.send-button(v-on:click="sendMessage") 
 </template>
@@ -70,25 +76,22 @@
         },
         methods:{
             sendMessage(str){
-                const id = this.$route.params.id
-                const talk= {
-                    id:id,
-                    userID:1,
-                    msg:this.newTodoText
-                }
-                const _this = this
-                this.newTodoText = "";
-                this.$store.commit("ADD_DIALOGUE",talk)
-                // fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
-                //     const message = JSON.parse(e);
-                //     const talk= {id:id,userID:0,msg:message.text}
-                //     _this.$store.commit("ADD_DIALOGUE",talk)
+                // const id = this.$route.params.id
+                // const talk= {
+                //     id:id,
+                //     userID:1,
+                //     msg:this.newTodoText
+                // }
+                // const _this = this
+                // this.newTodoText = "";
+                // this.$store.commit("ADD_DIALOGUE",talk)
+                // const msg={command:"sendMessage",userID:talk.id,msg:talk.msg}
+                // fun.Ajax.post(this.status.server,JSON.stringify(msg),function(e){
+                //     console.log(e)
                 // })
-                const msg={command:"sendMessage",userID:talk.id,msg:talk.msg}
-
-                fun.Ajax.post(this.status.server,JSON.stringify(msg),function(e){
-                    console.log(e)
-                })
+                this.newTodoText = "";
+                this.$store.commit("ADD_STEP")
+                this.$store.commit("NO_SEND_MAIL")
             },
             getMail(){
                 //发送收取邮件消息

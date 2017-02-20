@@ -59,12 +59,16 @@
             font: bold 10px sans-serif;
             color: #797268;
         }
+        .red{
+            background-color: red;
+            color: white;
+        }
     }
 }
 </style>
 <template lang="pug">
     .table-bubble(v-on:click="isMenuOpen=false")
-        Avatar.user-img(v-bind:size='45',username="me")
+        Avatar.user-img(src="imgs/chatUserImg.png",v-bind:size='45',username="me")
         .box
             table.mytable
                 tr
@@ -90,24 +94,6 @@
     export default {
         components: {
             Avatar
-        },
-        props: {
-            left:{
-                type: Boolean,
-                default: true
-            },
-            userImg: {
-                type: String,
-                required: true
-            },
-            content: {
-                type: String,
-                required: true
-            },
-            title: {
-                type:String,
-                required: true
-            }
         },
         data(){
             return{
