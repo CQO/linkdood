@@ -46,7 +46,6 @@
             Bubble,
             Collapse,
             Examine,
-            Table
         },
         directives: {
             // 发送消息后滚动到底部
