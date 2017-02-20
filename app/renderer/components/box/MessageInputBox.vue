@@ -7,23 +7,14 @@
         .tool-bar{
             height: 30px;
             color: #cccccc;
-            .jietu{
+            .ico{
                 height: 20px;
                 width: 20px;
                 margin: 5px;
                 float: left;
             }
-			.email{
-                height: 20px;
-                width: 20px;
-                margin: 5px;
-                float: left;
-            }
-			.approval{
-                height: 20px;
-                width: 20px;
-                margin: 5px;
-                float: left;
+            .active{
+                color: blue;
             }
         }
         textarea{
@@ -56,6 +47,7 @@
             .ico.jietu 
             .ico.email(v-on:click="getMail") 
             .ico.approval 
+            .ico.code(v-on:click="code=!code",v-bind:class="{ active: code }") 
             .clear
         textarea(v-model="newTodoText",v-on:keyup.enter="sendMessage",v-create="")
         .send
@@ -73,6 +65,7 @@
         data(){
             return{
                 newTodoText: "",
+                code:false
             }
         },
         methods:{
@@ -98,9 +91,9 @@
                 })
             },
             getMail(){
-                //向主进程发送最小化消息
+                //发送收取邮件消息
                 console.log(ipcRenderer.sendSync('main-window-message', 'mail'));
-            }
+            },
         },
         directives: {
             'create': {

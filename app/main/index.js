@@ -108,7 +108,7 @@ ipcMain.on('main-window-message', function(event, arg) {
     case "fixed":{
         fixedWindow= new BrowserWindow({
             width: 270,
-            height: 120,
+            height: 160,
             x:1200,
             y:100,
             alwaysOnTop:true,

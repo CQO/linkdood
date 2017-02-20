@@ -27,8 +27,9 @@
                     Bubble(left=true,userImg="../img/chatUserImg.png",v-bind:content="item.content")
                 template(v-else)
                     Bubble(left=flase,userImg="../img/chatUserImg.png",v-bind:content="item.content")
-            Collapse(userImg="",content="昨天我因为有些事没有参加周会，能不能把会议内容给我发下",title="昨天开会的主题是什么")
+            Collapse(userImg="",content=`我把最近的经营情况发给你，你看对吗一月，二月，三月销量分别为25432，22745，28900。利润分别为223765，256221，300001。`,title="最近的经营情况")
             Examine(userImg="",content="今天要花钱",title="资金审批")
+            Table(userImg="",content="今天要花钱",title="资金审批")
             .clear
 </template>
 <script>
@@ -36,6 +37,7 @@
     import Bubble from '../bubble/default'
     import Collapse from '../bubble/collapse'
     import Examine from '../bubble/examine'
+    import Table from '../bubble/table'
     import { mapState } from 'vuex'
     export default {
         computed: mapState([
@@ -46,6 +48,7 @@
             Bubble,
             Collapse,
             Examine,
+            Table
         },
         directives: {
             // 发送消息后滚动到底部
