@@ -21,7 +21,7 @@
             .upbox{
                 height: 100px;
                 border-radius: 10px;
-                background-image: url(userImg.jpg);
+                background-image: url(../img/userImg.jpg);
                 background-position: 0 center;
                 display: flex;
                 flex-direction: column;
