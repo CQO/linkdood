@@ -6,9 +6,9 @@ const Fs = require('fs');
 let state = {
   contacts:{},
   chatList:[
-    { item: "Maer",id:"10002",lastMessage:'[特殊消息]',time:'9:20' },
-    { item: "提醒机器人",id:"10002",lastMessage:'测试',time:'昨天' },
-    { item: "邮箱机器人",id:"10002",lastMessage:'测试',time:'昨天' }
+    { item: "Maer",id:"10001",lastMessage:'你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了',time:'9:20' },
+    { item: "小米",id:"10002",lastMessage:'测试',time:'昨天' },
+    { item: "北京服务点",id:"10004",lastMessage:'哦哦',time:'昨天' }
   ],
   sessions:{
     "10001":{type:"people",messages: [{type:"text",userID:0,content: '最近在干嘛'},{type:"text",userID:1,content: 'Learn English'},{type:"text",userID:1,content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}]},

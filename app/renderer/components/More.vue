@@ -4,92 +4,79 @@
         display: flex;
         flex-wrap: wrap;
         width: 30rem;
-        .color-box{
-            width: 33%;
-            height: 6rem;
-            background: #efefef;
-            line-height: 6rem;
-            text-align: center;
-            color: #fff;
-            transition: transform .3s;
-        }
-        .Aquamarine{
-            background-color: Aquamarine
-        }
-        .Hotpink{
-            background-color: Hotpink
-        }
-        .Gold{
-            background-color: Gold
-        }
-        .Crimson{
-            background-color: Crimson
-        }
-        .Blueviolet{
-            background-color: Blueviolet
-        }
-        .Lightblue{
-            background-color: Lightblue
-        }
     }
 }
-.color-list{
-    width: 48rem;
-    height: 70%;
-    margin: 10% auto;
-    border: 1px solid #d0edfe;
-    .color-item{
-        float: left;
-        margin: 2px;
+.more-list{
+    margin: 10px;
+    .bot-list{
+        height: 40px;
+        line-height: 40px;
+        text-align: left;
+        color: #ccc;
+
+    }
+    .robot{
+        height: 80px;
+        width: 200px;
+        border: 1px solid #ccc;
         border-radius: 5px;
-        transition: transform .3s;
-        .shadow{
-            background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0));
-            height: 20px;
-            color:#d1e6db;
-        }
+        line-height: 80px;
+        font-size: 1.4rem;
+        color: lightskyblue;
+        margin: 5px;
+        float: left;
+        position: relative;
     }
-    .Aquamarine{
-        background-image: url("img/card1.png");
-        width: 240px;
-        height: 400px;
+    .robot:hover{
+        background-color: lavender;
     }
-    .Hotpink{
-        background-image: url("img/card2.png");
-        width: 520px;
-        height: 220px;
+    .add{
+        font-size: 3rem;
     }
-    .Gold{
-        background-image: url("img/card3.png");
-        width: 320px;
-        height: 155px;
-    }
-    .color-item.dragging{
-        transform: scale(1.1);
+    .spot{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: yellow;
     }
 }
 </style>
 <template lang="pug">
-    .color-list
-        .color-item(v-for="color in colors" v-dragging="{ item: color, list: colors, group: 'color' }",:key="color.text",v-bind:class="color.text")
-            .shadow {{color.item}}
+    .more-list
+        .bot-list 已经安装的机器人列表：
+        .robot-list
+            .robot.mail 邮箱机器人
+                .spot
+            .robot.metting 会议机器人
+                .spot
+            .robot.HR HR机器人
+                .spot
+            .robot.tubiao(v-on:click.stop="tubiao=!tubiao") 图表机器人
+                .spot(v-if="tubiao")
+            .robot.yuantong(v-on:click.stop="yuantong=!yuantong") 远通公司通知
+                .spot(v-if="yuantong")
+            .robot.ico.add 
 </template>
 <script>
     import fun from './module/fun'
     export default {
         data () {
             return {
-                colors: [{
-                    text: "Aquamarine",
-                    item:"航班提醒"
-                }, {
-                    text: "Hotpink",
-                    item:""
-                }, {
-                    text: "Gold",
-                    item:""
-                }]
+                yuantong:false,
+                tubiao:false
             }
-        }
+        },
+        methods:{
+            allowDrop(ev){
+                ev.preventDefault();
+            },
+            drop(ev){
+                ev.preventDefault();
+                console.log("sd");
+            }
+        },
     }
 </script>
