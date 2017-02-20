@@ -27,11 +27,8 @@
                     Bubble(left=true,v-bind:content="item.content")
                 template(v-else)
                     Bubble(left=flase,userImg="imgs/chatUserImg.png",v-bind:content="item.content")
-<<<<<<< HEAD
-=======
             Collapse(userImg="",content=`我把最近的经营情况发给你，你看对吗一月，二月，三月销量分别为25432，22745，28900。利润分别为223765，256221，300001。`,title="最近的经营情况")
             videoChat(userImg="")
->>>>>>> 841580dc4e9ba921d1136508313bf42402119ec2
             .clear
 </template>
 <script>
