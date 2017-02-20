@@ -7,14 +7,12 @@
             border: 1px solid #dfe6ec;
             margin-left: 10px;
             border-radius: 10px;
-            p{
+            p,ol{
               display: inline;
               color: #040404;
               font-size: 0.9rem;
             }
             ol{
-              display: inline;
-              color: black;
               font-size: 1.4rem;
               margin-left: 10px;
             }
@@ -26,15 +24,13 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                .upupbox{
+                .upupbox,.updownbox{
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                 }
                 .updownbox{
-                    display: flex;
                     justify-content: center;
-                    align-items: center;
                 }
             }
             .downbox{
@@ -45,36 +41,30 @@
                 border: 1px solid #dfe6ec;
                 border-radius: 0px 0px 10px 10px;
             }
-            .buttonRufuse{
+            .buttonRufuse,.buttonAccept{
                 display: flex;
                 justify-content: center;
                 align-items:center;
                 width:60px;
                 height:30px;
-                background-color:#C0C0C0 ; /* Green */
                 border-radius: 10px;
                 margin: 5px;
                 font-size: 0.9rem;
                 color: white;
             }
+            .buttonRufuse{
+                 background-color:#C0C0C0 ;
+            }
             .buttonAccept{
-                display: flex;
-                justify-content: center;
-                align-items:center;
-                width:60px;
-                height:30px;
-                background-color: #67fb87; /* Green */
-                border-radius: 10px;
-                margin: 5px;
-                font-size: 0.9rem;
-                color: white;
+                background-color: #67fb87; 
+                }
             }
         }
         .user-img{
             height: 45px;
             width: 45px;
         }
-    }
+    
         
 </style>
 <template lang="pug">
