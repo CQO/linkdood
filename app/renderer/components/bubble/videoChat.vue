@@ -57,7 +57,11 @@
             }
             .buttonAccept{
                 background-color: #67fb87; 
-                }
+            }
+            .buttonAccept.Accept{
+                transition: opacity 0.8s ease-in-out;
+                opacity: 0;
+            }
             }
         }
         .user-img{
@@ -77,7 +81,7 @@
                 .updownbox
                     p.text 对方正邀请您进入视频通讯
             .downbox
-                .buttonAccept.ico    接受
+                .buttonAccept.ico(v-bind:class="{Accept:isOpen}",v-on:click="isOpen=!isOpen")    接受
                 .buttonRufuse.ico    拒绝
 </template>
 <script>
@@ -94,6 +98,11 @@
             userImg: {
                 type: String,
                 required: true
+            }
+        },
+        data(){
+            return{
+                isOpen:false
             }
         }
     }
