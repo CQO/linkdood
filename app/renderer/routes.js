@@ -11,7 +11,8 @@ export default [
     path: '/contacts',
     component: require('components/list/Contacts'),
     children:[
-      {path: 'userIntroduction/:item/:id',component: require('components/card/ContactsInformation')}
+      {path: 'userIntroduction/:item/:id',component: require('components/card/ContactsInformation')},
+      {path: 'mailRobotIntroduction/:item/:id',component: require('components/robot/information/mail')}
     ]
   },
   {path: '/more',component: require('components/More')},

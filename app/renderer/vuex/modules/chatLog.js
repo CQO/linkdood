@@ -11,6 +11,10 @@ let state = {
     { item: "北京服务点",id:"10004",lastMessage:'哦哦',time:'昨天' },
     { item: "图表机器人",id:"10005",lastMessage:'欢迎添加图表机器人',time:'昨天' }
   ],
+  robot:{
+    "80000":{name:"邮箱机器人",file:"mail",ico:""},
+    "80001":{name:"HR机器人",file:"HR",ico:""}
+  },
   sessions:{
     "10001":{type:"people",messages: [{type:"text",userID:0,content: '最近在干嘛'},{type:"text",userID:1,content: 'Learn English'},{type:"text",userID:1,content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}]},
     "10002":{type:"people",messages: [{type:"text",userID:0,content: '测试'}]},

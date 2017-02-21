@@ -28,7 +28,9 @@
                 template(v-else)
                     Bubble(left=flase,userImg="imgs/chatUserImg.png",v-bind:content="item.content")
             videoChat(userImg="")
+            Collapse(left=flase,title="广州研发产品评审会邀请函",content="12121")
             .clear
+            
 </template>
 <script>
     import Avatar from '../avatar/default'

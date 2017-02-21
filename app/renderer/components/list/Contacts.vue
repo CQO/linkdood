@@ -13,6 +13,17 @@
                 height: 45px;
                 width: 45px;
             }
+            .mail-img{
+                margin: 0 4px;
+                float: left;
+                border-radius: 50%;
+                height: 45px;
+                width: 45px;
+                line-height: 45px;
+                font-size: 2rem;
+                color: #5b8492;
+                background-color: darkgray;
+            }
             .contacts-dialogue-item{
                 height: 45px;
                 line-height: 48px;
@@ -40,6 +51,12 @@
                 input(type="text",placeholder="搜索：联系人",v-model="searchText")
                 .add(v-on:click="add")
             ul
+                li.classification(v-if="searchText==''") #机器人
+                li.contactsList(v-for=" (list,key) in this.chatLog.robot",v-if="searchText==''||list.name.indexOf(searchText)>=0")
+                    router-link.contacts-dialogue-box(v-bind:to="'/contacts/mailRobotIntroduction/'+list.name+'/'+key")
+                        .ico.mail-img {{ list.ico }}
+                        p.contacts-dialogue-item {{ list.name }}
+                        .clear
                 template(v-for="(item,key) in this.chatLog.contacts")
                     li.classification(v-if="searchText==''") {{key}}
                     li.contactsList(v-for=" (list,key) in item",v-if="searchText==''||list.name.indexOf(searchText)>=0")
