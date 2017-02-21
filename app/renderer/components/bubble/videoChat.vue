@@ -7,14 +7,12 @@
             border: 1px solid #dfe6ec;
             margin-left: 10px;
             border-radius: 10px;
-            p{
+            p,ol{
               display: inline;
               color: #040404;
               font-size: 0.9rem;
             }
             ol{
-              display: inline;
-              color: black;
               font-size: 1.4rem;
               margin-left: 10px;
             }
@@ -26,15 +24,13 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                .upupbox{
+                .upupbox,.updownbox{
                     display: flex;
                     justify-content: flex-start;
                     align-items: center;
                 }
                 .updownbox{
-                    display: flex;
                     justify-content: center;
-                    align-items: center;
                 }
             }
             .downbox{
@@ -45,36 +41,34 @@
                 border: 1px solid #dfe6ec;
                 border-radius: 0px 0px 10px 10px;
             }
-            .buttonRufuse{
+            .buttonRufuse,.buttonAccept{
                 display: flex;
                 justify-content: center;
                 align-items:center;
                 width:60px;
                 height:30px;
-                background-color:#C0C0C0 ; /* Green */
                 border-radius: 10px;
                 margin: 5px;
                 font-size: 0.9rem;
                 color: white;
             }
+            .buttonRufuse{
+                 background-color:#C0C0C0 ;
+            }
             .buttonAccept{
-                display: flex;
-                justify-content: center;
-                align-items:center;
-                width:60px;
-                height:30px;
-                background-color: #67fb87; /* Green */
-                border-radius: 10px;
-                margin: 5px;
-                font-size: 0.9rem;
-                color: white;
+                background-color: #67fb87; 
+            }
+            .buttonAccept.Accept{
+                transition: opacity 0.8s ease-in-out;
+                opacity: 0;
+            }
             }
         }
         .user-img{
             height: 45px;
             width: 45px;
         }
-    }
+    
         
 </style>
 <template lang="pug">
@@ -87,7 +81,7 @@
                 .updownbox
                     p.text 对方正邀请您进入视频通讯
             .downbox
-                .buttonAccept.ico    接受
+                .buttonAccept.ico(v-bind:class="{Accept:isOpen}",v-on:click="isOpen=!isOpen")    接受
                 .buttonRufuse.ico    拒绝
 </template>
 <script>
@@ -104,6 +98,11 @@
             userImg: {
                 type: String,
                 required: true
+            }
+        },
+        data(){
+            return{
+                isOpen:false
             }
         }
     }
