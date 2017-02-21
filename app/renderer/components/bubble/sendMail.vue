@@ -3,16 +3,16 @@
         display: flex;
         flex-direction: row-reverse;
         height: inherit;
+        margin: 10px;
         .user-img{
             height: 45px;
             width: 45px;
-            margin: 0 10px;
+            margin: 0 10px 0 0;
         }
         .bubble-message-box{
-            width: 300px;
+            width: initial;
             height: inherit;
             .text{
-                min-height: 45px;
                 height: inherit;
                 background-color: #f0f5f9;
                 border-radius: 5px;
@@ -41,20 +41,14 @@
     .send-mail-bubble
         img.user-img(src="imgs/chatUserImg.png")
         .bubble-message-box
-            p.text 广州小杨你好!<br> 建议使用豆豆视频会议，不用出差参加<br>西安小新
+            p.text @HR UI面试推迟到16:00
             .mail-bubble-foot
-                .ico 
-                .from 2017-02-20 14:50邮件已发送
+                .ico 
+                .from 2017-02-20 14:50指令已发送至HR机器人
             
 </template>
 <script>
     export default {
-        props: {
-            title: {
-                type: String,
-                required:true
-            }
-        },
         data(){
             return{
                 isOpen: false,

@@ -2,10 +2,12 @@
     .video-meeting-bubble{
         height: inherit;
         display: flex;
+        position: relative;
+        margin: 10px;
         .user-img{
             height: 45px;
             width: 45px;
-            margin: 0 10px;
+            margin: 0 10px 0 0;
         }
         .bubble-message-box{
             width: 300px;
@@ -13,10 +15,16 @@
             .text{
                 min-height: 45px;
                 height: inherit;
-                background-color: #f0f5f9;
+                background: #429ae4;
+                color: white;
                 border-radius: 5px;
                 text-align: left;
                 padding: 10px;
+                display: flex;
+                .ico{
+                    height: 45px;
+                    width: 45px;
+                }
             }
         }
         .mail-bubble-foot{
@@ -33,38 +41,54 @@
                 line-height: 20px;
             }
         }
+        .bubble-menu{
+            background-color: rgba(191, 165, 220, 0.8);
+            height: 45px;
+            position: relative;
+            right: 5px;
+            top: 20px;
+            li{
+                text-align: left;
+            }
+            li:hover{
+                background-color:#71c399;
+            }
+        }
     }
     
 </style>
 <template lang="pug">
-    .video-meeting-bubble
-        img.user-img(src="imgs/chatUserImg.png")
+    .video-meeting-bubble(v-on:click="isMenuOpen=false")
+        Avatar.user-img(v-bind:size='45',username="Maer")
         .bubble-message-box
-            p.text 广州小杨你好!<br> 建议使用豆豆视频会议，不用出差参加<br>西安小新
+            .text 
+                .ico 
+                .details 广州研发产品评审视频会议邀请</br>主题:广州研发产品评审</br>时间:2017-03-10 14:00</br>参加人数:20人</br>发起人:广州小杨
+                .ico.menu(v-on:click.stop="isMenuOpen=!isMenuOpen") 
             .mail-bubble-foot
                 .ico 
-                .from 18人阅读
+                .from 18人阅读 2017-02-20 14:29
+        ul.bubble-menu(v-if="isMenuOpen")
+            li.ico(v-on:click="getMail")  加入会议
+            li.ico  稍后提醒
             
 </template>
 <script>
+    import Avatar from '../avatar/default'
     export default {
-        props: {
-            title: {
-                type: String,
-                required:true
-            }
+        methods:{
+            getMail(){
+                if(this.$store.state.status.step<1){
+                    this.$store.commit("ADD_STEP");
+                }
+            },
+        },
+        components: {
+            Avatar
         },
         data(){
             return{
-                isOpen: false,
-                datas:{
-                    num:3,
-                    list:{
-                        one:'吃饭',
-                        two:'睡觉',
-                        three:'连豆豆'
-                    }
-                }
+                isMenuOpen: false,
             }
         },
     }

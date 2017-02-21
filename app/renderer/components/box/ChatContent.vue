@@ -27,9 +27,9 @@
                     Bubble(left=true,v-bind:content="item.content")
                 template(v-else)
                     Bubble(left=flase,userImg="imgs/chatUserImg.png",v-bind:content="item.content")
-            Collapse(left=flase,title="广州研发产品评审会邀请函",content="12121")
-            SendMail(title="广州研发产品评审会邀请函",content="12121")
             VideoMeeting(title="广州研发产品评审会邀请函",content="12121")
+            Prompt(v-if="this.$store.state.status.step>0",title="广州研发产品评审会邀请函",content="12121")
+            SendMail(v-if="this.$store.state.status.step>1",title="广州研发产品评审会邀请函",content="12121")
             .clear
             
 </template>
@@ -38,6 +38,7 @@
     import Bubble from '../bubble/default'
     import Collapse from '../bubble/collapse'
     import Examine from '../bubble/Examine'
+    import Prompt from '../bubble/prompt'
     import SendMail from '../bubble/sendMail'
     import VideoMeeting from '../bubble/videoMeeting'
     import { mapState } from 'vuex'
@@ -52,7 +53,8 @@
             Collapse,
             Examine,
             SendMail,
-            VideoMeeting
+            VideoMeeting,
+            Prompt
         },
         directives: {
             // 发送消息后滚动到底部
