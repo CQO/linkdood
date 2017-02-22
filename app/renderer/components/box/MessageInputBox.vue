@@ -76,21 +76,21 @@
         },
         methods:{
             sendMessage(str){
-                // const id = this.$route.params.id
-                // const talk= {
-                //     id:id,
-                //     userID:1,
-                //     msg:this.newTodoText
-                // }
-                // const _this = this
-                // this.newTodoText = "";
-                // this.$store.commit("ADD_DIALOGUE",talk)
-                // const msg={command:"sendMessage",userID:talk.id,msg:talk.msg}
-                // fun.Ajax.post(this.status.server,JSON.stringify(msg),function(e){
-                //     console.log(e)
-                // })
-                this.$store.commit("ADD_STEP")
+                const id = this.$route.params.id
+                const talk= {
+                    id:id,
+                    userID:1,
+                    msg:this.newTodoText
+                }
+                const _this = this
                 this.newTodoText = "";
+                this.$store.commit("ADD_DIALOGUE",talk)
+                const msg={command:"sendMessage",userID:talk.id,msg:talk.msg}
+                fun.Ajax.post(this.status.server,JSON.stringify(msg),function(e){
+                    console.log(e)
+                })
+                // this.$store.commit("ADD_STEP")
+                // this.newTodoText = "";
             },
             getMail(){
                 //发送收取邮件消息

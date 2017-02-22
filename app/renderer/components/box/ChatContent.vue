@@ -28,8 +28,10 @@
                 template(v-else)
                     Bubble(left=flase,userImg="imgs/chatUserImg.png",v-bind:content="item.content")
             VideoMeeting(title="广州研发产品评审会邀请函",content="12121")
-            Prompt(v-if="this.$store.state.status.step>0",title="广州研发产品评审会邀请函",content="12121")
-            SendMail(v-if="this.$store.state.status.step>1",title="广州研发产品评审会邀请函",content="12121")
+            Prompt(title="广州研发产品评审会邀请函",content="12121")
+            SendMail(title="广州研发产品评审会邀请函",content="12121")
+            Bubble(title="广州研发产品评审会邀请函",content="12121",userImg="")
+            Collapse(title="广州研发产品评审会邀请函",content="12121")
             .clear
             
 </template>
