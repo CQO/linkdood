@@ -4,7 +4,7 @@
     .list-default.box
       ul
         li(v-for="item in this.chatLog.robot")
-          router-link.box.road(to="/chatList/chatList")
+          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.file")
             Avater.user-img(v-bind:username="item.name")
             p.text {{item.name}}
       router-view.messages-box

@@ -3,9 +3,12 @@
 <template lang="pug">
     .box.one
       .top-bar
+        .minimize.button
+        .fixed.button
+        .close.button
       .column
-          Tab
-          router-view
+        Tab
+        router-view
 
 </template>
 
@@ -13,7 +16,6 @@
 import { mapState } from 'vuex'
 import Tab from './tab';
 import MessageBox from './messageBox';
-import InputBox from './inputBox';
 export default {
   computed: mapState([
     // 映射 this.count 为 store.state.count
@@ -21,8 +23,7 @@ export default {
   ]),
   components: {
     Tab,
-    MessageBox,
-    InputBox
+    MessageBox
   },
 }
 </script>
@@ -35,6 +36,23 @@ export default {
       background-color: #ccc;
       height: 30px;
       -webkit-app-region: drag;
+      display: flex;
+      flex-direction: row-reverse;
+      .button{
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        margin: 7px 2px;
+      }
+      .minimize{
+        background-color: antiquewhite;
+      }
+      .fixed{
+        background-color: chartreuse;
+      }
+      .close{
+        background-color: darksalmon;
+      }
     }
     .column{
       height: 100%;

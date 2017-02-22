@@ -2,10 +2,12 @@
   .message-box{
     background-color:white;
     width: 100%;
-    height: 80%;
+    height: calc(100% - 100px);
   }
   .input-box{
-    height: 20%;
+    height: 70px;
+    display: flex;
+    border-top: 1px solid #f3e9f2;
   }
 </style>
 
@@ -13,15 +15,17 @@
   .box
     .message-box
       DefaultBubble
-    .input-box
+    InputBox
 
 </template>
 
 <script>
 import DefaultBubble from './bubble/default';
+import InputBox from './inputBox';
 export default {
   components: {
-    DefaultBubble
+    DefaultBubble,
+    InputBox
   },
 }
 </script>

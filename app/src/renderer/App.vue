@@ -20,7 +20,7 @@ caption,th{text-align:left}
 a{text-decoration:none;color:#666;-webkit-user-drag: none;}
 a:hover{text-decoration:none}
 body {
-  font-family: Helvetica, Tahoma, Arial, STXihei, “华文细黑”, “Microsoft YaHei”, “微软雅黑”, sans-serif;
+  font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
   background-position: center;
   display: flex;
   justify-content: center;
