@@ -1,14 +1,14 @@
-# linkdood
+# dood
 
-> linkdood
+> An electron-vue project
 
 ## Build Setup
 
 ``` bash
-# 安装依赖包
+# install dependencies
 npm install
 
-# 快速运行程序
+# serve with hot reload at localhost:9080
 npm run dev
 
 # build electron app for production

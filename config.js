@@ -22,8 +22,8 @@ let config = {
     overwrite: true,
     platform: process.env.PLATFORM_TARGET || 'all'
   }
-};
+}
 
-config.building.name = config.name;
+config.building.name = config.name
 
-module.exports = config;
+module.exports = config
