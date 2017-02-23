@@ -33,7 +33,7 @@ export default {
     .display: flex;
     flex-direction: column;
     .top-bar{
-      background-color: #ccc;
+      background-color: #adacac;
       height: 30px;
       -webkit-app-region: drag;
       display: flex;

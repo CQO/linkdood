@@ -13,6 +13,16 @@ export default [
           }
         ]
       },
+      {
+        path: '/conversations',
+        component: require('components/list/conversations'),
+        children:[
+          {
+            path: '/chatList/dialog/:id',
+            component: require('components/messageBox'),
+          }
+        ]
+      },
     ]
   },
   {

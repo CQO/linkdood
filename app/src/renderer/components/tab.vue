@@ -1,7 +1,7 @@
 <style lang="postcss">
   .box.two.tab{
-    background-color: #495763;
-    height: 30px;
+    background-color: #cacaca;
+    height: 40px;
     display: flex;
     position: absolute;
     width: 30%;
@@ -9,11 +9,12 @@
       height: 100%;
       width: 33%;
       font-size: 1.6rem;
-      color: #ccc;
-      line-height: 30px;
+      color: #504848;
+      line-height: 40px;
     }
     .router-link-active{
-      color: bisque;
+      color: #84748e;
+      background-color: #f9f9f9;
     }
   }
 </style>
@@ -21,7 +22,7 @@
 <template lang="pug">
     .box.two.tab
       router-link.tab-item.chat.ico(to="/chatList") 
-      .tab-item.contact.ico 
+      router-link.tab-item.contact.ico(to="/conversations") 
       .tab-item.other.ico 
 </template>
 

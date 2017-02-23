@@ -11,6 +11,7 @@
         width:25px;
         color:#ccc;
         line-height: 20px;
+        font-size: 1rem;
       }
       .text{
         height: inherit;
