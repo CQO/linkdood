@@ -1,11 +1,20 @@
 <style lang="postcss">
   .input-box{
     .input{
-      width: calc(100% - 80px);
-      height: 50px;
-      border: 1px solid #ccc;
-      margin: 10px;
-      border-radius: 5px;
+      width: calc(100% - 60px);
+      height: 70px;
+      .tool{
+        height: 20px;
+        display: flex;
+      }
+      .ico{
+        width:25px;
+        color:#ccc;
+        line-height: 20px;
+      }
+      .text{
+        height: inherit;
+      }
     }
     .send{
       height: 50px;
@@ -23,6 +32,11 @@
 <template lang="pug">
   .input-box.box
     .input
+      .tool
+        .ico.jietu 
+        .ico.email 
+        .ico.approval 
+      .text
     .send.ico 
 </template>
 
