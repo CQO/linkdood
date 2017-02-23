@@ -3,9 +3,10 @@
 <template lang="pug">
     .box.one
       .top-bar
-        .minimize.button
+        .minimize.button(v-on:click.stop="minimize")
         .fixed.button
-        .close.button
+        .close.button(v-on:click.stop="close")
+        .drag
       .column
         Tab
         router-view
@@ -16,6 +17,7 @@
 import { mapState } from 'vuex'
 import Tab from './tab';
 import MessageBox from './messageBox';
+const ipcRenderer = require('electron').ipcRenderer;
 export default {
   computed: mapState([
     // 映射 this.count 为 store.state.count
@@ -24,6 +26,16 @@ export default {
   components: {
     Tab,
     MessageBox
+  },
+  methods:{
+    minimize(){
+      console.log("Sd");
+      //向主进程发送最小化消息
+      ipcRenderer.sendSync('main-window-message', 'minimize');
+    },
+    close(){
+      ipcRenderer.sendSync('main-window-message', 'close');
+    },
   },
 }
 </script>
@@ -35,9 +47,13 @@ export default {
     .top-bar{
       background-color: #adacac;
       height: 30px;
-      -webkit-app-region: drag;
       display: flex;
       flex-direction: row-reverse;
+      .drag{
+        height: 100%;
+        width: calc(100% - 48px);
+        -webkit-app-region: drag;
+      }
       .button{
         height: 16px;
         width: 16px;

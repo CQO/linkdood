@@ -12,6 +12,9 @@
       color: #504848;
       line-height: 40px;
     }
+    .tab-item:hover{
+      color: bisque;
+    }
     .router-link-active{
       color: #84748e;
       background-color: #f9f9f9;

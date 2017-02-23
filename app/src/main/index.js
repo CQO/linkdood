@@ -40,3 +40,14 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+//监听ipc消息
+ipcMain.on('main-window-message', function(event, arg) {
+  console.log(`收到IPC消息:${arg}`);
+  switch (arg){
+    case "minimize":mainWindow.minimize();event.returnValue = 'ok';break;
+    case "close":mainWindow.hide();event.returnValue = 'ok';break;
+    //固定到桌面
+    case "fixed":{}
+  }  
+});
