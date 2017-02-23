@@ -24,7 +24,7 @@ body {
   background-position: center;
   display: flex;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.8rem;
   overflow: hidden;
 }
 /* 滚动条样式 */

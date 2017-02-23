@@ -27,28 +27,29 @@ export default {
     display: flex;
     ul{
       width: 30%;
-      margin-top: 40px;
+      margin-top: 30px;
       height: 100%;
       background-color: #f9f9f9;
     }
     li{
-      height: 55px;
+      height: 45px;
       .box{
         display: flex;
       }
       .user-img{
-        padding: 2px;
       }
       a{
         padding: 5px;
-        height: 45px;
+        height: 35px;
       }
       .router-link-active{
         background: #ccc;
       }
       .text{
-        width: 100%;
-        line-height: 50px;
+        margin-left: 10px;
+        width: 200px;
+        overflow: hidden;
+        line-height: 35px;
       }
     }
     li:hover{

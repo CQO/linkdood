@@ -1,7 +1,7 @@
 <style lang="postcss">
   .box.two.tab{
     background-color: #495763;
-    height: 40px;
+    height: 30px;
     display: flex;
     position: absolute;
     width: 30%;
@@ -10,7 +10,10 @@
       width: 33%;
       font-size: 1.6rem;
       color: #ccc;
-      line-height: 40px;
+      line-height: 30px;
+    }
+    .router-link-active{
+      color: bisque;
     }
   }
 </style>

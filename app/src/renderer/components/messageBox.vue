@@ -14,7 +14,7 @@
 <template lang="pug">
   .box
     .message-box
-      DefaultBubble
+      DefaultBubble(time="上午9:10",content="这是一段测试内容",username="测试")
     InputBox
 
 </template>

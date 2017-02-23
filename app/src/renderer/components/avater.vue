@@ -23,7 +23,7 @@ export default {
     },
     size: {
       type: Number,
-      default: 45
+      default: 35
     },
     src: {
       type: String
