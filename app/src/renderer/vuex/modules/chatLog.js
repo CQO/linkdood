@@ -20,10 +20,8 @@ let state = {
     "80001":{name:"HR机器人",file:"HR",ico:""}
   },
   sessions:{
-    "10001":{type:"people",messages: [{type:"text",userID:0,content: '最近在干嘛'},{type:"text",userID:1,content: 'Learn English'},{type:"text",userID:1,content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}]},
-    "10002":{type:"people",messages: [{type:"text",userID:0,content: '测试'}]},
-    "10004":{type:"people",messages: [{type:"text",userID:0,content: '把用印申请表发给我'},{type:"text",userID:1,content: '什么时候要'},{type:"text",userID:0,content: '尽快吧'},{type:"text",userID:1,content: '哦哦'}]},
-    "10005":{type:"people",messages: [{type:"text",userID:0,content: '欢迎添加邮件机器人'}]},
+    "80000":{type:"people",messages: [{type:"text",userID:0,content: '最近在干嘛'},{type:"text",userID:1,content: 'Learn English'},{type:"text",userID:1,content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}]},
+    "80001":{type:"people",messages: [{type:"text",userID:0,content: '测试'}]}
   }
 };
 

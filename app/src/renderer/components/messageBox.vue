@@ -17,7 +17,11 @@
 <script>
 import DefaultBubble from './bubble/default';
 import InputBox from './inputBox';
+import { mapState } from 'vuex'
 export default {
+  computed: mapState([
+    'chatLog'
+  ]),
   components: {
     DefaultBubble,
     InputBox

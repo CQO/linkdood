@@ -33,8 +33,6 @@
           .user-name {{username}}
           .time {{time}}
         .text {{content}}
-
-
 </template>
 <script>
 import Avater from '../avater'
