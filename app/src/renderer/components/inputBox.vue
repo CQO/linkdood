@@ -1,3 +1,17 @@
+<template lang="pug">
+  .input-box.box
+    .input
+      .tool
+        .ico.jietu 
+        .ico.email 
+        .ico.approval 
+      .text
+    .send.ico 
+</template>
+
+<script>
+
+</script>
 <style lang="postcss">
   .input-box{
     .input{
@@ -30,17 +44,3 @@
   }
 </style>
 
-<template lang="pug">
-  .input-box.box
-    .input
-      .tool
-        .ico.jietu 
-        .ico.email 
-        .ico.approval 
-      .text
-    .send.ico 
-</template>
-
-<script>
-
-</script>

@@ -34,5 +34,5 @@ div::-webkit-scrollbar-thumb,ul::-webkit-scrollbar-thumb{border-radius: 10px;bac
 div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1fa;}
 /* 图标字体 */
 @font-face {font-family: 'owo';src: url('./font/fontello.woff') format('woff');font-weight: normal;font-style: normal;}
-.ico{text-align: center;font-family: "owo";font-style: normal;cursor: pointer;}
+.ico{text-align: center;font-family: "owo";font-style: normal;cursor: pointer;-webkit-user-select: none;}
 </style>

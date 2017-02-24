@@ -1,3 +1,14 @@
+<template lang="pug">
+    .box.two.tab
+      router-link.tab-item.chat.ico(to="/chatList") 
+      router-link.tab-item.contact.ico(to="/conversations") 
+      .tab-item.other.ico 
+</template>
+
+<script>
+
+</script>
+
 <style lang="postcss">
   .box.two.tab{
     background-color: #cacaca;
@@ -21,14 +32,3 @@
     }
   }
 </style>
-
-<template lang="pug">
-    .box.two.tab
-      router-link.tab-item.chat.ico(to="/chatList") 
-      router-link.tab-item.contact.ico(to="/conversations") 
-      .tab-item.other.ico 
-</template>
-
-<script>
-
-</script>

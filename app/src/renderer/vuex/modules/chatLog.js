@@ -4,13 +4,16 @@ import fun from '../fun';
 import Vue from 'vue';
 const Fs = require('fs');
 let state = {
-  contacts:{},
+  contacts:{
+    "80000":{name:"邮箱机器人"},
+    "80001":{name:"智能回复机器人"},
+    "80002":{name:"HR机器人"}
+  },
   chatList:[
     { item: "邮箱机器人",id:"10005",lastMessage:'欢迎添加邮箱机器人',time:'12:00' },
     { item: "Maer",id:"10001",lastMessage:'你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了',time:'9:20' },
     { item: "小米",id:"10002",lastMessage:'测试',time:'昨天' },
     { item: "北京服务点",id:"10004",lastMessage:'哦哦',time:'昨天' }
-
   ],
   robot:{
     "80000":{name:"邮箱机器人",file:"mail",ico:""},

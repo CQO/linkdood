@@ -1,16 +1,13 @@
-
-
 <template lang="pug">
     .box.one
       .top-bar
-        .minimize.button(v-on:click.stop="minimize")
-        .fixed.button
-        .close.button(v-on:click.stop="close")
+        .close.button.ico(v-on:click.stop="close") 
+        .fixed.button.ico 
+        .minimize.button.ico(v-on:click.stop="minimize") 
         .drag
       .column
         Tab
         router-view
-
 </template>
 
 <script>
@@ -29,7 +26,6 @@ export default {
   },
   methods:{
     minimize(){
-      console.log("Sd");
       //向主进程发送最小化消息
       ipcRenderer.sendSync('main-window-message', 'minimize');
     },
@@ -59,6 +55,12 @@ export default {
         width: 16px;
         border-radius: 50%;
         margin: 7px 2px;
+        color: rgba(255, 255, 255, 0);
+        font-size: 0.7rem;
+        line-height: 16px;
+      }
+      .button:hover{
+        color: black;
       }
       .minimize{
         background-color: antiquewhite;

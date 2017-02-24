@@ -61,12 +61,11 @@ export default {
     }
     li{
       height: 45px;
+      -webkit-user-select: none;
       .box{
         display: flex;
         padding-left: 10px;
         width: inherit;
-      }
-      .user-img{
       }
       a{
         padding: 5px;
