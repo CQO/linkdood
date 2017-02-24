@@ -1,11 +1,7 @@
 <template lang="pug">
   .input-box.box
-    .input
-      .tool
-        .ico.jietu 
-        .ico.email 
-        .ico.approval 
-      .text
+    .tool.ico 
+    textarea.text
     .send.ico 
 </template>
 
@@ -13,34 +9,37 @@
 
 </script>
 <style lang="postcss">
-  .input-box{
-    .input{
-      width: calc(100% - 60px);
-      height: 70px;
-      .tool{
-        height: 20px;
-        display: flex;
-      }
-      .ico{
-        width:25px;
-        color:#ccc;
-        line-height: 20px;
-        font-size: 1rem;
-      }
-      .text{
-        height: inherit;
-      }
-    }
-    .send{
-      height: 50px;
-      width: 50px;
-      line-height: 50px;
-      font-size: 2rem;
-      color: gray;
-      margin: 10px 0;
-      border: 1px solid #6d6d67;
-      border-radius: 50%;
-    }
+.input-box.box{
+  height: 40px;
+  background-color: aquamarine;
+  display: flex;
+  .tool{
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 2rem;
+    color: #fff9f1;
+    
   }
+  .text{
+    width: calc(100% - 80px);
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: antiquewhite;
+    line-height: 40px;
+    font-size: 1.2rem;
+  }
+  .send{
+    width: 40px;
+    height: 40px;
+    background-color: #77cc86;
+    color: white;
+  }
+  .ico{
+    line-height: 40px;
+    font-size: 2rem;
+  }
+}
 </style>
 

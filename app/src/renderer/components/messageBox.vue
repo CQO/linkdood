@@ -2,12 +2,7 @@
   .message-box{
     background-color:white;
     width: 100%;
-    height: calc(100% - 100px);
-  }
-  .input-box{
-    height: 70px;
-    display: flex;
-    border-top: 1px solid #f3e9f2;
+    height: calc(100% - 70px);
   }
 </style>
 
