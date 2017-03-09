@@ -1,8 +1,8 @@
 <template lang="pug">
     .box.two.tab
-      router-link.tab-item.chat.ico(to="/chatList") 
-      router-link.tab-item.contact.ico(to="/conversations") 
-      .tab-item.other.ico 
+      router-link.tab-item.chat.ico(to="/chatList") &#xe734;
+      router-link.tab-item.contact.ico(to="/conversations") &#xe63d;
+      .tab-item.other.ico &#xe60b;
 </template>
 
 <script>
@@ -27,7 +27,7 @@
       color: bisque;
     }
     .router-link-active{
-      color: #84748e;
+      color: goldenrod;
       background-color: #f9f9f9;
     }
   }

@@ -1,6 +1,44 @@
-<style lang="postcss">
+
+<template lang="pug">
+.default-bubble
+  Avater(v-bind:username="username")
+  .information
+    .from
+      .user-name {{username}}
+      .time {{time}}
+    li.text(v-for="item in message") 
+      p.ico &#xe600; 
+      p {{item.content}}
+</template>
+
+<script>
+import Avater from '../avater'
+import { mapState } from 'vuex'
+export default {
+  props:{
+    time:{
+      type:String,
+      required:true
+    },
+    username:{
+      type:String,
+      required:true
+    },
+    message:{
+      required:true
+    }
+  },
+  computed: mapState([
+    'chatLog'
+  ]),
+  components: {
+    Avater
+  },
+}
+</script>
+
+<style lang="postcss" scoped>
 .default-bubble{
-  height: 35px;
   padding: 10px;
   display: flex;
   .information{
@@ -19,44 +57,15 @@
       }
     }
     .text{
-      height: 15px;
-      line-height: 15px;
+      line-height: 18px;
+      list-style-type: none;
+    }
+    p{
+      display: inline;
+    }
+    .ico{
+      color: lightskyblue;
     }
   }
 }
 </style>
-<template lang="pug">
-    .default-bubble.box
-      Avater(v-bind:username="username")
-      .information
-        .from
-          .user-name {{username}}
-          .time {{time}}
-        .text {{content}}
-</template>
-<script>
-import Avater from '../avater'
-import { mapState } from 'vuex'
-export default {
-  props:{
-    time:{
-      type:String,
-      required:true
-    },
-    content:{
-      type:String,
-      required:true
-    },
-    username:{
-      type:String,
-      required:true
-    }
-  },
-  computed: mapState([
-    'chatLog'
-  ]),
-  components: {
-    Avater
-  },
-}
-</script>

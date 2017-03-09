@@ -1,8 +1,8 @@
 <template lang="pug">
   .input-box.box
-    .tool.ico 
+    .tool.ico &#xe6fd;
     textarea.text
-    .send.ico 
+    .send.ico &#xe840;
 </template>
 
 <script>
@@ -11,30 +11,27 @@
 <style lang="postcss">
 .input-box.box{
   height: 40px;
-  background-color: aquamarine;
   display: flex;
+  border-top: 1px solid #eceef2;
   .tool{
     height: 40px;
     width: 40px;
     line-height: 40px;
     font-size: 2rem;
-    color: #fff9f1;
-    
+    color: #d4cec6;
   }
   .text{
     width: calc(100% - 80px);
     outline: none;
     border: none;
     resize: none;
-    background-color: antiquewhite;
     line-height: 40px;
     font-size: 1.2rem;
   }
   .send{
     width: 40px;
     height: 40px;
-    background-color: #77cc86;
-    color: white;
+    color: #d4cec6;
   }
   .ico{
     line-height: 40px;

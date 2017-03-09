@@ -1,11 +1,11 @@
 <template lang="pug">
-    .list-default.box
-      ul
+    .list.box
+      ul.list-default
         li.contacts
-          .ico 
+          .ico &#xe640;
           .title  新增联系人
         li.contacts(v-on:click="isOpen=!isOpen")
-          .ico(v-bind:class="{ active: isOpen }") 
+          .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 联系人
         li(v-if="isOpen",v-for="item in this.chatLog.contacts")
           router-link.box.road(v-bind:to="'/chatList/dialog/'+item.file")

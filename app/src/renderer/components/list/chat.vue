@@ -1,11 +1,11 @@
 <template lang="pug">
-    .list-default.box
-      ul
+    .list.box
+      ul.list-default
         li.contacts
-          .ico 
+          .ico &#xe640;
           .title 新增对话
         li.contacts(v-on:click="isOpen=!isOpen")
-          .ico(v-bind:class="{ active: isOpen }") 
+          .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 联系人
         li(v-if="isOpen",v-for="item in this.chatLog.robot")
           router-link.box.road(v-bind:to="'/chatList/dialog/'+item.file")
@@ -31,32 +31,33 @@ export default {
   },
 }
 </script>
+
 <style lang="postcss">
-  .list-default.box{
-    display: flex;
-    ul{
-      width: 30%;
-      margin-top: 40px;
-      height: 100%;
-      background-color: #f9f9f9;
-      .contacts{
-        display: flex;
-        color: #928e8e;
-        .ico{
-          width: 25px;
-          height: 25px;
-          line-height: 25px;
-          margin: 10px 5px;
-          font-size: 1rem;
-          transition: All 0.4s ease-in-out;
-        }
-        .active{
-          transform: rotate(90deg);
-        }
-        .title{
-          height: 45px;
-          line-height: 45px;
-        }
+.list{
+  display: flex;
+}
+  .list-default{
+    width: 30%;
+    margin-top: 40px;
+    height: 100%;
+    background-color: #f9f9f9;
+    .contacts{
+      display: flex;
+      color: #928e8e;
+      .ico{
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        margin: 10px 5px;
+        font-size: 1rem;
+        transition: All 0.4s ease-in-out;
+      }
+      .active{
+        transform: rotate(90deg);
+      }
+      .title{
+        height: 45px;
+        line-height: 45px;
       }
     }
     li{

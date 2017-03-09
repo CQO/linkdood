@@ -1,9 +1,9 @@
 <template lang="pug">
     .box.one
       .top-bar
-        .close.button.ico(v-on:click.stop="close") 
-        .fixed.button.ico 
-        .minimize.button.ico(v-on:click.stop="minimize") 
+        .close.button.ico(v-on:click.stop="close") &#xe648;
+        .fixed.button.ico &#xe61d;
+        .minimize.button.ico(v-on:click.stop="minimize") &#xe641;
         .drag
       .column
         Tab
@@ -67,6 +67,7 @@ export default {
       }
       .fixed{
         background-color: chartreuse;
+        line-height: 17px;
       }
       .close{
         background-color: darksalmon;

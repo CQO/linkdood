@@ -9,7 +9,8 @@
 <template lang="pug">
   .box
     .message-box
-      DefaultBubble(time="上午9:10",content="这是一段测试内容",username="测试")
+      .bubble
+        DefaultBubble(time="上午9:10",username="测试",:message="chatLog.sessions[80000].messages")
     InputBox
 
 </template>
@@ -26,5 +27,8 @@ export default {
     DefaultBubble,
     InputBox
   },
+  created(){
+    console.log(this.chatLog.sessions[80000].messages)
+  }
 }
 </script>
