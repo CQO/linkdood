@@ -9,7 +9,7 @@ const Dialog = electron.dialog;
 
 
 let mainWindow
-const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html#/chatList/dialog/80000`
+const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}/#/chatList/dialog/80000`: `file://${__dirname}/index.html#/chatList/dialog/80000`
 
 
 //创建聊天窗口

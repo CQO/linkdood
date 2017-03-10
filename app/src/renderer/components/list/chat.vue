@@ -26,7 +26,7 @@ export default {
   },
   data(){
     return{
-      isOpen: false
+      isOpen: true
     }
   },
 }
@@ -39,7 +39,7 @@ export default {
   .list-default{
     margin-top: 40px;
     height: 100%;
-    background-color: #f9f9f9;
+    background-color: #f7efef;
     .contacts{
       display: flex;
       color: #928e8e;

@@ -1,7 +1,7 @@
 <template lang="pug">
   .input-box.box
     .tool.ico &#xe6fd;
-    textarea.text(v-model="message")
+    textarea.text(v-on:keyup.enter="sendMessage",v-model="message")
     .send.ico(v-on:click.stop="sendMessage") &#xe840;
 </template>
 
@@ -39,6 +39,7 @@ export default {
   height: 40px;
   display: flex;
   border-top: 1px solid #eceef2;
+  background-color: #fbfbfb;
   .tool{
     height: 40px;
     width: 40px;
@@ -53,6 +54,7 @@ export default {
     resize: none;
     line-height: 40px;
     font-size: 1.2rem;
+    background-color: #fbfbfb;
   }
   .send{
     width: 40px;
