@@ -9,7 +9,7 @@ const Dialog = electron.dialog;
 
 
 let mainWindow
-const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html`
+const winURL = process.env.NODE_ENV === 'development'? `http://localhost:${require('../../../config').port}`: `file://${__dirname}/index.html#/chatList/dialog/80000`
 
 
 //创建聊天窗口
@@ -20,11 +20,17 @@ function createWindow () {
     minWidth:750,
     minHeight:400,
     frame:false,
+    show:false,
     autoHideMenuBar:true,
     title:"聊天窗口"
   })
   mainWindow.loadURL(winURL)
+  //mainWindow.openDevTools();
   mainWindow.on('closed', () => {mainWindow = null})
+  const webContents = mainWindow.webContents;
+  webContents.on('dom-ready', () => {
+    mainWindow.show();
+  });
 }
 
 app.on('ready', createWindow)
