@@ -7,8 +7,8 @@
         li.contacts(v-on:click="isOpen=!isOpen")
           .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 联系人
-        li(v-if="isOpen",v-for="item in this.chatLog.robot")
-          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.file")
+        li(v-if="isOpen",v-for="item in this.chatLog.chatList")
+          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.id")
             Avater.user-img(v-bind:username="item.name")
             p.text {{item.name}}
       router-view.messages-box
@@ -37,7 +37,6 @@ export default {
   display: flex;
 }
   .list-default{
-    width: 30%;
     margin-top: 40px;
     height: 100%;
     background-color: #f9f9f9;
@@ -61,6 +60,7 @@ export default {
       }
     }
     li{
+      width: 258px;
       height: 45px;
       -webkit-user-select: none;
       .box{

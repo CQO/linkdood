@@ -9,8 +9,8 @@
 <template lang="pug">
   .box
     .message-box
-      .bubble
-        DefaultBubble(time="上午9:10",username="测试",:message="chatLog.sessions[80000].messages")
+      .bubble(v-for="item in chatLog.mark[$route.params.id]")
+        DefaultBubble(time="上午9:10",:username="chatLog.contacts[chatLog.sessions[$route.params.id].messages[item][0].userID].name",:message="chatLog.sessions[$route.params.id].messages[item]")
     InputBox
 
 </template>
@@ -27,8 +27,13 @@ export default {
     DefaultBubble,
     InputBox
   },
+  data(){
+    return{
+      userID: this.$route.params.id
+    }
+  },
   created(){
-    console.log(this.chatLog.sessions[80000].messages)
+    
   }
 }
 </script>

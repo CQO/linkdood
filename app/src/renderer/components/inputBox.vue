@@ -1,13 +1,39 @@
 <template lang="pug">
   .input-box.box
     .tool.ico &#xe6fd;
-    textarea.text
-    .send.ico &#xe840;
+    textarea.text(v-model="message")
+    .send.ico(v-on:click.stop="sendMessage") &#xe840;
 </template>
 
 <script>
-
+import fun from '../vuex/fun'
+export default {
+  data(){
+    return{
+      message:""
+    }
+  },
+  methods:{
+    sendMessage(){
+      const id = this.$route.params.id
+      const talk= {
+        id:id,
+        userID:88888,
+        msg:this.message
+      }
+      const _this = this
+      this.message = "";
+      this.$store.commit("ADD_DIALOGUE",talk)
+      fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
+        const message = JSON.parse(e);
+        const talk= {id:id,userID:id,msg:message.text}
+        _this.$store.commit("ADD_DIALOGUE",talk)
+      })
+    },
+  },
+}
 </script>
+
 <style lang="postcss">
 .input-box.box{
   height: 40px;

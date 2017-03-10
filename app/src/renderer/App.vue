@@ -33,7 +33,7 @@ div::webkit-scrollbar-track-piece,ul::webkit-scrollbar-track-piece{background-co
 div::-webkit-scrollbar-thumb,ul::-webkit-scrollbar-thumb{border-radius: 10px;background-color: rgb(112, 137, 212);   }
 div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1fa;}
 /* 图标字体 */
-@font-face {font-family: 'owo';src: url('//at.alicdn.com/t/font_24qc6wwdf8byb9.woff') format('woff');font-weight: normal;font-style: normal;}
+@font-face {font-family: 'owo';src: url('//at.alicdn.com/t/font_94y4zsqjhf22zkt9.woff') format('woff');font-weight: normal;font-style: normal;}
 .ico{text-align: center;font-family: "owo";font-style: normal;cursor: pointer;-webkit-user-select: none;}
 
 .bubble:hover{

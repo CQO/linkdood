@@ -8,11 +8,13 @@
       .time {{time}}
     li.text(v-for="item in message") 
       p.ico &#xe600; 
-      p {{item.content}}
+      p(v-if="item.type === 'text'") {{item.content}}
+      Mail(v-if="item.type === 'mail'")(title="广州研发产品评审会邀请函",content="这里是邮件的内容")
 </template>
 
 <script>
 import Avater from '../avater'
+import Mail from './Mail'
 import { mapState } from 'vuex'
 export default {
   props:{
@@ -32,7 +34,8 @@ export default {
     'chatLog'
   ]),
   components: {
-    Avater
+    Avater,
+    Mail
   },
 }
 </script>
@@ -41,6 +44,7 @@ export default {
 .default-bubble{
   padding: 10px;
   display: flex;
+  border-bottom: 2px dashed #eae9f3;
   .information{
     margin-left: 10px;
     .from{
@@ -59,6 +63,7 @@ export default {
     .text{
       line-height: 18px;
       list-style-type: none;
+      display: flex;
     }
     p{
       display: inline;
