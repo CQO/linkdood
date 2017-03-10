@@ -1,12 +1,9 @@
 <style lang="postcss">
 .collapse-bubble{
     .title{
-        background-color: #d6eada;
+        background-color: #ccefef;
         display: flex;
         width: 450px;
-    }
-    .foot{
-        background-color: blue;
     }
     .text{
         width: calc(100% - 80px);
@@ -16,51 +13,71 @@
         height: 40px;
         line-height: 40px;
         font-size: 1.2rem;
-    }
-    .theme, .from{
-        line-height: 20px;
+        transition: All 0.4s ease-in-out;
+        color: #7e9a86;
     }
     .theme{
         font-size: 1rem;
         line-height: 25px;
-        color: cornflowerblue;
+        color: #7e9a86;
+        line-height: 40px;
     }
     .from{
-        text-align: right;
         width: 100%;
-        line-height: 15px;
         color: navy;
+        text-align: left;
+        line-height: 20px;
+        p{
+            display: inline;
+        }
     }
     .list{
         font-size: 1rem;
-        background-color: aqua;
+        background-color: #dfe5ea;
         padding: 10px;
+        text-indent: 30px;
+        width: 430px;
+        border-top: 3px dashed #ffffff;
     }
     .bubble-menu{
         position: absolute;
-        right: 15px;
-        top: 70px;
-        background-color: bisque;
+        right: 20px;
+        top: 80px;
+        background-color: #d0b1b1;
+        color: #404040;
         li{
             text-align: left;
+            line-height: 1.4rem;
+            font-size: 1rem;
+        }
+        li:hover{
+            background-color: antiquewhite;
         }
     }
     .menu{
         width: 40px;
         line-height: 40px;
         font-size: 1.4rem;
-        color: darkslateblue;
+        color: #7e9a86;
+    }
+    .active .unfolded{
+        transform: rotate(90deg);
+    }
+    .time{
+        margin: 0 10px;
     }
 }
 </style>
 <template lang="pug">
     .collapse-bubble(v-on:click="isMenuOpen=false")
+        .from
+            p.user-name 蒲鸽 100284685@qq.com 
+            p.time 2017-07-20 14:29
         .box(v-bind:class="{ active: isOpen }")
             .title
                 .ico.unfolded(v-on:click="isOpen=!isOpen") &#xe635;
                 .text
-                    p.theme {{title}}(2017-07-20 14:29)
-                    p.from 来自:蒲鸽 100284685@qq.com 
+                    p.theme {{title}}
                 .ico.menu(v-if="isOpen",v-on:click.stop="isMenuOpen=!isMenuOpen") &#xe634;
             .list(v-if="isOpen") {{content}}
         ul.bubble-menu(v-if="isMenuOpen")

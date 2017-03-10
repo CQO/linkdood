@@ -37,6 +37,6 @@ div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1
 .ico{text-align: center;font-family: "owo";font-style: normal;cursor: pointer;-webkit-user-select: none;}
 
 .bubble:hover{
-  background-color: #f5f9ea;
+  background-color: #fafbf8;
 }
 </style>
