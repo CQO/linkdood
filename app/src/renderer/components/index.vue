@@ -1,5 +1,6 @@
 <template lang="pug">
     .box.one
+      <!--标题栏，包含最小化，固定，关闭按钮。-->
       .top-bar
         .close.button.ico(v-on:click.stop="close") &#xe648;
         .fixed.button.ico &#xe61d;

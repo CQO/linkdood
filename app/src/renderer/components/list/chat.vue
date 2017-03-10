@@ -1,9 +1,6 @@
 <template lang="pug">
     .list.box
       ul.list-default
-        li.contacts
-          .ico &#xe640;
-          .title 新增对话
         li.contacts(v-on:click="isOpen=!isOpen")
           .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 联系人

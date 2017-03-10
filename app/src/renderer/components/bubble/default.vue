@@ -5,7 +5,7 @@
   .information(v-if="username !== '邮件机器人'")
     .from
       .user-name {{username}}
-      .time {{time}}
+      .time {{getDateDiff(time)}}
     li.text(v-for="item in message") 
       p.ico &#xe600; 
       p {{item.content}}
@@ -17,10 +17,10 @@
 import Avater from '../avater'
 import Mail from './Mail'
 import { mapState } from 'vuex'
+import fun from '../../vuex/fun'
 export default {
   props:{
     time:{
-      type:String,
       required:true
     },
     username:{
@@ -29,6 +29,37 @@ export default {
     },
     message:{
       required:true
+    }
+  },
+  data(){
+    return{
+      getDateDiff: function(nS){
+        let result;
+        const diffValue =  new Date().getTime() - nS;
+        if(diffValue < 0){return;}
+        const monthC =diffValue/2592000000;
+        const weekC =diffValue/(7*86400000);
+        const dayC =diffValue/86400000;
+        const hourC =diffValue/3600000;
+        const minC =diffValue/60000;
+        if(monthC>=1){
+            result="" + parseInt(monthC) + "月前";
+        }
+        else if(weekC>=1){
+            result="" + parseInt(weekC) + "周前";
+        }
+        else if(dayC>=1){
+            result=""+ parseInt(dayC) +"天前";
+        }
+        else if(hourC>=1){
+            result=""+ parseInt(hourC) +"小时前";
+        }
+        else if(minC>=1){
+            result=""+ parseInt(minC) +"分钟前";
+        }
+        else result="刚刚";
+        return result;
+      },
     }
   },
   computed: mapState([

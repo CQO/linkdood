@@ -1,6 +1,8 @@
 <template lang="pug">
   .input-box.box
+    <!-- 输入框扩展按钮 -->
     .tool.ico &#xe6fd;
+    <!-- 输入框 -->
     textarea.text(v-on:keyup.enter="sendMessage",v-model="message")
     .send.ico(v-on:click.stop="sendMessage") &#xe840;
 </template>
@@ -17,16 +19,17 @@ export default {
     sendMessage(){
       const id = this.$route.params.id
       const talk= {
-        id:id,
-        userID:88888,
-        msg:this.message
+        receiverID:id,
+        senderID:88888,
+        msg:this.message,
+        conversationID:id
       }
       const _this = this
       this.message = "";
       this.$store.commit("ADD_DIALOGUE",talk)
       fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
         const message = JSON.parse(e);
-        const talk= {id:id,userID:id,msg:message.text}
+        const talk= {receiverID:88888,senderID:id,msg:message.text,conversationID:id}
         _this.$store.commit("ADD_DIALOGUE",talk)
       })
     },
