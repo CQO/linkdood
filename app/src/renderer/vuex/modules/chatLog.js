@@ -35,9 +35,9 @@ let state = {
     "80000":{
       type:"people",
       messages: {
-        '1489162426187':[{type:"text",userID:'80000',content: '最近在干嘛'}],
+        '1489162426187':[{type:"text",userID:'80000',content: '最近在干嘛{-#icon-Expression_17-}'}],
         '1489161446187':[
-          {type:"text",userID:'88888',content: 'Learn English'},
+          {type:"text",userID:'88888',content: '{-#icon-Expression_26-}Learn English'},
           {type:"text",userID:'88888',content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}
         ],
       }
@@ -45,7 +45,7 @@ let state = {
     "80001":{
       type:"robot",
       messages: {
-        '1489162446127':[{type:"text",userID:'80001',content: '你可以和我聊天'}],
+        '1489162446127':[{type:"text",userID:'80001',content: '你可以和我聊天{-#icon-Expression_20-}'}],
       }
     },
     "80003":{

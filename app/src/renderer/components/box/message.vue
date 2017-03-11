@@ -4,6 +4,7 @@
     width: 100%;
     height: calc(100% - 70px);
     overflow-y: auto;
+
   }
 </style>
 
@@ -24,8 +25,8 @@
 </template>
 
 <script>
-import DefaultBubble from './bubble/default';
-import InputBox from './inputBox';
+import DefaultBubble from '../bubble/default';
+import InputBox from '../inputBox';
 import { mapState } from 'vuex'
 export default {
   computed: mapState([

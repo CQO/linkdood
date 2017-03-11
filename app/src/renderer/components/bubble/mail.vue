@@ -11,9 +11,9 @@
                     p.theme {{title}}
             .list(v-if="isOpen",v-html="html")
         ul.bubble-menu
-            send-mail.ico(v-on:click="sendMail") &#xe79a; 
-            guding.ico &#xe61d; 
-            floating-button.ico &#xe613; 
+            .send-mail.ico(v-on:click="sendMail") &#xe79a; 
+            .guding.ico &#xe61d; 
+            .floating-button.ico &#xe613; 
 
 </template>
 <script>

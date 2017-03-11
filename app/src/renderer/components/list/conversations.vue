@@ -7,8 +7,8 @@
         li.contacts(v-on:click="isOpen=!isOpen")
           .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 联系人
-        li(v-if="isOpen",v-for="item in this.chatLog.contacts")
-          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.file")
+        li(v-if="isOpen",v-for="(item, key) in this.chatLog.contacts")
+          router-link.box.road(v-bind:to="'/conversations/dialog/'+key")
             Avater.user-img(v-bind:username="item.name")
             p.text {{item.name}}
       router-view.messages-box

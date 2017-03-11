@@ -14,7 +14,7 @@
 <script>
 import { mapState } from 'vuex'
 import Tab from './tab';
-import MessageBox from './messageBox';
+import MessageBox from './box/message';
 const ipcRenderer = require('electron').ipcRenderer;
 export default {
   computed: mapState([
