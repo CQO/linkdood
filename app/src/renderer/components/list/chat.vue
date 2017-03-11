@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="postcss">
-.list{
+.list.box{
   display: flex;
 }
   .list-default{
