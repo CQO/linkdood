@@ -106,8 +106,8 @@
             height: 36px;
             text-align: center;
             border-radius: 50%;
-            background-color: cadetblue;
-            color: aliceblue;
+            background-color: #d0b3ea;
+            color: white;
             margin-bottom: -36px;
             transition: All 0.2s ease-in;
         }

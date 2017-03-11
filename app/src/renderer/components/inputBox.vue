@@ -1,5 +1,10 @@
 <template lang="pug">
   .input-box.box
+    <!-- 工具条 -->
+    .tool-bar
+      .biaoqing.ico &#xe610;
+      .yuancheng.ico &#xe617;
+      .jietu.ico &#xe60d;
     <!-- 输入框扩展按钮 -->
     .tool.ico &#xe6fd;
     <!-- 输入框 -->
@@ -37,18 +42,27 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .input-box.box{
   height: 40px;
   display: flex;
   border-top: 1px solid #eceef2;
-  background-color: #fbfbfb;
+  background-color: #e5e5ff;
+  position: relative;
   .tool{
     height: 40px;
     width: 40px;
     line-height: 40px;
     font-size: 2rem;
-    color: #d4cec6;
+    color: cadetblue;
+  }
+  .tool-bar{
+    position: absolute;
+    width: 40px;
+    bottom: 40px;
+    height: 120px;
+    background-color: aqua;
+    color: darkorchid;
   }
   .text{
     width: calc(100% - 80px);
@@ -57,12 +71,12 @@ export default {
     resize: none;
     line-height: 40px;
     font-size: 1.2rem;
-    background-color: #fbfbfb;
+    background-color: #e5e5ff;
   }
   .send{
     width: 40px;
     height: 40px;
-    color: #d4cec6;
+    color: cadetblue;
   }
   .ico{
     line-height: 40px;

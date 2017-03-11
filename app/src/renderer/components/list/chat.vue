@@ -36,10 +36,13 @@ export default {
   .list-default{
     margin-top: 40px;
     height: 100%;
-    background-color: #f7efef;
+    border-right: 1px solid #d7d7de;
+    background-color: aliceblue;
     .contacts{
       display: flex;
-      color: #928e8e;
+      color: dodgerblue;
+      background-color: gainsboro;
+      border-bottom: 1px solid aliceblue;
       .ico{
         width: 25px;
         height: 25px;

@@ -16,6 +16,7 @@
     display: flex;
     position: absolute;
     width: 30%;
+    border-right: 1px solid #d7d7de;
     .tab-item{
       height: 100%;
       width: 33%;
@@ -27,8 +28,8 @@
       color: bisque;
     }
     .router-link-active{
-      color: goldenrod;
-      background-color: #f9f9f9;
+      background-color: gainsboro;
+      color: darkorchid;
     }
   }
 </style>
