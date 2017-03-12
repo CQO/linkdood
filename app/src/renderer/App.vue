@@ -33,7 +33,7 @@ div::webkit-scrollbar-track-piece,ul::webkit-scrollbar-track-piece{background-co
 div::-webkit-scrollbar-thumb,ul::-webkit-scrollbar-thumb{border-radius: 10px;background-color: rgb(112, 137, 212);   }
 div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1fa;}
 /* 图标字体 */
-@font-face {font-family: 'owo';src: url('http://at.alicdn.com/t/font_sva7tcdkmwnj0pb9.woff') format('woff');font-weight: normal;font-style: normal;}
+@font-face {font-family: 'owo';src: url('http://at.alicdn.com/t/font_v6rlrvfmujj4te29.woff') format('woff');font-weight: normal;font-style: normal;}
 .ico{text-align: center;font-family: "owo";font-style: normal;cursor: pointer;-webkit-user-select: none;}
 
 .bubble:hover{
@@ -44,5 +44,10 @@ div::-webkit-scrollbar-track,ul::-webkit-scrollbar-track{background-color: #e5f1
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+}
+.biaoqing-panel svg{
+  font-size: 25px;
+  width: 40px;
+  height: 24px;
 }
 </style>

@@ -65,6 +65,7 @@ export default {
       if(text.indexOf("{-#icon-Expression_")<0){
         return text
       }
+      //将表情简写替换成svg表情
       let html = text.replace("{-",'<svg class="icon" aria-hidden="true"> <use xlink:href="')
           html = html.replace("-}",'"></use> </svg>')
       return html
