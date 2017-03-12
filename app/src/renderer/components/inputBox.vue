@@ -2,20 +2,39 @@
   .input-box.box(v-bind:class="{ active: isOpen }")
     <!-- 工具条 -->
     .tool-bar(v-if="isOpen")
-      .biaoqing.item(v-on:click="expressionOpen=!expressionOpen")
+      .biaoqing.item(v-on:click="showExpression")
         p.ico &#xe610;
         p.name 表情
-      .yuancheng.item
+      .yuancheng.item(v-on:click="showRemotely")
         p.ico &#xe617;
         p.name 远程
-      .jietu.item
+      .jietu.item(v-on:click="showShot")
         p.ico &#xe60d;
         p.name 截图
-    <!-- 工具窗体 -->
+    <!-- 表情窗体 -->
     .biaoqing-panel(v-if="expressionOpen")
       .item(v-for="item in expression",v-on:click="message+='{-#'+item.code+'-}'")
         p(v-html=`'<svg class="icon" aria-hidden="true"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#'+item.code+'"></use> </svg>'`)
         p.meaning {{item.name}}
+    <!-- 远程窗体 -->
+    .yuancheng-panel(v-if="remotely")
+      .video-chat.item
+        p.ico &#xe619;
+        p.name 视频聊天
+      .voice-chat.item
+        p.ico &#xe601;
+        p.name 语音聊天
+      .remote.item
+        p.ico &#xe617;
+        p.name 远程协助
+    <!-- 截图窗体 -->
+    .shot-panel(v-if="shot")
+      .image.item
+        p.ico &#xe60d;
+        p.name 截图
+      .video.item
+        p.ico &#xe60d;
+        p.name 截取视频
     <!-- 输入框扩展按钮 -->
     .tool.ico(v-if="isOpen",v-on:click="closeMenu") &#xe727;
     .tool.ico(v-else,v-on:click="isOpen=true") &#xe6fd;
@@ -32,6 +51,8 @@ export default {
       message:"",
       isOpen: false,
       expressionOpen:false,
+      shot:false,
+      remotely:false,
       expression:[
         {code:"icon-Expression_",name:"名称"},
         {code:"icon-Expression_1",name:"名称"},
@@ -92,7 +113,25 @@ export default {
     //关闭所有菜单
     closeMenu(){
       this.isOpen=false
+      this.remotely=false
+      this.shot=false
       this.expressionOpen=false
+    },
+    //显示表情菜单
+    showExpression(){
+      this.expressionOpen=!this.expressionOpen
+      this.shot=false
+      this.remotely=false
+    },
+    showShot(){
+      this.expressionOpen=false
+      this.shot=!this.shot
+      this.remotely=false
+    },
+    showRemotely(){
+      this.expressionOpen=false
+      this.shot=false
+      this.remotely=!this.remotely
     }
   },
 }
@@ -165,6 +204,34 @@ export default {
       height: 16px;
       line-height: 16px;
       text-align: center;
+    }
+  }
+  .yuancheng-panel{
+    position: absolute;
+    width: 157px;
+    height: 52px;
+    display: flex;
+    bottom: 97px;
+    left: 40px;
+    background-color: #e5e5ff;
+    .item{
+      height: 52px;
+      width: 52px;
+      color: cornflowerblue;
+    }
+  }
+  .shot-panel{
+    position: absolute;
+    width: 104px;
+    height: 52px;
+    display: flex;
+    bottom: 45px;
+    left: 40px;
+    background-color: #e5e5ff;
+    color: cornflowerblue;
+    .item{
+      width: 52px;
+      height: 52px;
     }
   }
   .item:hover{
