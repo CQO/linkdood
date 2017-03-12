@@ -42,7 +42,6 @@ export default {
       display: flex;
       color: dodgerblue;
       background-color: gainsboro;
-      border-bottom: 1px solid aliceblue;
       .ico{
         width: 25px;
         height: 25px;

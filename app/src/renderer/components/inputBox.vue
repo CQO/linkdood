@@ -13,11 +13,11 @@
         p.name 截图
     <!-- 表情窗体 -->
     .biaoqing-panel(v-if="expressionOpen")
-      .item(v-for="item in expression",v-on:click="message+='{-#'+item.code+'-}'")
+      .item(v-for="item in expression",v-on:click="adjunction(item.code)")
         p(v-html=`'<svg class="icon" aria-hidden="true"> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#'+item.code+'"></use> </svg>'`)
         p.meaning {{item.name}}
     <!-- 远程窗体 -->
-    .yuancheng-panel(v-if="remotely")
+    .yuancheng-panel(v-if="remotely",v-on:click="error")
       .video-chat.item
         p.ico &#xe619;
         p.name 视频聊天
@@ -28,7 +28,7 @@
         p.ico &#xe617;
         p.name 远程协助
     <!-- 截图窗体 -->
-    .shot-panel(v-if="shot")
+    .shot-panel(v-if="shot",v-on:click="error")
       .image.item
         p.ico &#xe60d;
         p.name 截图
@@ -104,6 +104,7 @@ export default {
       const _this = this
       this.message = "";
       this.$store.commit("ADD_DIALOGUE",talk)
+      
       fun.Ajax.get(`http://www.tuling123.com/openapi/api?key=bb1b96a394b19b8ce2c61cf32c64d695&userid=123&info=${talk.msg}`,function(e){
         const message = JSON.parse(e);
         const talk= {receiverID:88888,senderID:id,msg:message.text,conversationID:id}
@@ -132,6 +133,17 @@ export default {
       this.expressionOpen=false
       this.shot=false
       this.remotely=!this.remotely
+    },
+    //点击表情事件，将表情添加到对话框中
+    adjunction(code){
+      //将表情添加到对话框中
+      this.message+='{-#'+code+'-}'
+      //关闭菜单
+      this.closeMenu()
+    },
+    error(){
+      alert('当前版本暂不支持，敬请期待！')
+      this.closeMenu()
     }
   },
 }

@@ -6,8 +6,19 @@
       <!--选项卡的第二个选项，点击会调转到联系人列表。-->
       router-link.tab-item.contact.ico(to="/conversations") &#xe63d;
       <!--选项卡的第三个选项，没有实现的功能。-->
-      .tab-item.other.ico &#xe60b;
+      .tab-item.other.ico(v-on:click="error") &#xe60b;
 </template>
+
+<script>
+export default {
+  methods:{
+    error(){
+      alert('当前版本暂不支持，敬请期待！')
+      this.closeMenu()
+    }
+  },
+}
+</script>
 
 <style lang="postcss">
   .box.two.tab{
