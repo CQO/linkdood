@@ -5,9 +5,15 @@ import Vue from 'vue';
 const Fs = require('fs');
 let state = {
   mark:{
-    "80000":['8649813','9130729'],
-    "80001":['2737304'],
-    "80003":['2342353']
+    "80000":['1489162426187','1489161446187'],
+    "80001":['1489162446127'],
+    "80003":['1489162416187']
+  },
+  markInfo:{
+    '1489162426187':{name:'王斌',id:'80000'},
+    '1489161446187':{name:'我',id:'88888'},
+    '1489162446127':{name:'回复机器人',id:'80001'},
+    '1489162416187':{name:'邮件机器人',id:'80003'}
   },
   contacts:{
     "80000":{name:"王斌"},
@@ -29,9 +35,9 @@ let state = {
     "80000":{
       type:"people",
       messages: {
-        '8649813':[{type:"text",userID:'80000',content: '最近在干嘛'}],
-        '9130729':[
-          {type:"text",userID:'88888',content: 'Learn English'},
+        '1489162426187':[{type:"text",userID:'80000',content: '最近在干嘛{-#icon-Expression_17-}'}],
+        '1489161446187':[
+          {type:"text",userID:'88888',content: '{-#icon-Expression_26-}Learn English'},
           {type:"text",userID:'88888',content: '你只要在桌面上点击鼠标右键，选择“新建文件夹”就行了。All you have to do is right-click on the desktop and select New Folder'}
         ],
       }
@@ -39,13 +45,13 @@ let state = {
     "80001":{
       type:"robot",
       messages: {
-        '2737304':[{type:"text",userID:'80001',content: '你可以和我聊天'}],
+        '1489162446127':[{type:"text",userID:'80001',content: '你可以和我聊天{-#icon-Expression_20-}'}],
       }
     },
     "80003":{
       type:"robot",
       messages: {
-        '2342353':[{type:"mail",userID:'80003',content: '你可以和我聊天'}],
+        '1489162416187':[{type:"mail",userID:'80003',content: '你可以和我聊天'}],
       }
     }
   }
@@ -53,29 +59,17 @@ let state = {
 
 const mutations = {
   [types.ADD_DIALOGUE] (state,date) {
-    const userID = date.id,
-          mark = state.mark[userID],
+    const receiverID = date.receiverID,
+          senderID = date.senderID,
+          mark = state.mark[date.conversationID],
           markID = mark[mark.length-1],
           myDate = new Date();
     //追加到最后一个对话
     const time = myDate.getTime();
-    Vue.set(state.sessions[userID].messages,time,[{type:"text",userID:date.userID,content: date.msg}]);
+    Vue.set(state.sessions[date.conversationID].messages,time,[{type:"text",userID:senderID,content: date.msg}]);
     Vue.set(mark,mark.length,time);
-    //将消息加到会话列表
-    // state.chatList.forEach(function(val,i){
-    //   if(val.id===date.id){
-    //     //复制一个当前对话示例
-    //     let chatList = state.chatList[i];
-    //     chatList.lastMessage=date.msg;
-    //     //获取当前时间，并设置
-    //     const myDate = new Date();
-    //     chatList.time=fun.getDateDiff(myDate.getTime());
-    //     state.chatList.unshift(state.chatList[i]);
-    //     state.chatList.splice(i+1, 1);
-    //     return;
-    //   }
-    // });
-
+    //添加到markInfo
+    state.markInfo[time] = {name:state.contacts[senderID].name,id:senderID};
   },
   //删除对话成员
   [types.DELETE_THE_CONVERSATION_MEMBER] (state,id) {

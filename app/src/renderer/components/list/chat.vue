@@ -1,14 +1,11 @@
 <template lang="pug">
     .list.box
       ul.list-default
-        li.contacts
-          .ico &#xe640;
-          .title 新增对话
         li.contacts(v-on:click="isOpen=!isOpen")
           .ico(v-bind:class="{ active: isOpen }") &#xe635;
           .title 对话列表
         li(v-if="isOpen",v-for="item in this.chatLog.chatList")
-          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.id")
+          router-link.box.road(v-bind:to="'/chatList/dialog/'+item.id") 
             Avater.user-img(v-bind:username="item.name")
             p.text {{item.name}}
       router-view.messages-box
@@ -33,16 +30,18 @@ export default {
 </script>
 
 <style lang="postcss">
-.list{
+.list.box{
   display: flex;
 }
   .list-default{
     margin-top: 40px;
     height: 100%;
-    background-color: #f7efef;
+    border-right: 1px solid #d7d7de;
+    background-color: aliceblue;
     .contacts{
       display: flex;
-      color: #928e8e;
+      color: dodgerblue;
+      background-color: gainsboro;
       .ico{
         width: 25px;
         height: 25px;
