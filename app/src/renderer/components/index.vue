@@ -42,10 +42,9 @@ export default {
     .display: flex;
     flex-direction: column;
     .top-bar{
-      background-color: #adacac;
+      background-color: #e1dfe1;
       height: 30px;
       display: flex;
-      flex-direction: row-reverse;
       .drag{
         height: 100%;
         width: calc(100% - 48px);
@@ -55,7 +54,7 @@ export default {
         height: 16px;
         width: 16px;
         border-radius: 50%;
-        margin: 7px 2px;
+        margin: 7px 0 7px 5px;
         color: rgba(255, 255, 255, 0);
         font-size: 0.7rem;
         line-height: 16px;
@@ -64,14 +63,14 @@ export default {
         color: black;
       }
       .minimize{
-        background-color: antiquewhite;
+        background-color: #00d742;
       }
       .fixed{
-        background-color: chartreuse;
+        background-color: #ffbd00;
         line-height: 17px;
       }
       .close{
-        background-color: darksalmon;
+        background-color: #ff3f49;
       }
     }
     .column{

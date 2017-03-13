@@ -37,11 +37,11 @@ export default {
     margin-top: 40px;
     height: 100%;
     border-right: 1px solid #d7d7de;
-    background-color: aliceblue;
+    background-color: #fbfbfb;
     .contacts{
       display: flex;
-      color: dodgerblue;
-      background-color: gainsboro;
+      color: #31393f;
+      background-color: #f1f1f1;
       .ico{
         width: 25px;
         height: 25px;

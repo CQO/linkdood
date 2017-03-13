@@ -154,7 +154,7 @@ export default {
   height: 40px;
   display: flex;
   border-top: 1px solid #eceef2;
-  background-color: #e5e5ff;
+  background-color: #f2f2f2;
   position: relative;
   .tool{
     height: 40px;
@@ -168,7 +168,7 @@ export default {
     width: 40px;
     bottom: 40px;
     height: 160px;
-    background-color: #e5e5ff;
+    background-color: #f2f2f2;
     color: cornflowerblue;
     border-bottom: 1px solid #bacff5;
     border-top: 1px solid #bacff5;
@@ -180,7 +180,7 @@ export default {
     resize: none;
     line-height: 40px;
     font-size: 1.2rem;
-    background-color: #e5e5ff;
+    background-color: #f2f2f2;
   }
   .send{
     width: 40px;
@@ -203,7 +203,7 @@ export default {
     width: 360px;
     left: 40px;
     bottom: 40px;
-    background-color: #e5e5ff;
+    background-color: #f2f2f2;
     border: 1px solid #bacff5;
     .item{
       float: left;
@@ -225,7 +225,7 @@ export default {
     display: flex;
     bottom: 97px;
     left: 40px;
-    background-color: #e5e5ff;
+    background-color: #f2f2f2;
     .item{
       height: 52px;
       width: 52px;
@@ -239,7 +239,7 @@ export default {
     display: flex;
     bottom: 45px;
     left: 40px;
-    background-color: #e5e5ff;
+    background-color: #f2f2f2;
     color: cornflowerblue;
     .item{
       width: 52px;

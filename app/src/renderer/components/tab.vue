@@ -22,7 +22,7 @@ export default {
 
 <style lang="postcss">
   .box.two.tab{
-    background-color: #cacaca;
+    background-color: #e5e7eb;
     height: 40px;
     display: flex;
     position: absolute;
@@ -32,15 +32,11 @@ export default {
       height: 100%;
       width: 33%;
       font-size: 1.6rem;
-      color: #504848;
+      color: #31393f;
       line-height: 40px;
     }
-    .tab-item:hover{
-      color: bisque;
-    }
     .router-link-active{
-      background-color: gainsboro;
-      color: darkorchid;
+      background-color: #f1f1f1;
     }
   }
 </style>
